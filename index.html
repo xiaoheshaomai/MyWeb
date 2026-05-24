@@ -948,17 +948,19 @@
         .hero {
           grid-template-columns: 1fr;
           height: auto;
-          min-height: 100vh;
+          min-height: 0;
         }
 
         .hero-video-wrap {
-          height: 60vw;
-          min-height: 280px;
+          height: 100svh;
+          min-height: 500px;
+          position: relative;
         }
 
+        /* on mobile: fade bottom of video into blue so text blends in */
         .hero-video-wrap::after {
           width: 100%;
-          height: 40%;
+          height: 35%;
           top: auto;
           bottom: 0;
           right: 0;
@@ -966,8 +968,12 @@
           background: linear-gradient(to bottom, transparent, var(--blue));
         }
 
+        /* name floats over bottom of video on mobile */
         .hero-text {
-          padding: 28px clamp(20px, 6vw, 40px) 60px;
+          margin-top: -80px;
+          position: relative;
+          z-index: 3;
+          padding: 0 clamp(20px, 6vw, 40px) 60px;
         }
 
         .cloud { display: none; }
