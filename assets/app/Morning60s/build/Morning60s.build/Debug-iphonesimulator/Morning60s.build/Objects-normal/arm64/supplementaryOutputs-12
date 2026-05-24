@@ -1,0 +1,23 @@
+{
+  "/Users/xiaoheshaomai/Morning60s/Morning60s/OnboardingView.swift" : {
+    "const-values" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/OnboardingView.swiftconstvalues",
+    "dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/OnboardingView.d",
+    "diagnostics" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/OnboardingView.dia",
+    "object" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/OnboardingView.o",
+    "swift-dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/OnboardingView.swiftdeps"
+  },
+  "/Users/xiaoheshaomai/Morning60s/Morning60s/QwenVerificationService.swift" : {
+    "const-values" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/QwenVerificationService.swiftconstvalues",
+    "dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/QwenVerificationService.d",
+    "diagnostics" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/QwenVerificationService.dia",
+    "object" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/QwenVerificationService.o",
+    "swift-dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/QwenVerificationService.swiftdeps"
+  },
+  "/Users/xiaoheshaomai/Morning60s/Morning60s/RewardData.swift" : {
+    "const-values" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/RewardData.swiftconstvalues",
+    "dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/RewardData.d",
+    "diagnostics" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/RewardData.dia",
+    "object" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/RewardData.o",
+    "swift-dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/RewardData.swiftdeps"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "/Users/xiaoheshaomai/Morning60s/Morning60s/ClaudePrototypeView.swift" : {
+    "const-values" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/ClaudePrototypeView.swiftconstvalues",
+    "dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/ClaudePrototypeView.d",
+    "diagnostics" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/ClaudePrototypeView.dia",
+    "object" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/ClaudePrototypeView.o",
+    "swift-dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/ClaudePrototypeView.swiftdeps"
+  },
+  "/Users/xiaoheshaomai/Morning60s/Morning60s/DayRecapView.swift" : {
+    "const-values" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/DayRecapView.swiftconstvalues",
+    "dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/DayRecapView.d",
+    "diagnostics" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/DayRecapView.dia",
+    "object" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/DayRecapView.o",
+    "swift-dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/DayRecapView.swiftdeps"
+  },
+  "/Users/xiaoheshaomai/Morning60s/Morning60s/NightRecapView.swift" : {
+    "const-values" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/NightRecapView.swiftconstvalues",
+    "dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/NightRecapView.d",
+    "diagnostics" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/NightRecapView.dia",
+    "object" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/NightRecapView.o",
+    "swift-dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/NightRecapView.swiftdeps"
+  }
+}

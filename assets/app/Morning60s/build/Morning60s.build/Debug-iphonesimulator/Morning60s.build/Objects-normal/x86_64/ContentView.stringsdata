@@ -1,0 +1,16 @@
+{
+  "source": "/Users/xiaoheshaomai/Morning60s/Morning60s/ContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "循环：自动时间、强制白天总结、强制夜间总结",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 232
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,24 @@
+{
+  "source": "/Users/xiaoheshaomai/Morning60s/Morning60s/TodayView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "检测到你已醒 %lld 分钟，超过 %lld 分钟窗口。",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 69
+        }
+      },
+      {
+        "comment": "",
+        "key": "今天的窗口已过\n明早见",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 60
+        }
+      }
+    ]
+  },
+  "version": 1
+}

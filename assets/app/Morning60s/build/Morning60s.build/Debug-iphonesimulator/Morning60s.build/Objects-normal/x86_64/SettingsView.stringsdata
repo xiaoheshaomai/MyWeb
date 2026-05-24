@@ -1,0 +1,56 @@
+{
+  "source": "/Users/xiaoheshaomai/Morning60s/Morning60s/SettingsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "原型预览",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 23
+        }
+      },
+      {
+        "comment": "",
+        "key": "Claude 原型页面",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 24
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 29
+        }
+      },
+      {
+        "comment": "",
+        "key": "中文",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 30
+        }
+      },
+      {
+        "comment": "",
+        "key": "English",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 31
+        }
+      },
+      {
+        "comment": "",
+        "key": "日本語",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 32
+        }
+      }
+    ]
+  },
+  "version": 1
+}

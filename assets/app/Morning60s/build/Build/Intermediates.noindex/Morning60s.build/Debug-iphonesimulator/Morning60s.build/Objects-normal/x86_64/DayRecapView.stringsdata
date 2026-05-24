@@ -1,0 +1,16 @@
+{
+  "source": "/Users/xiaoheshaomai/Morning60s/Morning60s/DayRecapView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "日历",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 198
+        }
+      }
+    ]
+  },
+  "version": 1
+}

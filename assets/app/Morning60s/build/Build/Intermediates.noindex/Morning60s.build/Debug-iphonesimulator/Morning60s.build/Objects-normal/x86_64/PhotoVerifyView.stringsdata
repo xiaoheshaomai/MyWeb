@@ -1,0 +1,24 @@
+{
+  "source": "/Users/xiaoheshaomai/Morning60s/Morning60s/PhotoVerifyView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "请在设置中开启相机权限",
+        "location": {
+          "startingColumn": 56,
+          "startingLine": 219
+        }
+      },
+      {
+        "comment": "",
+        "key": "正在准备相机...",
+        "location": {
+          "startingColumn": 94,
+          "startingLine": 219
+        }
+      }
+    ]
+  },
+  "version": 1
+}

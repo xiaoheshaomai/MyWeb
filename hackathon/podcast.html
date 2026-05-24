@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="zh-CN" class="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI 播客黑客松 · 小和烧麦</title>
+    <meta name="description" content="圣诞创响黑客松 AI 播客专场 一等奖 — 小和烧麦 Rico Zhang" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+        --blue: #2138f9;
+        --blue-dark: #1830e8;
+        --green: #00ff2a;
+        --ink: #0f0f0f;
+        --white: #ffffff;
+        --muted: rgba(255,255,255,0.72);
+        --line: rgba(255,255,255,0.18);
+      }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        background: var(--blue);
+        color: var(--white);
+        line-height: 1.6;
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
+
+      a { color: inherit; text-decoration: none; }
+
+      html.zh .en { display: none; }
+      html.en .zh { display: none; }
+
+      /* ── NAV ── */
+      .nav {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px clamp(20px, 5vw, 60px);
+      }
+
+      .nav-back {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        color: rgba(255,255,255,0.7);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+      }
+      .nav-back:hover { color: var(--white); }
+      .nav-back-arrow { font-size: 16px; }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .lang-toggle {
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(255,255,255,0.22);
+        border-radius: 999px;
+        overflow: hidden;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .lang-toggle span {
+        padding: 6px 12px;
+        transition: background 0.2s, color 0.2s;
+        color: rgba(255,255,255,0.4);
+      }
+
+      html.zh .lang-toggle .l-zh,
+      html.en .lang-toggle .l-en {
+        background: var(--green);
+        color: var(--ink);
+      }
+
+      /* ── HERO ── */
+      .page-hero {
+        padding: 120px clamp(20px, 5vw, 60px) 60px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .award-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255,215,0,0.15);
+        border: 1px solid rgba(255,215,0,0.5);
+        border-radius: 999px;
+        padding: 8px 18px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #ffd700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 28px;
+      }
+
+      .media-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 999px;
+        padding: 6px 16px;
+        font-size: 12px;
+        font-weight: 600;
+        color: rgba(255,255,255,0.8);
+        letter-spacing: 0.05em;
+        margin-bottom: 28px;
+        margin-left: 10px;
+      }
+
+      .badges-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0;
+        align-items: center;
+        margin-bottom: 28px;
+      }
+
+      .page-eyebrow {
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .page-title {
+        font-size: clamp(40px, 7vw, 88px);
+        font-weight: 900;
+        color: var(--white);
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        margin-bottom: 16px;
+      }
+
+      .page-title-sub {
+        font-size: clamp(22px, 4vw, 40px);
+        font-weight: 900;
+        color: var(--green);
+        letter-spacing: -0.02em;
+        margin-bottom: 40px;
+      }
+
+      /* ── META ROW ── */
+      .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        padding: 28px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 60px;
+      }
+
+      .meta-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .meta-label {
+        font-size: 11px;
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .meta-value {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--white);
+      }
+
+      /* ── COVER IMAGE ── */
+      .cover-wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 60px) 60px;
+      }
+
+      .cover-img {
+        width: 100%;
+        border-radius: 16px;
+        display: block;
+        object-fit: cover;
+        max-height: 520px;
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+
+      /* ── CONTENT ── */
+      .content-wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 60px) 100px;
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 60px;
+        align-items: start;
+      }
+
+      @media (max-width: 768px) {
+        .content-wrap { grid-template-columns: 1fr; gap: 40px; }
+      }
+
+      .content-section { margin-bottom: 44px; }
+
+      .content-h2 {
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .content-body {
+        font-size: 16px;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .content-body p { margin-bottom: 14px; }
+      .content-body p:last-child { margin-bottom: 0; }
+
+      /* ── HIGHLIGHT BOX ── */
+      .highlight-box {
+        background: rgba(0,255,42,0.08);
+        border: 1px solid rgba(0,255,42,0.25);
+        border-radius: 14px;
+        padding: 24px;
+        margin: 28px 0;
+      }
+
+      .highlight-box p {
+        color: rgba(255,255,255,0.9);
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 0;
+      }
+
+      /* ── SIDEBAR ── */
+      .sidebar-card {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 24px;
+        margin-bottom: 16px;
+      }
+
+      .sidebar-card-title {
+        font-size: 11px;
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+
+      .sidebar-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        gap: 12px;
+      }
+
+      .sidebar-row:last-child { border-bottom: none; }
+
+      .sidebar-key {
+        font-size: 12px;
+        color: rgba(255,255,255,0.5);
+        font-weight: 500;
+        flex-shrink: 0;
+      }
+
+      .sidebar-val {
+        font-size: 13px;
+        color: var(--white);
+        font-weight: 600;
+        text-align: right;
+      }
+
+      /* ── TAGS ── */
+      .tags-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .tag {
+        display: inline-block;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 999px;
+        padding: 5px 13px;
+        font-size: 12px;
+        font-weight: 600;
+        color: rgba(255,255,255,0.7);
+      }
+
+      /* ── STAT HIGHLIGHT ── */
+      .stat-big {
+        display: flex;
+        gap: 24px;
+        margin: 28px 0;
+        flex-wrap: wrap;
+      }
+
+      .stat-item {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 18px 24px;
+        min-width: 140px;
+      }
+
+      .stat-number {
+        font-size: clamp(28px, 4vw, 40px);
+        font-weight: 900;
+        color: var(--green);
+        line-height: 1;
+      }
+
+      .stat-label {
+        font-size: 12px;
+        color: rgba(255,255,255,0.55);
+        font-weight: 600;
+        margin-top: 4px;
+        letter-spacing: 0.04em;
+      }
+
+      /* ── FOOTER ── */
+      .page-footer {
+        text-align: center;
+        padding: 40px clamp(20px, 5vw, 60px);
+        background: rgba(0,0,0,0.15);
+        font-size: 13px;
+        color: rgba(255,255,255,0.4);
+      }
+
+      .page-footer a { color: var(--green); }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav">
+      <a class="nav-back" href="../index.html#hackathon">
+        <span class="nav-back-arrow">←</span>
+        <span class="zh">返回</span><span class="en">Back</span>
+      </a>
+      <div class="nav-right">
+        <div class="lang-toggle" id="langToggle">
+          <span class="l-zh">中</span>
+          <span class="l-en">EN</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="page-hero">
+      <p class="page-eyebrow zh">黑客松 · 一等奖</p>
+      <p class="page-eyebrow en">Hackathon · 1st Place</p>
+
+      <div class="badges-row">
+        <span class="award-badge">🥇 <span class="zh">一等奖 · ¥10,000</span><span class="en">1st Place · ¥10,000</span></span>
+        <span class="media-badge">📰 <span class="zh">人民日报 · 报道</span><span class="en">People's Daily · Featured</span></span>
+      </div>
+
+      <h1 class="page-title zh">VibeHacks<br>圣诞播客黑客松</h1>
+      <h1 class="page-title en">VibeHacks<br>Christmas Podcast Hackathon</h1>
+
+      <p class="page-title-sub zh">"关注主播，发现更多好播客"</p>
+      <p class="page-title-sub en">"Follow the Host, Discover Better Podcasts"</p>
+
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-label zh">时间</span>
+          <span class="meta-label en">Date</span>
+          <span class="meta-value">2025.12.20</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label zh">地点</span>
+          <span class="meta-label en">Venue</span>
+          <span class="meta-value zh">上海张江人工智能创新小镇</span>
+          <span class="meta-value en">Zhangjiang AI Innovation Town, Shanghai</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label zh">规模</span>
+          <span class="meta-label en">Scale</span>
+          <span class="meta-value zh">160+ 报名 · 40 支队伍</span>
+          <span class="meta-value en">160+ Applicants · 40 Teams</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label zh">主办方</span>
+          <span class="meta-label en">Organizers</span>
+          <span class="meta-value">Vibe Friends · SegmentFault · 高瓴创投 Aseed+</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- COVER IMAGE -->
+    <div class="cover-wrap">
+      <img class="cover-img" src="../assets/hackathon/xmas/09f0e61b6e9fb8b2393efb6edee16e83.jpg" alt="VibeHacks 圣诞播客黑客松现场">
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content-wrap">
+      <div class="main-content">
+
+        <div class="stat-big">
+          <div class="stat-item">
+            <div class="stat-number">160+</div>
+            <div class="stat-label zh">报名人数</div>
+            <div class="stat-label en">Applicants</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">40</div>
+            <div class="stat-label zh">参赛队伍</div>
+            <div class="stat-label en">Teams</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">¥10,000</div>
+            <div class="stat-label zh">一等奖奖金</div>
+            <div class="stat-label en">Prize Money</div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <p class="content-h2 zh">项目背景</p>
+          <p class="content-h2 en">Background</p>
+          <div class="content-body">
+            <p class="zh">在海量播客内容中，用户很难发现真正适合自己的节目。现有平台的推荐算法以节目为单位，忽略了"主播个人"这一关键维度——同一个主播可能在多档节目里出现，而用户往往是因为喜欢某个人的声音和表达风格才持续收听的。</p>
+            <p class="en">In a sea of podcast content, it's hard for listeners to discover shows that truly resonate. Existing recommendation algorithms focus on shows as a unit, overlooking a key dimension: the host themselves — the same host may appear across multiple shows, and users often follow because of a voice, a style, a personality.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <p class="content-h2 zh">解决方案</p>
+          <p class="content-h2 en">Solution</p>
+          <div class="content-body">
+            <div class="highlight-box">
+              <p class="zh">以"主播"为核心单元重构播客发现体验。关注你喜欢的主播，自动聚合他们参与的所有节目，跨平台、跨节目追踪同一个声音的更新。</p>
+              <p class="en">Rebuild podcast discovery around the <strong>host</strong> as the core unit. Follow the hosts you love, automatically aggregate all shows they appear on, and track their voice across platforms and programs.</p>
+            </div>
+            <p class="zh">产品将主播作为一级实体，用户关注某位主播后，系统会自动抓取并整合该主播在所有平台、所有节目的内容更新，形成以人为中心的播客 Feed。</p>
+            <p class="en">The product treats the host as a first-class entity. Once a user follows a host, the system automatically aggregates all their content updates across platforms and shows, building a host-centered podcast feed.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <p class="content-h2 zh">我的角色</p>
+          <p class="content-h2 en">My Role</p>
+          <div class="content-body">
+            <p class="zh">负责产品设计与演讲呈现，从零搭建产品交互逻辑与视觉界面，并在现场 Demo 环节完成完整演示。</p>
+            <p class="en">Led product design and presentation — built the interaction logic and visual interface from scratch, and delivered the full live demo on stage.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <p class="content-h2 zh">媒体报道</p>
+          <p class="content-h2 en">Press Coverage</p>
+          <div class="content-body">
+            <p class="zh">本次黑客松获得人民日报报道，项目作为一等奖得主被收录在内。</p>
+            <p class="en">The hackathon was covered by People's Daily. The project was featured as the 1st place winner.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside>
+        <div class="sidebar-card">
+          <p class="sidebar-card-title zh">比赛信息</p>
+          <p class="sidebar-card-title en">Event Info</p>
+          <div class="sidebar-row">
+            <span class="sidebar-key zh">赛事</span>
+            <span class="sidebar-key en">Event</span>
+            <span class="sidebar-val zh">VibeHacks 圣诞播客黑客松</span>
+            <span class="sidebar-val en">VibeHacks Christmas Podcast Hackathon</span>
+          </div>
+          <div class="sidebar-row">
+            <span class="sidebar-key zh">日期</span>
+            <span class="sidebar-key en">Date</span>
+            <span class="sidebar-val">2025.12.20</span>
+          </div>
+          <div class="sidebar-row">
+            <span class="sidebar-key zh">奖项</span>
+            <span class="sidebar-key en">Award</span>
+            <span class="sidebar-val zh">🥇 一等奖</span>
+            <span class="sidebar-val en">🥇 1st Place</span>
+          </div>
+          <div class="sidebar-row">
+            <span class="sidebar-key zh">奖金</span>
+            <span class="sidebar-key en">Prize</span>
+            <span class="sidebar-val">¥10,000</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title zh">主办方</p>
+          <p class="sidebar-card-title en">Organizers</p>
+          <div class="sidebar-row">
+            <span class="sidebar-val" style="text-align:left">Vibe Friends</span>
+          </div>
+          <div class="sidebar-row">
+            <span class="sidebar-val" style="text-align:left">SegmentFault</span>
+          </div>
+          <div class="sidebar-row">
+            <span class="sidebar-val" style="text-align:left">高瓴创投 Aseed+</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title zh">技术标签</p>
+          <p class="sidebar-card-title en">Tags</p>
+          <div class="tags-row">
+            <span class="tag">AI</span>
+            <span class="tag">Podcast</span>
+            <span class="tag">Product Design</span>
+            <span class="tag">Vibe Coding</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+      <p>© 2025 小和烧麦 Rico Zhang · <a href="../index.html">返回主页 / Back to Home</a></p>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById('langToggle');
+      toggle.addEventListener('click', () => {
+        const html = document.documentElement;
+        if (html.classList.contains('zh')) {
+          html.classList.replace('zh', 'en');
+          html.lang = 'en';
+        } else {
+          html.classList.replace('en', 'zh');
+          html.lang = 'zh-CN';
+        }
+      });
+    </script>
+  </body>
+</html>

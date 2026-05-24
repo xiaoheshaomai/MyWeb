@@ -1,0 +1,56 @@
+{
+  "source": "/Users/xiaoheshaomai/Morning60s/Morning60sWidget/Morning60sLockWidget.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Morning60s",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 22
+        }
+      },
+      {
+        "comment": "",
+        "key": "锁屏点一下，直接开始 60 秒起床挑战。",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 23
+        }
+      },
+      {
+        "comment": "",
+        "key": "起床 60s",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 66
+        }
+      },
+      {
+        "comment": "",
+        "key": "60s",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 79
+        }
+      },
+      {
+        "comment": "",
+        "key": "起床 60 秒",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 91
+        }
+      },
+      {
+        "comment": "",
+        "key": "点一下，开始挑战",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 93
+        }
+      }
+    ]
+  },
+  "version": 1
+}

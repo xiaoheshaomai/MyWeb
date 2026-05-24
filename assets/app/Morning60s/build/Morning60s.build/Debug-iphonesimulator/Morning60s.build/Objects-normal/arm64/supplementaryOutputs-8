@@ -1,0 +1,23 @@
+{
+  "/Users/xiaoheshaomai/Morning60s/Morning60s/AppTheme.swift" : {
+    "const-values" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/AppTheme.swiftconstvalues",
+    "dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/AppTheme.d",
+    "diagnostics" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/AppTheme.dia",
+    "object" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/AppTheme.o",
+    "swift-dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/AppTheme.swiftdeps"
+  },
+  "/Users/xiaoheshaomai/Morning60s/Morning60s/ChallengeView.swift" : {
+    "const-values" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/ChallengeView.swiftconstvalues",
+    "dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/ChallengeView.d",
+    "diagnostics" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/ChallengeView.dia",
+    "object" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/ChallengeView.o",
+    "swift-dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/ChallengeView.swiftdeps"
+  },
+  "/Users/xiaoheshaomai/Morning60s/Morning60s/TodayView.swift" : {
+    "const-values" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/TodayView.swiftconstvalues",
+    "dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/TodayView.d",
+    "diagnostics" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/TodayView.dia",
+    "object" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/TodayView.o",
+    "swift-dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/TodayView.swiftdeps"
+  }
+}

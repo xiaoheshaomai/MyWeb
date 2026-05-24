@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.morning60s.app</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>morning60s</string>
+			</array>
+		</dict>
+	</array>
+	<key>DASHSCOPE_API_KEY</key>
+	<string>sk-4da73c4dbcc0455a98ce6799c4eb2c1d</string>
+	<key>NSCameraUsageDescription</key>
+	<string>用于拍照验证你是否已起床（仅在你主动拍照时使用）。</string>
+</dict>
+</plist>

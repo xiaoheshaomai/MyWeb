@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sandwich Animation Preview</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #efeeeb;
+    overflow: hidden;
+    font-family: sans-serif;
+  }
+
+  .scene {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    cursor: pointer;
+  }
+
+  .plate {
+    position: absolute;
+    width: 280px;
+    height: 90px;
+    background: #efe4c3;
+    border-radius: 50%;
+    left: 50%;
+    bottom: 70px;
+    transform: translateX(-50%);
+    box-shadow:
+      inset -10px -10px 0 rgba(0, 0, 0, 0.05),
+      0 10px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .plate::after {
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 55px;
+    border-radius: 50%;
+    border: 5px solid rgba(0, 0, 0, 0.08);
+    border-left-color: transparent;
+    border-top-color: transparent;
+    right: 20px;
+    top: 15px;
+    transform: rotate(-10deg);
+  }
+
+  .layer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  .scene.run .layer {
+    animation-name: dropBounce;
+  }
+
+  @keyframes dropBounce {
+    0% {
+      transform: translateX(-50%) translateY(-250px) scaleY(1.05);
+      opacity: 0;
+    }
+
+    15% {
+      opacity: 1;
+    }
+
+    70% {
+      transform: translateX(-50%) translateY(0) scaleY(1.02);
+    }
+
+    82% {
+      transform: translateX(-50%) translateY(-14px) scaleY(0.96);
+    }
+
+    92% {
+      transform: translateX(-50%) translateY(0) scaleY(1.02);
+    }
+
+    100% {
+      transform: translateX(-50%) translateY(0) scaleY(1);
+      opacity: 1;
+    }
+  }
+
+  .bread-bottom {
+    width: 120px;
+    height: 52px;
+    background: linear-gradient(to right, #9b5d28, #c17b3d);
+    bottom: 95px;
+    clip-path: polygon(0 20%, 100% 0%, 100% 80%, 0% 100%);
+    animation-duration: 0.7s;
+    animation-timing-function: cubic-bezier(.2, .8, .2, 1.2);
+    animation-delay: 0.3s;
+  }
+
+  .cheese {
+    width: 128px;
+    height: 38px;
+    background: #f3dfb2;
+    bottom: 125px;
+    clip-path: polygon(0 15%, 100% 0%, 100% 85%, 0 100%);
+    animation-duration: 0.7s;
+    animation-timing-function: cubic-bezier(.2, .8, .2, 1.2);
+    animation-delay: 0.8s;
+  }
+
+  .tomato1,
+  .tomato2,
+  .tomato3 {
+    width: 58px;
+    height: 22px;
+    background: #ff2d20;
+    border-radius: 50px;
+    box-shadow: inset 0 -6px rgba(255, 255, 255, 0.25);
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(.2, .8, .2, 1.2);
+  }
+
+  .tomato1 {
+    bottom: 146px;
+    left: calc(50% - 40px);
+    animation-delay: 1.2s;
+  }
+
+  .tomato2 {
+    bottom: 145px;
+    left: 50%;
+    animation-delay: 1.35s;
+  }
+
+  .tomato3 {
+    bottom: 146px;
+    left: calc(50% + 40px);
+    animation-delay: 1.5s;
+  }
+
+  .lettuce1,
+  .lettuce2,
+  .lettuce3 {
+    width: 70px;
+    height: 28px;
+    background: #2d991e;
+    border-radius: 50px;
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(.2, .8, .2, 1.2);
+  }
+
+  .lettuce1 {
+    bottom: 165px;
+    left: calc(50% - 45px);
+    animation-delay: 1.8s;
+  }
+
+  .lettuce2 {
+    bottom: 162px;
+    left: 50%;
+    animation-delay: 1.95s;
+  }
+
+  .lettuce3 {
+    bottom: 165px;
+    left: calc(50% + 45px);
+    animation-delay: 2.1s;
+  }
+
+  .bread-top {
+    width: 150px;
+    height: 72px;
+    background: linear-gradient(to right, #a8642c, #cd8340);
+    bottom: 175px;
+    clip-path: polygon(0 40%, 100% 0%, 100% 65%, 0% 100%);
+    animation-duration: 0.85s;
+    animation-timing-function: cubic-bezier(.2, .8, .2, 1.2);
+    animation-delay: 2.5s;
+  }
+
+  .scene.run .sandwich-group {
+    animation: idleFloat 3s ease-in-out 3.5s infinite;
+  }
+
+  @keyframes idleFloat {
+    0%, 100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="scene run" title="Click to replay">
+    <div class="plate"></div>
+
+    <div class="sandwich-group">
+      <div class="layer bread-bottom"></div>
+      <div class="layer cheese"></div>
+
+      <div class="layer tomato1"></div>
+      <div class="layer tomato2"></div>
+      <div class="layer tomato3"></div>
+
+      <div class="layer lettuce1"></div>
+      <div class="layer lettuce2"></div>
+      <div class="layer lettuce3"></div>
+
+      <div class="layer bread-top"></div>
+    </div>
+  </div>
+
+  <script>
+    const scene = document.querySelector(".scene");
+
+    scene.addEventListener("click", () => {
+      scene.classList.remove("run");
+      void scene.offsetWidth;
+      scene.classList.add("run");
+    });
+  </script>
+</body>
+</html>

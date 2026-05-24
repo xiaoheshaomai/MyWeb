@@ -1,0 +1,32 @@
+{
+  "source": "/Users/xiaoheshaomai/Morning60s/Morning60s/OnboardingView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Morning60s",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 66
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 161
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 166
+        }
+      }
+    ]
+  },
+  "version": 1
+}

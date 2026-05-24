@@ -1,0 +1,96 @@
+{
+  "source": "/Users/xiaoheshaomai/Morning60s/Morning60s/ClaudePrototypeView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Claude 原型预览",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 18
+        }
+      },
+      {
+        "comment": "",
+        "key": "今天起床用了 5 分钟",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 101
+        }
+      },
+      {
+        "comment": "",
+        "key": "好棒，小和！",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 104
+        }
+      },
+      {
+        "comment": "",
+        "key": "验证成功",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 196
+        }
+      },
+      {
+        "comment": "",
+        "key": "你真棒，小和！！",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 199
+        }
+      },
+      {
+        "comment": "",
+        "key": "好精神三明治",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 206
+        }
+      },
+      {
+        "comment": "",
+        "key": "新鲜番茄+薄荷叶",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 216
+        }
+      },
+      {
+        "comment": "",
+        "key": "谁吃谁有精神！",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 219
+        }
+      },
+      {
+        "comment": "",
+        "key": "收下啦",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 251
+        }
+      },
+      {
+        "comment": "",
+        "key": "🧺 收集页面",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 346
+        }
+      },
+      {
+        "comment": "",
+        "key": "⚙️ 设置页面",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 360
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,56 @@
+{
+  "source": "/Users/xiaoheshaomai/Morning60s/Morning60s/NightRecapView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "日历",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 140
+        }
+      },
+      {
+        "comment": "",
+        "key": "小和！",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 98
+        }
+      },
+      {
+        "comment": "",
+        "key": "明天有什么期待的事情？😊",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 101
+        }
+      },
+      {
+        "comment": "",
+        "key": "明天我想🤔",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 245
+        }
+      },
+      {
+        "comment": "",
+        "key": "就这样",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 277
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 295
+        }
+      }
+    ]
+  },
+  "version": 1
+}

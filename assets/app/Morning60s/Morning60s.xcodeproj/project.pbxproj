@@ -1,0 +1,813 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 70;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1000001 /* Morning60sApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000011 /* Morning60sApp.swift */; };
+		A1000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000012 /* ContentView.swift */; };
+		A1000003 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000013 /* L10n.swift */; };
+		A1000004 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000014 /* AppTheme.swift */; };
+		A1000005 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000015 /* TodayView.swift */; };
+		A1000006 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000016 /* ChallengeView.swift */; };
+		A1000007 /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000017 /* RewardView.swift */; };
+		A1000008 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000018 /* CollectionView.swift */; };
+		A1000009 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000019 /* SettingsView.swift */; };
+		A100000A /* PhotoVerifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100001A /* PhotoVerifyView.swift */; };
+		A100000C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A100001C /* Assets.xcassets */; };
+		A100000D /* KimiVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100001D /* KimiVerificationService.swift */; };
+		A100000E /* BackendVerifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100001E /* BackendVerifyService.swift */; };
+		A100000F /* QwenVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100001F /* QwenVerificationService.swift */; };
+		A1000010 /* RewardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000021 /* RewardData.swift */; };
+		A1000022 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000023 /* OnboardingView.swift */; };
+		A1000024 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000025 /* RootView.swift */; };
+		A1000027 /* SunRaysRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000026 /* SunRaysRing.swift */; };
+		A1000029 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000028 /* MainTabBar.swift */; };
+		A1000033 /* DayRecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000032 /* DayRecapView.swift */; };
+		A1000035 /* ClaudePrototypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000034 /* ClaudePrototypeView.swift */; };
+		A1000037 /* NightRecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000036 /* NightRecapView.swift */; };
+		A1000039 /* CalendarMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000038 /* CalendarMainView.swift */; };
+		A100003B /* WakeNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100003A /* WakeNotificationService.swift */; };
+		A100003D /* WakeSleepService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100003C /* WakeSleepService.swift */; };
+		A100003F /* DeepLinkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100003E /* DeepLinkRouter.swift */; };
+		A1000045 /* cake1.png in Resources */ = {isa = PBXBuildFile; fileRef = A1000044 /* cake1.png */; };
+		A1000071 /* RewardCollectionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000070 /* RewardCollectionStore.swift */; };
+		A1000072 /* SandwichSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000073 /* SandwichSplashView.swift */; };
+		A47799822F92E9A700070359 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47799812F92E9A700070359 /* WidgetKit.framework */; };
+		A47799842F92E9A700070359 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47799832F92E9A700070359 /* SwiftUI.framework */; };
+		A47799952F92E9A800070359 /* Morning60sWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A477997F2F92E9A700070359 /* Morning60sWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A43EF9E32F70746E00BB567B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1000050 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1000040;
+			remoteInfo = Morning60s;
+		};
+		A47799932F92E9A800070359 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1000050 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A477997E2F92E9A700070359;
+			remoteInfo = Morning60sWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A477999A2F92E9A800070359 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A47799952F92E9A800070359 /* Morning60sWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A1000000 /* Morning60s.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morning60s.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1000011 /* Morning60sApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Morning60sApp.swift; sourceTree = "<group>"; };
+		A1000012 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A1000013 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		A1000014 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		A1000015 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		A1000016 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
+		A1000017 /* RewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardView.swift; sourceTree = "<group>"; };
+		A1000018 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		A1000019 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A100001A /* PhotoVerifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoVerifyView.swift; sourceTree = "<group>"; };
+		A100001C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A100001D /* KimiVerificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KimiVerificationService.swift; sourceTree = "<group>"; };
+		A100001E /* BackendVerifyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendVerifyService.swift; sourceTree = "<group>"; };
+		A100001F /* QwenVerificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QwenVerificationService.swift; sourceTree = "<group>"; };
+		A1000021 /* RewardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardData.swift; sourceTree = "<group>"; };
+		A1000023 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		A1000025 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		A1000026 /* SunRaysRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunRaysRing.swift; sourceTree = "<group>"; };
+		A1000028 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		A1000032 /* DayRecapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRecapView.swift; sourceTree = "<group>"; };
+		A1000034 /* ClaudePrototypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudePrototypeView.swift; sourceTree = "<group>"; };
+		A1000036 /* NightRecapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightRecapView.swift; sourceTree = "<group>"; };
+		A1000070 /* RewardCollectionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCollectionStore.swift; sourceTree = "<group>"; };
+		A1000038 /* CalendarMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMainView.swift; sourceTree = "<group>"; };
+		A100003A /* WakeNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WakeNotificationService.swift; sourceTree = "<group>"; };
+		A100003C /* WakeSleepService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WakeSleepService.swift; sourceTree = "<group>"; };
+		A100003E /* DeepLinkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkRouter.swift; sourceTree = "<group>"; };
+		A1000044 /* cake1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cake1.png; path = rewards/normal/cake/cake1.png; sourceTree = SOURCE_ROOT; };
+		A1000073 /* SandwichSplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichSplashView.swift; sourceTree = "<group>"; };
+		A43EF9DD2F70746E00BB567B /* Morning60sUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Morning60sUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A477997A2F92E93000070359 /* Morning60s.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Morning60s.entitlements; sourceTree = "<group>"; };
+		A477997F2F92E9A700070359 /* Morning60sWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Morning60sWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A47799812F92E9A700070359 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A47799832F92E9A700070359 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A4F9FD052F4A43E1005BFE11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A47799962F92E9A800070359 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A477997E2F92E9A700070359 /* Morning60sWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A43EF9DE2F70746E00BB567B /* Morning60sUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Morning60sUITests; sourceTree = "<group>"; };
+		A47799852F92E9A700070359 /* Morning60sWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (A47799962F92E9A800070359 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Morning60sWidget; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1000020 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A43EF9DA2F70746E00BB567B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A477997C2F92E9A700070359 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A47799842F92E9A700070359 /* SwiftUI.framework in Frameworks */,
+				A47799822F92E9A700070359 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1000030 = {
+			isa = PBXGroup;
+			children = (
+				A1000031 /* Morning60s */,
+				A1000000 /* Morning60s.app */,
+				A43EF9DD2F70746E00BB567B /* Morning60sUITests.xctest */,
+				A43EF9DE2F70746E00BB567B /* Morning60sUITests */,
+				A477997F2F92E9A700070359 /* Morning60sWidgetExtension.appex */,
+				A47799852F92E9A700070359 /* Morning60sWidget */,
+				A47799802F92E9A700070359 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A1000031 /* Morning60s */ = {
+			isa = PBXGroup;
+			children = (
+				A477997A2F92E93000070359 /* Morning60s.entitlements */,
+				A4F9FD052F4A43E1005BFE11 /* Info.plist */,
+				A1000011 /* Morning60sApp.swift */,
+				A1000012 /* ContentView.swift */,
+				A1000038 /* CalendarMainView.swift */,
+				A1000013 /* L10n.swift */,
+				A1000014 /* AppTheme.swift */,
+				A1000015 /* TodayView.swift */,
+				A1000016 /* ChallengeView.swift */,
+				A1000017 /* RewardView.swift */,
+				A1000018 /* CollectionView.swift */,
+				A1000019 /* SettingsView.swift */,
+				A100001A /* PhotoVerifyView.swift */,
+				A100001D /* KimiVerificationService.swift */,
+				A100001E /* BackendVerifyService.swift */,
+				A100001F /* QwenVerificationService.swift */,
+				A100003A /* WakeNotificationService.swift */,
+				A100003C /* WakeSleepService.swift */,
+				A100003E /* DeepLinkRouter.swift */,
+				A1000021 /* RewardData.swift */,
+				A1000023 /* OnboardingView.swift */,
+				A1000025 /* RootView.swift */,
+				A1000073 /* SandwichSplashView.swift */,
+				A1000026 /* SunRaysRing.swift */,
+				A1000028 /* MainTabBar.swift */,
+				A1000032 /* DayRecapView.swift */,
+				A1000034 /* ClaudePrototypeView.swift */,
+				A1000036 /* NightRecapView.swift */,
+				A1000070 /* RewardCollectionStore.swift */,
+				A1000044 /* cake1.png */,
+				A100001C /* Assets.xcassets */,
+			);
+			path = Morning60s;
+			sourceTree = "<group>";
+		};
+		A47799802F92E9A700070359 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A47799812F92E9A700070359 /* WidgetKit.framework */,
+				A47799832F92E9A700070359 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A1000040 /* Morning60s */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1000051 /* Build configuration list for PBXNativeTarget "Morning60s" */;
+			buildPhases = (
+				A1000041 /* Sources */,
+				A1000020 /* Frameworks */,
+				A1000042 /* Resources */,
+				A477999A2F92E9A800070359 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A47799942F92E9A800070359 /* PBXTargetDependency */,
+			);
+			name = Morning60s;
+			productName = Morning60s;
+			productReference = A1000000 /* Morning60s.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A43EF9DC2F70746E00BB567B /* Morning60sUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A43EF9E72F70746E00BB567B /* Build configuration list for PBXNativeTarget "Morning60sUITests" */;
+			buildPhases = (
+				A43EF9D92F70746E00BB567B /* Sources */,
+				A43EF9DA2F70746E00BB567B /* Frameworks */,
+				A43EF9DB2F70746E00BB567B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A43EF9E42F70746E00BB567B /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A43EF9DE2F70746E00BB567B /* Morning60sUITests */,
+			);
+			name = Morning60sUITests;
+			packageProductDependencies = (
+			);
+			productName = Morning60sUITests;
+			productReference = A43EF9DD2F70746E00BB567B /* Morning60sUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		A477997E2F92E9A700070359 /* Morning60sWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A47799972F92E9A800070359 /* Build configuration list for PBXNativeTarget "Morning60sWidgetExtension" */;
+			buildPhases = (
+				A477997B2F92E9A700070359 /* Sources */,
+				A477997C2F92E9A700070359 /* Frameworks */,
+				A477997D2F92E9A700070359 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A47799852F92E9A700070359 /* Morning60sWidget */,
+			);
+			name = Morning60sWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = Morning60sWidgetExtension;
+			productReference = A477997F2F92E9A700070359 /* Morning60sWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1000050 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					A43EF9DC2F70746E00BB567B = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = A1000040;
+					};
+					A477997E2F92E9A700070359 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+				};
+			};
+			buildConfigurationList = A1000052 /* Build configuration list for PBXProject "Morning60s" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = "zh-Hans";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = A1000030;
+			productRefGroup = A1000030;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1000040 /* Morning60s */,
+				A43EF9DC2F70746E00BB567B /* Morning60sUITests */,
+				A477997E2F92E9A700070359 /* Morning60sWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1000042 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A100000C /* Assets.xcassets in Resources */,
+				A1000045 /* cake1.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A43EF9DB2F70746E00BB567B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A477997D2F92E9A700070359 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1000041 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000001 /* Morning60sApp.swift in Sources */,
+				A1000002 /* ContentView.swift in Sources */,
+				A1000003 /* L10n.swift in Sources */,
+				A1000004 /* AppTheme.swift in Sources */,
+				A1000005 /* TodayView.swift in Sources */,
+				A1000006 /* ChallengeView.swift in Sources */,
+				A1000007 /* RewardView.swift in Sources */,
+				A1000008 /* CollectionView.swift in Sources */,
+				A1000009 /* SettingsView.swift in Sources */,
+				A100000A /* PhotoVerifyView.swift in Sources */,
+				A100000D /* KimiVerificationService.swift in Sources */,
+				A100000E /* BackendVerifyService.swift in Sources */,
+				A100000F /* QwenVerificationService.swift in Sources */,
+				A1000010 /* RewardData.swift in Sources */,
+				A1000022 /* OnboardingView.swift in Sources */,
+				A1000024 /* RootView.swift in Sources */,
+				A1000027 /* SunRaysRing.swift in Sources */,
+				A1000029 /* MainTabBar.swift in Sources */,
+				A1000033 /* DayRecapView.swift in Sources */,
+				A1000035 /* ClaudePrototypeView.swift in Sources */,
+				A1000037 /* NightRecapView.swift in Sources */,
+				A1000071 /* RewardCollectionStore.swift in Sources */,
+				A1000039 /* CalendarMainView.swift in Sources */,
+				A100003B /* WakeNotificationService.swift in Sources */,
+				A100003D /* WakeSleepService.swift in Sources */,
+				A100003F /* DeepLinkRouter.swift in Sources */,
+				A1000072 /* SandwichSplashView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A43EF9D92F70746E00BB567B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A477997B2F92E9A700070359 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A43EF9E42F70746E00BB567B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1000040 /* Morning60s */;
+			targetProxy = A43EF9E32F70746E00BB567B /* PBXContainerItemProxy */;
+		};
+		A47799942F92E9A800070359 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A477997E2F92E9A700070359 /* Morning60sWidgetExtension */;
+			targetProxy = A47799932F92E9A800070359 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A1000060 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A1000061 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A1000062 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Morning60s/Morning60s.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5X8HS8655D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Morning60s/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "速起";
+				INFOPLIST_KEY_NSCameraUsageDescription = "用于拍照验证是否起床站立";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Morning60s 读取你的睡眠数据，判断你是否刚醒来，以便让挑战在起床的第一分钟就计时。";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Morning60s 不会写入任何健康数据。";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.morning60s.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A1000063 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Morning60s/Morning60s.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5X8HS8655D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Morning60s/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "速起";
+				INFOPLIST_KEY_NSCameraUsageDescription = "用于拍照验证是否起床站立";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Morning60s 读取你的睡眠数据，判断你是否刚醒来，以便让挑战在起床的第一分钟就计时。";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Morning60s 不会写入任何健康数据。";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.morning60s.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A43EF9E52F70746E00BB567B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5X8HS8655D;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.morning60s.Morning60sUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Morning60s;
+			};
+			name = Debug;
+		};
+		A43EF9E62F70746E00BB567B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5X8HS8655D;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.morning60s.Morning60sUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Morning60s;
+			};
+			name = Release;
+		};
+		A47799982F92E9A800070359 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5X8HS8655D;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Morning60sWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Morning60sWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.morning60s.app.Morning60sWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A47799992F92E9A800070359 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5X8HS8655D;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Morning60sWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Morning60sWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.morning60s.app.Morning60sWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1000051 /* Build configuration list for PBXNativeTarget "Morning60s" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1000062 /* Debug */,
+				A1000063 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1000052 /* Build configuration list for PBXProject "Morning60s" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1000060 /* Debug */,
+				A1000061 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A43EF9E72F70746E00BB567B /* Build configuration list for PBXNativeTarget "Morning60sUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A43EF9E52F70746E00BB567B /* Debug */,
+				A43EF9E62F70746E00BB567B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A47799972F92E9A800070359 /* Build configuration list for PBXNativeTarget "Morning60sWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A47799982F92E9A800070359 /* Debug */,
+				A47799992F92E9A800070359 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1000050 /* Project object */;
+}

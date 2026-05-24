@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Target 'Morning60s' in project 'Morning60s'
+➜ Explicit dependency on target 'Morning60sWidgetExtension' in project 'Morning60s'
+Target 'Morning60sWidgetExtension' in project 'Morning60s' (no dependencies)

@@ -1,0 +1,56 @@
+{
+  "source": "/Users/xiaoheshaomai/Morning60s/Morning60s/CalendarMainView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "好棒",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 260
+        }
+      },
+      {
+        "comment": "",
+        "key": "已连续速起",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 265
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 268
+        }
+      },
+      {
+        "comment": "",
+        "key": "天啦！",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 271
+        }
+      },
+      {
+        "comment": "",
+        "key": "完成",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 298
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 503
+        }
+      }
+    ]
+  },
+  "version": 1
+}

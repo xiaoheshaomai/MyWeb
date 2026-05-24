@@ -1,0 +1,128 @@
+{
+  "source": "/Users/xiaoheshaomai/Morning60s/Morning60s/SettingsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "原型预览",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 20
+        }
+      },
+      {
+        "comment": "",
+        "key": "Claude 原型页面",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 21
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 26
+        }
+      },
+      {
+        "comment": "",
+        "key": "中文",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 27
+        }
+      },
+      {
+        "comment": "",
+        "key": "English",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 28
+        }
+      },
+      {
+        "comment": "",
+        "key": "日本語",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 29
+        }
+      },
+      {
+        "comment": "",
+        "key": "起床倒计时（早起）",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 76
+        }
+      },
+      {
+        "comment": "",
+        "key": "起床倒计时（午睡 → 咖啡）",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 81
+        }
+      },
+      {
+        "comment": "",
+        "key": "白天总结页",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 86
+        }
+      },
+      {
+        "comment": "",
+        "key": "夜间总结页",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 91
+        }
+      },
+      {
+        "comment": "",
+        "key": "日历敲章页",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 96
+        }
+      },
+      {
+        "comment": "",
+        "key": "新手引导（首次打开流程）",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 101
+        }
+      },
+      {
+        "comment": "",
+        "key": "退出预览，按真实时间路由",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 106
+        }
+      },
+      {
+        "comment": "",
+        "key": "开发者预览",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 109
+        }
+      },
+      {
+        "comment": "",
+        "key": "点上面的按钮会立刻跳到对应界面。\n「新手引导」会退出主界面并重走首次打开流程，走完后与设置里的「重置新手引导」相同。\n白天 / 夜间总结会临时绕开 5:00–13:00 的自动倒计时路由；点「退出预览」可恢复正常路由。",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 111
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,23 @@
+{
+  "/Users/xiaoheshaomai/Morning60s/Morning60s/BackendVerifyService.swift" : {
+    "const-values" : "/Users/xiaoheshaomai/Morning60s/build/Build/Intermediates.noindex/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/BackendVerifyService.swiftconstvalues",
+    "dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Build/Intermediates.noindex/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/BackendVerifyService.d",
+    "diagnostics" : "/Users/xiaoheshaomai/Morning60s/build/Build/Intermediates.noindex/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/BackendVerifyService.dia",
+    "object" : "/Users/xiaoheshaomai/Morning60s/build/Build/Intermediates.noindex/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/BackendVerifyService.o",
+    "swift-dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Build/Intermediates.noindex/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/BackendVerifyService.swiftdeps"
+  },
+  "/Users/xiaoheshaomai/Morning60s/Morning60s/KimiVerificationService.swift" : {
+    "const-values" : "/Users/xiaoheshaomai/Morning60s/build/Build/Intermediates.noindex/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/KimiVerificationService.swiftconstvalues",
+    "dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Build/Intermediates.noindex/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/KimiVerificationService.d",
+    "diagnostics" : "/Users/xiaoheshaomai/Morning60s/build/Build/Intermediates.noindex/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/KimiVerificationService.dia",
+    "object" : "/Users/xiaoheshaomai/Morning60s/build/Build/Intermediates.noindex/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/KimiVerificationService.o",
+    "swift-dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Build/Intermediates.noindex/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/KimiVerificationService.swiftdeps"
+  },
+  "/Users/xiaoheshaomai/Morning60s/Morning60s/PhotoVerifyView.swift" : {
+    "const-values" : "/Users/xiaoheshaomai/Morning60s/build/Build/Intermediates.noindex/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/PhotoVerifyView.swiftconstvalues",
+    "dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Build/Intermediates.noindex/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/PhotoVerifyView.d",
+    "diagnostics" : "/Users/xiaoheshaomai/Morning60s/build/Build/Intermediates.noindex/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/PhotoVerifyView.dia",
+    "object" : "/Users/xiaoheshaomai/Morning60s/build/Build/Intermediates.noindex/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/PhotoVerifyView.o",
+    "swift-dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Build/Intermediates.noindex/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/x86_64/PhotoVerifyView.swiftdeps"
+  }
+}

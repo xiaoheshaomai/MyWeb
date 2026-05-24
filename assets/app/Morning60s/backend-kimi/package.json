@@ -1,0 +1,6 @@
+{
+  "name": "morning60s-kimi-verify",
+  "version": "1.0.0",
+  "description": "腾讯云云函数：接收图片 base64，调 Kimi 识图，返回是否通过",
+  "main": "index.js"
+}

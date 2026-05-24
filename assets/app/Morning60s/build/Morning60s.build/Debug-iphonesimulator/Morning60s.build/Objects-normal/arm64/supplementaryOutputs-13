@@ -1,0 +1,23 @@
+{
+  "/Users/xiaoheshaomai/Morning60s/Morning60s/MainTabBar.swift" : {
+    "const-values" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/MainTabBar.swiftconstvalues",
+    "dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/MainTabBar.d",
+    "diagnostics" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/MainTabBar.dia",
+    "object" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/MainTabBar.o",
+    "swift-dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/MainTabBar.swiftdeps"
+  },
+  "/Users/xiaoheshaomai/Morning60s/Morning60s/RootView.swift" : {
+    "const-values" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/RootView.swiftconstvalues",
+    "dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/RootView.d",
+    "diagnostics" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/RootView.dia",
+    "object" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/RootView.o",
+    "swift-dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/RootView.swiftdeps"
+  },
+  "/Users/xiaoheshaomai/Morning60s/Morning60s/SunRaysRing.swift" : {
+    "const-values" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/SunRaysRing.swiftconstvalues",
+    "dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/SunRaysRing.d",
+    "diagnostics" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/SunRaysRing.dia",
+    "object" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/SunRaysRing.o",
+    "swift-dependencies" : "/Users/xiaoheshaomai/Morning60s/build/Morning60s.build/Debug-iphonesimulator/Morning60s.build/Objects-normal/arm64/SunRaysRing.swiftdeps"
+  }
+}

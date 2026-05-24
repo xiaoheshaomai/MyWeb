@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="zh-CN" class="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sheep Translator 🐑 · 小和烧麦</title>
+    <meta name="description" content="Sheep Translator — UAL CCI Hackathon Project · 小和烧麦 Rico Zhang" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+        --blue: #2138f9;
+        --blue-dark: #1830e8;
+        --green: #00ff2a;
+        --ink: #0f0f0f;
+        --white: #ffffff;
+        --muted: rgba(255,255,255,0.72);
+        --line: rgba(255,255,255,0.18);
+      }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        background: var(--blue);
+        color: var(--white);
+        line-height: 1.6;
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
+
+      a { color: inherit; text-decoration: none; }
+
+      html.zh .en { display: none; }
+      html.en .zh { display: none; }
+
+      /* ── NAV ── */
+      .nav {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px clamp(20px, 5vw, 60px);
+      }
+
+      .nav-back {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        color: rgba(255,255,255,0.7);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+      }
+      .nav-back:hover { color: var(--white); }
+      .nav-back-arrow { font-size: 16px; }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .lang-toggle {
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(255,255,255,0.22);
+        border-radius: 999px;
+        overflow: hidden;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .lang-toggle span {
+        padding: 6px 12px;
+        transition: background 0.2s, color 0.2s;
+        color: rgba(255,255,255,0.4);
+      }
+
+      html.zh .lang-toggle .l-zh,
+      html.en .lang-toggle .l-en {
+        background: var(--green);
+        color: var(--ink);
+      }
+
+      /* ── HERO ── */
+      .page-hero {
+        padding: 120px clamp(20px, 5vw, 60px) 60px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .school-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.22);
+        border-radius: 999px;
+        padding: 8px 18px;
+        font-size: 13px;
+        font-weight: 700;
+        color: rgba(255,255,255,0.85);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 28px;
+      }
+
+      .page-eyebrow {
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .page-title {
+        font-size: clamp(50px, 8vw, 100px);
+        font-weight: 900;
+        color: var(--white);
+        line-height: 1.0;
+        letter-spacing: -0.03em;
+        margin-bottom: 14px;
+      }
+
+      .page-subtitle {
+        font-size: clamp(18px, 3vw, 28px);
+        font-weight: 700;
+        color: var(--green);
+        letter-spacing: -0.01em;
+        margin-bottom: 40px;
+      }
+
+      /* ── META ROW ── */
+      .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        padding: 28px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 60px;
+      }
+
+      .meta-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .meta-label {
+        font-size: 11px;
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .meta-value {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--white);
+      }
+
+      /* ── PHOTO GRID ── */
+      .photo-wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 60px) 60px;
+      }
+
+      .photo-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .photo-grid img {
+        width: 100%;
+        border-radius: 14px;
+        display: block;
+        object-fit: cover;
+        aspect-ratio: 4 / 3;
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .photo-grid img.tall {
+        aspect-ratio: 3 / 4;
+        grid-row: span 2;
+      }
+
+      @media (max-width: 600px) {
+        .photo-grid { grid-template-columns: 1fr; }
+        .photo-grid img.tall { aspect-ratio: 4 / 3; grid-row: auto; }
+      }
+
+      /* ── CONTENT ── */
+      .content-wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 60px) 100px;
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 60px;
+        align-items: start;
+      }
+
+      @media (max-width: 768px) {
+        .content-wrap { grid-template-columns: 1fr; gap: 40px; }
+      }
+
+      .content-section { margin-bottom: 44px; }
+
+      .content-h2 {
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .content-body {
+        font-size: 16px;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .content-body p { margin-bottom: 14px; }
+      .content-body p:last-child { margin-bottom: 0; }
+
+      /* ── HIGHLIGHT BOX ── */
+      .highlight-box {
+        background: rgba(0,255,42,0.08);
+        border: 1px solid rgba(0,255,42,0.25);
+        border-radius: 14px;
+        padding: 24px;
+        margin: 28px 0;
+      }
+
+      .highlight-box p {
+        color: rgba(255,255,255,0.9);
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 0;
+      }
+
+      /* ── SKETCH / SCRIPT WIDGET ── */
+      .sketch-section {
+        margin-bottom: 44px;
+        position: relative;
+      }
+
+      .sketch-label {
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      /* stacked paper effect */
+      .script-stack {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        width: 220px;
+        height: 280px;
+      }
+
+      .script-paper {
+        position: absolute;
+        width: 200px;
+        background: #fffef7;
+        border-radius: 4px 4px 4px 4px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+        padding: 20px 18px 16px;
+        color: #1a1a1a;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        border: 1px solid rgba(0,0,0,0.08);
+        transition: transform 0.3s ease;
+      }
+
+      .script-paper:nth-child(1) {
+        bottom: 0; left: 0;
+        transform: rotate(-3deg);
+        z-index: 1;
+      }
+
+      .script-paper:nth-child(2) {
+        bottom: 14px; left: 10px;
+        transform: rotate(1.5deg);
+        z-index: 2;
+      }
+
+      .script-paper:nth-child(3) {
+        bottom: 28px; left: 20px;
+        transform: rotate(-0.5deg);
+        z-index: 3;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .script-stack:hover .script-paper:nth-child(3) {
+        transform: rotate(0deg) translateY(-4px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      }
+
+      .script-paper-title {
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #888;
+        margin-bottom: 10px;
+      }
+
+      .script-paper-name {
+        font-size: 14px;
+        font-weight: 700;
+        color: #222;
+        line-height: 1.3;
+        margin-bottom: 8px;
+      }
+
+      .script-paper-line {
+        font-size: 11px;
+        color: #aaa;
+        line-height: 1.5;
+      }
+
+      .script-paper-emoji {
+        font-size: 22px;
+        margin-top: 12px;
+      }
+
+      .script-cta {
+        margin-top: 16px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--green);
+        cursor: pointer;
+        border: none;
+        background: none;
+        padding: 0;
+        letter-spacing: 0.04em;
+        transition: opacity 0.2s;
+      }
+      .script-cta:hover { opacity: 0.75; }
+
+      /* ── SIDEBAR ── */
+      .sidebar-card {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 24px;
+        margin-bottom: 16px;
+      }
+
+      .sidebar-card-title {
+        font-size: 11px;
+        font-weight: 800;
+        color: var(--green);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+
+      .sidebar-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        gap: 12px;
+      }
+
+      .sidebar-row:last-child { border-bottom: none; }
+
+      .sidebar-key {
+        font-size: 12px;
+        color: rgba(255,255,255,0.5);
+        font-weight: 500;
+        flex-shrink: 0;
+      }
+
+      .sidebar-val {
+        font-size: 13px;
+        color: var(--white);
+        font-weight: 600;
+        text-align: right;
+      }
+
+      .tags-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .tag {
+        display: inline-block;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 999px;
+        padding: 5px 13px;
+        font-size: 12px;
+        font-weight: 600;
+        color: rgba(255,255,255,0.7);
+      }
+
+      /* ── SCRIPT MODAL ── */
+      .script-modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.72);
+        z-index: 200;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+      }
+
+      .script-modal.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .script-paper-modal {
+        background: #fffef7;
+        border-radius: 8px;
+        padding: 40px 44px;
+        max-width: 600px;
+        width: 100%;
+        max-height: 80vh;
+        overflow-y: auto;
+        color: #1a1a1a;
+        position: relative;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      }
+
+      .script-close {
+        position: absolute;
+        top: 16px; right: 20px;
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: #888;
+        transition: color 0.15s;
+        line-height: 1;
+      }
+      .script-close:hover { color: #222; }
+
+      .script-paper-modal h4 {
+        font-size: 15px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #888;
+        margin-bottom: 24px;
+        padding-right: 32px;
+      }
+
+      .script-section {
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #aaa;
+        margin: 22px 0 6px;
+      }
+
+      .script-stage {
+        font-size: 13px;
+        font-style: italic;
+        color: #aaa;
+        margin-bottom: 4px;
+      }
+
+      .script-speaker {
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #555;
+        margin: 12px 0 2px;
+      }
+
+      .script-line {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #2a2a2a;
+        margin-bottom: 2px;
+      }
+
+      /* ── QUOTE CARDS ── */
+      .quote-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin: 20px 0 28px;
+      }
+
+      .quote-card {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 12px;
+        padding: 20px 18px;
+      }
+
+      .quote-context {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.4);
+        margin-bottom: 8px;
+      }
+
+      .quote-text {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--white);
+        line-height: 1.5;
+        font-style: italic;
+      }
+
+      /* ── PRODUCT FLOW ── */
+      .flow-wrap {
+        margin: 20px 0 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .flow-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .flow-node {
+        background: rgba(0,255,42,0.1);
+        border: 1px solid rgba(0,255,42,0.3);
+        border-radius: 10px;
+        padding: 12px 16px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--green);
+        flex-shrink: 0;
+      }
+
+      .flow-node.dark {
+        background: rgba(255,255,255,0.06);
+        border-color: rgba(255,255,255,0.15);
+        color: rgba(255,255,255,0.8);
+      }
+
+      .flow-arrow {
+        font-size: 16px;
+        color: rgba(255,255,255,0.3);
+        flex-shrink: 0;
+      }
+
+      .flow-desc {
+        font-size: 11px;
+        color: rgba(255,255,255,0.4);
+        margin-top: 3px;
+      }
+
+      /* ── ROLE CHIPS ── */
+      .role-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .role-chip {
+        background: rgba(0,255,42,0.1);
+        border: 1px solid rgba(0,255,42,0.3);
+        border-radius: 999px;
+        padding: 5px 14px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--green);
+      }
+
+      @media (max-width: 600px) {
+        .quote-cards { grid-template-columns: 1fr; }
+      }
+
+      /* ── FOOTER ── */
+      .page-footer {
+        text-align: center;
+        padding: 40px clamp(20px, 5vw, 60px);
+        background: rgba(0,0,0,0.15);
+        font-size: 13px;
+        color: rgba(255,255,255,0.4);
+      }
+
+      .page-footer a { color: var(--green); }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav">
+      <a class="nav-back" href="../index.html#hackathon">
+        <span class="nav-back-arrow">←</span>
+        <span class="zh">返回</span><span class="en">Back</span>
+      </a>
+      <div class="nav-right">
+        <div class="lang-toggle" id="langToggle">
+          <span class="l-zh">中</span>
+          <span class="l-en">EN</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="page-hero">
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:28px;">
+        <span class="school-badge" style="margin-bottom:0">UAL · CCI · Hackathon</span>
+        <span class="school-badge" style="margin-bottom:0;background:rgba(255,215,0,0.15);border-color:rgba(255,215,0,0.5);color:#ffd700;">🥇 <span class="zh">一等奖</span><span class="en">1st Place</span></span>
+      </div>
+
+      <p class="page-eyebrow zh">UAL 黑客松</p>
+      <p class="page-eyebrow en">UAL Hackathon</p>
+
+      <h1 class="page-title">Sheep Translator 🐑</h1>
+
+      <p class="page-subtitle zh">把羊叫声变成语言</p>
+      <p class="page-subtitle en">Translate sheep sounds into human connection</p>
+
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-label zh">学校</span>
+          <span class="meta-label en">School</span>
+          <span class="meta-value">UAL · Creative Computing Institute</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label zh">奖项</span>
+          <span class="meta-label en">Award</span>
+          <span class="meta-value zh">🥇 一等奖</span>
+          <span class="meta-value en">🥇 1st Place</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label zh">类型</span>
+          <span class="meta-label en">Type</span>
+          <span class="meta-value zh">校内黑客松</span>
+          <span class="meta-value en">School Hackathon</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label zh">亮点</span>
+          <span class="meta-label en">Highlight</span>
+          <span class="meta-value zh">🎭 现场表演小品</span>
+          <span class="meta-value en">🎭 Live Sketch Performance</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHOTOS -->
+    <div class="photo-wrap">
+      <div class="photo-grid">
+        <img class="tall" src="../assets/hackathon/cci/sheep.png" alt="Team photo — Sheep Translator">
+        <img src="../assets/hackathon/cci/025427127c36641c8c2a213111757cf2.jpg" alt="Sheep Translator presentation">
+        <img src="../assets/hackathon/cci/863b4ec9f4f8b262b306d0ef043c0f63.jpg" alt="Sheep Translator demo">
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content-wrap">
+      <div class="main-content">
+
+        <!-- SECTION 1: THEME & INSIGHT -->
+        <div class="content-section">
+          <p class="content-h2 zh">主题与洞察</p>
+          <p class="content-h2 en">Theme & Insight</p>
+          <div class="content-body">
+            <p class="zh">这次黑客松的主题叫 <strong style="color:var(--white)">"The Most Silly Hackathon"</strong>。但我认为，silly 的东西也可以有洞察（insight）。</p>
+            <p class="en">The hackathon theme was <strong style="color:var(--white)">"The Most Silly Hackathon"</strong>. But I believed: silly things can still carry real insight.</p>
+            <p class="zh">主办方提供的道具是一个 <strong style="color:var(--white)">Goat Soundbox</strong>——按下不同按钮，它会发出各种羊叫声。拿到这个道具的瞬间，我想到了一个问题：</p>
+            <p class="en">The prop provided was a <strong style="color:var(--white)">Goat Soundbox</strong> — press different buttons and it makes all kinds of sheep sounds. The moment I held it, a question came to me:</p>
+            <div class="highlight-box">
+              <p class="zh">有多少话，我们明明想说，却难以启齿？</p>
+              <p class="en">How many things do we want to say — but can't find the courage to start?</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 2: THE PROBLEM -->
+        <div class="content-section">
+          <p class="content-h2 zh">难以启齿的话</p>
+          <p class="content-h2 en">Things We Can't Say</p>
+          <div class="content-body">
+            <p class="zh">生活里有很多这样的瞬间——</p>
+            <p class="en">Life is full of these moments —</p>
+          </div>
+          <div class="quote-cards">
+            <div class="quote-card">
+              <p class="quote-context zh">🏫 课堂上</p>
+              <p class="quote-context en">🏫 In Class</p>
+              <p class="quote-text zh">"老师……能不能少布置点作业？"</p>
+              <p class="quote-text en">"Teacher… could you maybe assign a little less homework?"</p>
+            </div>
+            <div class="quote-card">
+              <p class="quote-context zh">🚇 地铁上</p>
+              <p class="quote-context en">🚇 On the Subway</p>
+              <p class="quote-text zh">"你好，你叫什么名字？可以认识你吗？"</p>
+              <p class="quote-text en">"Hi… what's your name? Can I get to know you?"</p>
+            </div>
+          </div>
+          <div class="content-body">
+            <p class="zh">如果开口太难——那就让羊帮你说。</p>
+            <p class="en">If words are too hard — let the sheep speak for you.</p>
+          </div>
+        </div>
+
+        <!-- SECTION 3: HOW IT WORKS -->
+        <div class="content-section">
+          <p class="content-h2 zh">产品逻辑</p>
+          <p class="content-h2 en">How It Works</p>
+          <div class="content-body">
+            <p class="zh">网站分为两端：<strong style="color:var(--white)">发送方</strong> 与 <strong style="color:var(--white)">接收方</strong>。</p>
+            <p class="en">The product has two sides: the <strong style="color:var(--white)">Sender</strong> and the <strong style="color:var(--white)">Receiver</strong>.</p>
+          </div>
+          <div class="flow-wrap">
+            <div style="font-size:10px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:6px;">
+              <span class="zh">📤 发送方</span><span class="en">📤 Sender</span>
+            </div>
+            <div class="flow-row">
+              <div class="flow-node">
+                <div class="zh">按下按钮</div><div class="en">Press Buttons</div>
+                <div class="flow-desc zh">在网站上输入羊叫声组合</div>
+                <div class="flow-desc en">Input your sheep sound combo</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-node dark">
+                <div class="zh">🐑 羊叫信号</div><div class="en">🐑 Sheep Sounds</div>
+                <div class="flow-desc zh">每种组合代表不同心意</div>
+                <div class="flow-desc en">Each combo encodes a message</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-node dark">
+                <div class="zh">🧠 ML 分类器</div><div class="en">🧠 ML Classifier</div>
+                <div class="flow-desc zh">预训练，识别羊叫模式</div>
+                <div class="flow-desc en">Pre-trained on all sound patterns</div>
+              </div>
+            </div>
+            <div style="font-size:18px;color:rgba(255,255,255,0.2);padding:2px 0 2px 24px;">↓</div>
+            <div style="font-size:10px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:6px;">
+              <span class="zh">📥 接收方</span><span class="en">📥 Receiver</span>
+            </div>
+            <div class="flow-row">
+              <div class="flow-node">
+                <div class="zh">🔍 Goat Translator</div><div class="en">🔍 Goat Translator</div>
+                <div class="flow-desc zh">扫描识别羊叫声</div>
+                <div class="flow-desc en">Scan and recognize the sound</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-node dark">
+                <div class="zh">💬 破译心意</div><div class="en">💬 Decoded Message</div>
+                <div class="flow-desc zh">"你好，你叫什么名字？"</div>
+                <div class="flow-desc en">"Hi… what's your name?"</div>
+              </div>
+            </div>
+          </div>
+          <div class="content-body">
+            <p class="zh">通过机器学习，我们提前对所有羊叫声按钮进行了分类，建立了一套"羊语密码系统"。发送方组合按钮输入心意，接收方通过 Goat Translator 一键破译。</p>
+            <p class="en">Using machine learning, we pre-classified all sheep sound buttons — building a "sheep language cipher." The sender composes their message in sounds; the receiver decodes it with one tap on Goat Translator.</p>
+          </div>
+        </div>
+
+        <!-- SECTION 4: MY ROLE -->
+        <div class="content-section">
+          <p class="content-h2 zh">我的角色</p>
+          <p class="content-h2 en">My Role</p>
+          <div class="content-body">
+            <p class="zh">除了产品设计，我还主导了现场展示。黑客松最重要的环节是上台 Demo——我希望评委和观众不只是听我讲，而是真正<em>感受到</em>这个产品的使用场景。</p>
+            <p class="en">Beyond product design, I led the live presentation. The most important part of any hackathon is the demo — I wanted the judges and audience to <em>feel</em> the use case, not just hear about it.</p>
+          </div>
+          <div class="role-chips">
+            <span class="role-chip zh">产品设计</span><span class="role-chip en">Product Design</span>
+            <span class="role-chip zh">网站搭建</span><span class="role-chip en">Website Build</span>
+            <span class="role-chip zh">剧本创作</span><span class="role-chip en">Scriptwriting</span>
+            <span class="role-chip zh">现场表演</span><span class="role-chip en">Live Performance</span>
+            <span class="role-chip zh">团队协作</span><span class="role-chip en">Team Collab</span>
+          </div>
+        </div>
+
+        <!-- SECTION 5: LIVE SKETCH -->
+        <div class="sketch-section">
+          <p class="sketch-label">🎭 <span class="zh">现场小品</span><span class="en">Live Sketch</span></p>
+          <div class="content-body" style="margin-bottom:20px;">
+            <p class="zh">我邀请了两位 mentor——<strong style="color:var(--white)">Jasper</strong> 担任旁白，<strong style="color:var(--white)">Leda</strong> 出演对象——一起现场表演了一个小品：</p>
+            <p class="en">I invited our two mentors — <strong style="color:var(--white)">Jasper</strong> as narrator, <strong style="color:var(--white)">Leda</strong> as the stranger — to perform a live sketch:</p>
+            <p class="zh">在图书馆里，Rico 对 Leda 一见倾心，却始终羞于开口。她用 Sheep Translator 组合了一段羊叫声，悄悄送了出去。Leda 打开 Goat Translator，解码出"你好，你叫什么名字？"——两人相视而笑。整个过程极其清晰地还原了产品的使用方式，让全场会心一笑。</p>
+            <p class="en">In a library, Rico has a crush on Leda but is too shy to speak. She composes a sheep sound message and sends it over. Leda opens Goat Translator, decodes "Hi… what's your name?" — and they both smile. The sketch made the product's use case instantly vivid. We took 1st place.</p>
+          </div>
+
+          <div style="display: flex; align-items: flex-end; gap: 24px; flex-wrap: wrap;">
+            <div class="script-stack" id="scriptStack">
+              <div class="script-paper">
+                <div class="script-paper-title">Script</div>
+                <div class="script-paper-line">Characters: Narrator · Rico · Leda</div>
+                <div class="script-paper-emoji">🐑</div>
+              </div>
+              <div class="script-paper">
+                <div class="script-paper-title">Sheep Translator</div>
+                <div class="script-paper-name">Hackathon Sketch</div>
+                <div class="script-paper-line">A short play performed live at UAL CCI</div>
+              </div>
+              <div class="script-paper">
+                <div class="script-paper-title">Script · UAL CCI Hackathon</div>
+                <div class="script-paper-name">Sheep Translator</div>
+                <div class="script-paper-line">Written & performed by Rico Zhang</div>
+                <div class="script-paper-emoji">🎭</div>
+              </div>
+            </div>
+
+            <button class="script-cta" id="openScript">
+              <span class="zh">展开剧本 →</span>
+              <span class="en">Read the Script →</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside>
+        <div class="sidebar-card">
+          <p class="sidebar-card-title zh">比赛信息</p>
+          <p class="sidebar-card-title en">Event Info</p>
+          <div class="sidebar-row">
+            <span class="sidebar-key zh">赛事</span>
+            <span class="sidebar-key en">Event</span>
+            <span class="sidebar-val zh">UAL 黑客松</span>
+            <span class="sidebar-val en">UAL Hackathon</span>
+          </div>
+          <div class="sidebar-row">
+            <span class="sidebar-key zh">学校</span>
+            <span class="sidebar-key en">School</span>
+            <span class="sidebar-val">UAL · CCI</span>
+          </div>
+          <div class="sidebar-row">
+            <span class="sidebar-key zh">奖项</span>
+            <span class="sidebar-key en">Award</span>
+            <span class="sidebar-val zh">🥇 一等奖</span>
+            <span class="sidebar-val en">🥇 1st Place</span>
+          </div>
+          <div class="sidebar-row">
+            <span class="sidebar-key zh">亮点</span>
+            <span class="sidebar-key en">Highlight</span>
+            <span class="sidebar-val">🎭 Live Sketch</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="sidebar-card-title zh">技术标签</p>
+          <p class="sidebar-card-title en">Tags</p>
+          <div class="tags-row">
+            <span class="tag">ML / Audio</span>
+            <span class="tag">Product Design</span>
+            <span class="tag">Live Performance</span>
+            <span class="tag">Scriptwriting</span>
+            <span class="tag">UAL CCI</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- SCRIPT MODAL -->
+    <div class="script-modal" id="scriptModal" onclick="if(event.target===this)this.classList.remove('open')">
+      <div class="script-paper-modal">
+        <button class="script-close" onclick="document.getElementById('scriptModal').classList.remove('open')">✕</button>
+        <h4>Sheep Translator — Hackathon Script</h4>
+
+        <p class="script-stage">Characters: Narrator (Jasper) · Rico · Leda</p>
+
+        <p class="script-section">[Scene 1]</p>
+        <p class="script-stage">(Projector shows slides)</p>
+        <p class="script-speaker">Narrator</p>
+        <p class="script-line">Rico is a very shy girl.</p>
+        <p class="script-line">Every day, she sees Leda in the library…</p>
+        <p class="script-line">And every day, she wants to talk to her.</p>
+        <p class="script-line">But she never has the courage.</p>
+
+        <p class="script-section">[Scene 2]</p>
+        <p class="script-speaker">Narrator</p>
+        <p class="script-line">One day, an idea came to her mind.</p>
+        <p class="script-speaker">Rico</p>
+        <p class="script-line"><strong>I can use the sheep sounds to say hi!</strong></p>
+        <p class="script-stage">(Projector changes to Sheep Translator interface)</p>
+        <p class="script-speaker">Narrator</p>
+        <p class="script-line">So Rico opened Sheep Translator.</p>
+        <p class="script-line">She typed: "Hi… what's your name?"</p>
+        <p class="script-line">Then she recorded her own sheep sound.</p>
+
+        <p class="script-section">[Scene 3]</p>
+        <p class="script-speaker">Narrator</p>
+        <p class="script-line">The next day, Rico finally stopped being shy.</p>
+        <p class="script-line">She walked up to Leda… and played the sheep sound.</p>
+        <p class="script-speaker">Speaker / Sound</p>
+        <p class="script-line"><strong>"Baaaaaaaaaaaa~"</strong></p>
+        <p class="script-stage">(Pause)</p>
+        <p class="script-speaker">Leda</p>
+        <p class="script-line"><em>(suddenly realizes)</em> Wait… I can use Sheep Translator!</p>
+
+        <p class="script-section">[Scene 4]</p>
+        <p class="script-speaker">Narrator</p>
+        <p class="script-line">Leda opened Sheep Translator.</p>
+        <p class="script-stage">(Projector shows translation result: "Hi… what's your name?")</p>
+        <p class="script-speaker">Leda</p>
+        <p class="script-line">Oh! Hi, I'm Leda.</p>
+        <p class="script-line">Do you want to go to a farm together and listen to sheep sounds?</p>
+
+        <p class="script-section">[Ending]</p>
+        <p class="script-speaker">Narrator</p>
+        <p class="script-line">And that… was the beginning of their story.</p>
+        <br>
+        <p class="script-line"><em>Sometimes people are not afraid of talking.<br>They are just afraid of making the first sound.</em></p>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+      <p>© 2026 小和烧麦 Rico Zhang · <a href="../index.html">返回主页 / Back to Home</a></p>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById('langToggle');
+      toggle.addEventListener('click', () => {
+        const html = document.documentElement;
+        if (html.classList.contains('zh')) {
+          html.classList.replace('zh', 'en');
+          html.lang = 'en';
+        } else {
+          html.classList.replace('en', 'zh');
+          html.lang = 'zh-CN';
+        }
+      });
+
+      document.getElementById('openScript').addEventListener('click', () => {
+        document.getElementById('scriptModal').classList.add('open');
+      });
+
+      document.getElementById('scriptStack').addEventListener('click', () => {
+        document.getElementById('scriptModal').classList.add('open');
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') document.getElementById('scriptModal').classList.remove('open');
+      });
+    </script>
+  </body>
+</html>
