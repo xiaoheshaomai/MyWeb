@@ -1799,6 +1799,8 @@
           muted
           loop
           playsinline
+          webkit-playsinline
+          preload="auto"
           aria-hidden="true"
         ></video>
       </div>
@@ -2856,6 +2858,17 @@
           }
         });
       });
+
+      // force-play hero video on mobile (autoplay may be deferred)
+      (function () {
+        var heroVid = document.querySelector('.hero-video');
+        if (!heroVid) return;
+        heroVid.play().catch(function () {});
+        document.addEventListener('touchstart', function tryPlay() {
+          heroVid.play().catch(function () {});
+          document.removeEventListener('touchstart', tryPlay);
+        }, { once: true });
+      })();
 
       // autoplay video on hover for video-back cards
       document.querySelectorAll('.flip-card').forEach(function (card) {
