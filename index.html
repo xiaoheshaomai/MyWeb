@@ -177,20 +177,22 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 12px 22px;
+        padding: 14px 28px;
         border: 1.5px solid var(--green);
         border-radius: 999px;
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 800;
-        color: var(--green);
+        background: var(--green);
+        color: var(--ink);
         letter-spacing: 0.05em;
         align-self: flex-start;
-        transition: background 0.2s, color 0.2s;
+        transition: background 0.2s, color 0.2s, transform 0.15s;
       }
 
       .hero-cta:hover {
-        background: var(--green);
-        color: var(--ink);
+        background: transparent;
+        color: var(--green);
+        transform: translateY(-2px);
       }
 
       .hero-tags {
@@ -941,6 +943,103 @@
         color: var(--green);
         font-weight: 700;
         margin-right: 4px;
+      }
+
+      /* ── ABOUT / MBTI ── */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+        margin-top: 48px;
+      }
+
+      .about-bio {
+        font-size: clamp(15px, 1.5vw, 17px);
+        color: rgba(255,255,255,0.82);
+        line-height: 1.75;
+      }
+
+      .about-bio p + p { margin-top: 14px; }
+
+      .mbti-card {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 20px;
+        padding: 32px 28px;
+      }
+
+      .mbti-type-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 6px;
+      }
+
+      .mbti-type-badge {
+        font-size: 42px;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        color: var(--green);
+        line-height: 1;
+      }
+
+      .mbti-subname {
+        font-size: 13px;
+        font-weight: 700;
+        color: rgba(255,255,255,0.55);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 28px;
+      }
+
+      .mbti-bars { display: flex; flex-direction: column; gap: 16px; }
+
+      .mbti-row { display: flex; flex-direction: column; gap: 6px; }
+
+      .mbti-labels {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+
+      .mbti-label-left,
+      .mbti-label-right {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .mbti-label-left { color: var(--green); }
+      .mbti-label-right { color: rgba(255,255,255,0.35); }
+
+      .mbti-pct-left,
+      .mbti-pct-right {
+        font-size: 11px;
+        font-weight: 700;
+        color: rgba(255,255,255,0.45);
+      }
+
+      .mbti-label-group {
+        display: flex;
+        align-items: baseline;
+        gap: 5px;
+      }
+
+      .mbti-track {
+        height: 8px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      .mbti-fill {
+        height: 100%;
+        background: var(--green);
+        border-radius: 999px;
+        width: 0;
+        transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       /* ── RESPONSIVE ── */
@@ -1766,6 +1865,7 @@
       <a href="#top"><img class="nav-logo" src="assets/logo.png" alt="小和烧麦"></a>
       <div class="nav-right">
         <div class="nav-links">
+          <a href="#about"><span class="zh">关于</span><span class="en">About</span></a>
           <a href="#cv"><span class="zh">简历</span><span class="en">CV</span></a>
           <a href="#work"><span class="zh">作品</span><span class="en">Work</span></a>
           <a href="#hackathon">Hackathon</a>
@@ -1824,6 +1924,110 @@
     </section>
 
     <main>
+      <hr class="divider" />
+
+      <!-- ══ ABOUT ══ -->
+      <section class="section" id="about">
+        <div class="section-inner">
+          <h2>
+            <span class="zh">关于我</span>
+            <span class="en">About Me</span>
+          </h2>
+          <div class="about-grid">
+            <div class="about-bio">
+              <p class="zh">嘿，我是小和烧麦，在伦敦读 AI 研究生的创作者。我用 Blender 做 3D 动画，喜欢参加黑客松，也在做自己的 App。在小红书上积累了 71.9 万赞藏，发现原来把技术和创意放在一起，能带给大家很多惊喜。</p>
+              <p class="en">Hey, I'm Rico Zhang — a creator currently studying AI in London. I make 3D animations in Blender, build hackathon projects, and design my own apps. With 719K likes on Xiaohongshu, I've learned that blending tech and creativity can genuinely surprise people.</p>
+              <p class="zh" style="margin-top:20px; color:rgba(255,255,255,0.55); font-size:14px;">喜欢认识新朋友，欢迎来聊！</p>
+              <p class="en" style="margin-top:20px; color:rgba(255,255,255,0.55); font-size:14px;">Always happy to meet new people — feel free to say hi!</p>
+            </div>
+
+            <div class="mbti-card">
+              <div class="mbti-type-row">
+                <div class="mbti-type-badge">ENFP</div>
+              </div>
+              <p class="mbti-subname zh">运动家型人格</p>
+              <p class="mbti-subname en">The Campaigner</p>
+
+              <div class="mbti-bars">
+
+                <div class="mbti-row">
+                  <div class="mbti-labels">
+                    <div class="mbti-label-group">
+                      <span class="mbti-label-left zh">外向</span>
+                      <span class="mbti-label-left en">Extraverted</span>
+                      <span class="mbti-pct-left">51%</span>
+                    </div>
+                    <div class="mbti-label-group">
+                      <span class="mbti-pct-right">49%</span>
+                      <span class="mbti-label-right zh">内向</span>
+                      <span class="mbti-label-right en">Introverted</span>
+                    </div>
+                  </div>
+                  <div class="mbti-track">
+                    <div class="mbti-fill" data-width="51"></div>
+                  </div>
+                </div>
+
+                <div class="mbti-row">
+                  <div class="mbti-labels">
+                    <div class="mbti-label-group">
+                      <span class="mbti-label-left zh">直觉</span>
+                      <span class="mbti-label-left en">Intuitive</span>
+                      <span class="mbti-pct-left">51%</span>
+                    </div>
+                    <div class="mbti-label-group">
+                      <span class="mbti-pct-right">49%</span>
+                      <span class="mbti-label-right zh">实感</span>
+                      <span class="mbti-label-right en">Observant</span>
+                    </div>
+                  </div>
+                  <div class="mbti-track">
+                    <div class="mbti-fill" data-width="51"></div>
+                  </div>
+                </div>
+
+                <div class="mbti-row">
+                  <div class="mbti-labels">
+                    <div class="mbti-label-group">
+                      <span class="mbti-label-left zh">情感</span>
+                      <span class="mbti-label-left en">Feeling</span>
+                      <span class="mbti-pct-left">71%</span>
+                    </div>
+                    <div class="mbti-label-group">
+                      <span class="mbti-pct-right">29%</span>
+                      <span class="mbti-label-right zh">思考</span>
+                      <span class="mbti-label-right en">Thinking</span>
+                    </div>
+                  </div>
+                  <div class="mbti-track">
+                    <div class="mbti-fill" data-width="71"></div>
+                  </div>
+                </div>
+
+                <div class="mbti-row">
+                  <div class="mbti-labels">
+                    <div class="mbti-label-group">
+                      <span class="mbti-label-left zh">展望</span>
+                      <span class="mbti-label-left en">Prospecting</span>
+                      <span class="mbti-pct-left">78%</span>
+                    </div>
+                    <div class="mbti-label-group">
+                      <span class="mbti-pct-right">22%</span>
+                      <span class="mbti-label-right zh">评判</span>
+                      <span class="mbti-label-right en">Judging</span>
+                    </div>
+                  </div>
+                  <div class="mbti-track">
+                    <div class="mbti-fill" data-width="78"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <hr class="divider" />
 
       <!-- ══ CV TIMELINE ══ -->
@@ -2725,6 +2929,22 @@
             detail.classList.remove('open');
           });
         }
+      })();
+
+      // ── MBTI BAR ANIMATION ──
+      (function () {
+        var fills = document.querySelectorAll('.mbti-fill');
+        if (!fills.length) return;
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var el = entry.target;
+              el.style.width = el.dataset.width + '%';
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.3 });
+        fills.forEach(function (el) { observer.observe(el); });
       })();
 
       // ── STICKER CARD COLORS ──
