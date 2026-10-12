@@ -17,7 +17,7 @@
 .competition{padding:28px 34px}.competition-intro{max-width:760px;margin:0 auto 24px;color:rgba(255,255,255,.72);text-align:center;line-height:1.7}.competition-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.competition-card{position:relative;min-height:330px;overflow:hidden;border-radius:24px;background:#111;color:#fff}.competition-card img{width:100%;height:100%;object-fit:cover;transition:transform .35s}.competition-card:hover img{transform:scale(1.035)}.competition-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 28%,rgba(0,0,0,.9))}.competition-copy{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:26px}.competition-badges{display:flex;gap:7px;flex-wrap:wrap}.competition-badges span{padding:6px 9px;border-radius:999px;background:var(--green);color:#111;font-size:11px;font-weight:900}.competition-copy h3{margin:14px 0 4px;font-size:28px}.competition-copy p{margin:0;color:rgba(255,255,255,.75);font-size:13px}.competition-copy a{display:inline-block;margin-top:13px;color:var(--green);font-size:12px;font-weight:900}
 .contact{display:flex;flex-direction:column;justify-content:center;min-height:calc(100vh - 178px);padding:70px;border-radius:36px;background:#101a13}.contact h2{margin:18px 0;font-size:clamp(55px,8vw,110px);line-height:.92;letter-spacing:-.06em}.contact p{max-width:700px;color:rgba(255,255,255,.65)}.actions{display:flex;gap:10px;margin-top:22px}.actions a{padding:13px 18px;border:1px solid rgba(255,255,255,.35);border-radius:10px;font-size:13px;font-weight:850}.actions .primary{border-color:var(--green);background:var(--green);color:#111}
 .arrow{position:fixed;z-index:15;top:50%;transform:translateY(-50%);width:46px;height:46px;border:1px solid rgba(255,255,255,.3);border-radius:50%;background:rgba(0,0,0,.2);color:#fff;font-size:22px;cursor:pointer}.prev{left:14px}.next{right:14px}.arrow:disabled{opacity:.18}.count{position:fixed;z-index:15;right:24px;bottom:18px;font-size:11px;font-weight:850;letter-spacing:.15em;color:rgba(255,255,255,.65)}
-.arrow,.count{display:none}
+.arrow,.count{display:none!important}
 .arrow{display:grid;place-items:center;width:48px;height:48px;border:0;background:#111;color:#fff;box-shadow:0 10px 28px rgba(0,0,0,.18)}.prev{left:22px}.next{right:22px}.arrow:hover:not(:disabled){background:var(--pink)}.arrow:active:not(:disabled){transform:translateY(calc(-50% + 3px)) scale(.94)}.arrow:disabled{display:none}
 /* 所有导航页固定为同一个视口高度，内部不再各自形成长短不同的滚动页 */
 .page:not(.cover){overflow:hidden;padding-top:132px;padding-bottom:22px}
@@ -40,12 +40,7 @@
 .skills{height:clamp(460px,calc(100vh - 230px),560px);padding:22px}
 .competition{height:clamp(430px,calc(100vh - 235px),540px)}
 .cover-kicker,.date,.degree,.job time,.job strong,.project-no,.drawn small{color:var(--green)}
-.editable-text{border-radius:4px;outline:none;transition:background .15s,box-shadow .15s}
-.editable-text:hover{background:rgba(255,255,255,.1);box-shadow:0 0 0 4px rgba(255,255,255,.1)}
-.school .editable-text:hover,.job .editable-text:hover,.project .editable-text:hover,.drawn .editable-text:hover{background:rgba(33,56,249,.07);box-shadow:0 0 0 4px rgba(33,56,249,.07)}
-.editable-text:focus{background:rgba(0,255,42,.13);box-shadow:0 0 0 4px rgba(0,255,42,.13)}
 .actions a,.open,.competition-copy a{cursor:pointer}.actions a:active,.open:active{box-shadow:inset 0 4px 0 rgba(0,0,0,.22)}
-.save-status{position:fixed;z-index:30;left:22px;bottom:17px;padding:7px 10px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(0,0,0,.22);color:rgba(255,255,255,.8);font-size:11px;font-weight:750;backdrop-filter:blur(10px)}
 /* Content-sized layouts: never stretch short copy into empty poster-sized cards. */
 .project-wrap{height:auto;padding:14px}.project-card{height:auto;grid-template-rows:180px auto}.project-card .facts{margin-top:14px}.page[data-slide="5"]{background:#c9c2ff;color:#111}
 .hobby-lab{display:grid;grid-template-columns:1.05fr .95fr;height:clamp(440px,calc(100vh - 235px),550px);overflow:hidden;border:1px solid #111;border-radius:14px;background:#fff}.hobby-stage{position:relative;overflow:hidden;background:#111}.hobby-stage img{width:100%;height:100%;object-fit:cover;transition:opacity .22s,transform .45s cubic-bezier(.2,.8,.2,1)}.hobby-stage.changing img{opacity:.15;transform:scale(1.04)}.hobby-caption{position:absolute;left:24px;right:24px;bottom:22px;padding:18px;background:rgba(17,17,17,.88);color:#fff;backdrop-filter:blur(8px)}.hobby-caption small{color:var(--green);font-size:10px;font-weight:900;letter-spacing:.16em}.hobby-caption h3{margin:7px 0 5px;font-size:32px;line-height:1}.hobby-caption p{margin:0;color:rgba(255,255,255,.75);font-size:12px;line-height:1.5}.hobby-console{display:flex;flex-direction:column;padding:24px}.hobby-console>p{margin:0 0 18px;color:#555;font-size:13px;line-height:1.55}.hobby-buttons{display:grid;gap:8px}.hobby-button{display:grid;grid-template-columns:46px 1fr auto;align-items:center;min-height:66px;padding:0 16px;border:1px solid #111;border-radius:8px;background:#fff;color:#111;text-align:left;cursor:pointer}.hobby-button span{font-size:11px;font-weight:900;opacity:.45}.hobby-button strong{font-size:18px}.hobby-button i{font-style:normal;font-size:18px}.hobby-button.active{background:#111;color:#fff}.hobby-note{margin-top:auto;padding-top:18px;border-top:1px solid #bbb;font-size:11px;color:#666}
@@ -228,13 +223,13 @@
 <button class="arrow prev" aria-label="上一页">‹</button><button class="arrow next" aria-label="下一页">›</button>
 <main class="viewport"><div class="track">
 <section class="page cover" data-slide="0" style="order:0">
-<div class="cover-cloud" style="width:130px;top:12%;left:3%;--r:-6deg;animation-delay:0s"><img src="../assets/cloud.png" alt=""></div><div class="cover-cloud" style="width:88px;top:18%;left:48%;--r:4deg;animation-delay:.8s"><img src="../assets/cloud.png" alt=""></div><div class="cover-cloud" style="width:152px;top:64%;left:2%;--r:-3deg;animation-delay:1.5s"><img src="../assets/cloud.png" alt=""></div><div class="cover-cloud" style="width:72px;top:76%;left:48%;--r:5deg;animation-delay:.3s"><img src="../assets/cloud.png" alt=""></div><div class="cover-cloud" style="width:106px;top:36%;right:3%;--r:-2deg;animation-delay:2s"><img src="../assets/cloud.png" alt=""></div><div class="cover-cloud" style="width:82px;top:82%;right:6%;--r:7deg;animation-delay:1.1s"><img src="../assets/cloud.png" alt=""></div><div class="cover-grid"><div class="cover-video"><video src="../assets/final1.mp4" autoplay muted loop playsinline preload="auto"></video></div><div class="cover-copy"><p class="cover-kicker">CREATIVE TECHNOLOGIST</p><h1 data-edit-key="cover:name-zhang-yiyan">张宜砚</h1><span class="role">产品经理 / Product Manager</span><p class="cover-desc">我在做一个把创意、技术和故事放在一起的个人网站，3D 动画、插画、Hackathon 和 App 都在这里。</p><div class="cover-actions"><a class="cover-resume" href="assets/resume.html" download="张宜砚_简历.html" aria-label="下载简历" title="下载简历"><img class="resume-dance" src="../assets/resume-dance.gif" alt=""><span>下载简历</span></a></div></div></div></section>
+<div class="cover-cloud" style="width:130px;top:12%;left:3%;--r:-6deg;animation-delay:0s"><img src="../assets/cloud.png" alt=""></div><div class="cover-cloud" style="width:88px;top:18%;left:48%;--r:4deg;animation-delay:.8s"><img src="../assets/cloud.png" alt=""></div><div class="cover-cloud" style="width:152px;top:64%;left:2%;--r:-3deg;animation-delay:1.5s"><img src="../assets/cloud.png" alt=""></div><div class="cover-cloud" style="width:72px;top:76%;left:48%;--r:5deg;animation-delay:.3s"><img src="../assets/cloud.png" alt=""></div><div class="cover-cloud" style="width:106px;top:36%;right:3%;--r:-2deg;animation-delay:2s"><img src="../assets/cloud.png" alt=""></div><div class="cover-cloud" style="width:82px;top:82%;right:6%;--r:7deg;animation-delay:1.1s"><img src="../assets/cloud.png" alt=""></div><div class="cover-grid"><div class="cover-video"><video src="../assets/final1.mp4" autoplay muted loop playsinline preload="auto"></video></div><div class="cover-copy"><h1>张宜砚</h1><span class="role">产品经理 / Product Manager</span><p class="cover-desc">你好，可以叫我小和，期待和您共事！😊</p><div class="cover-actions"><a class="cover-resume" href="assets/resume.html" download="张宜砚_简历.html" aria-label="下载简历" title="下载简历"><img class="resume-dance" src="../assets/resume-dance.gif" alt=""><span>下载简历</span></a></div></div></div></section>
 
 <section class="page" data-slide="1" style="order:1">
 <div class="inner">
 <header class="head">
 <p class="index">01 / EDUCATION</p><h2 class="title">教育背景</h2></header>
-<div class="school-stage"><article class="school school-ual"><div class="school-brand"><img src="assets/education/ual-logo.png" alt="University of the Arts London logo"></div><div class="school-info"><div class="date">2025.09 — 2026.09</div><div class="degree">MSC · DATA SCIENCE &amp; AI</div><h3>伦敦艺术大学</h3><p>硕士 / 数据科学与人工智能。把 AI、数据与创意技术用于独立 App 和 Hackathon 产品实践。</p></div></article><article class="school school-shu"><div class="school-brand"><img src="assets/education/shu-logo.png" alt="上海大学校徽"></div><div class="school-info"><div class="date">2018.09 — 2022.06</div><div class="degree">BACHELOR · FINANCE</div><h3>上海大学</h3><p>本科 / 金融学。金融与商业训练，构成理解用户、市场和业务问题的基础。</p></div></article></div></div></section>
+<div class="school-stage"><article class="school school-ual"><div class="school-brand"><img src="assets/education/ual-logo.png" alt="University of the Arts London logo"></div><div class="school-info"><div class="date">2025.09 — 2026.09</div><div class="degree">MSC · DATA SCIENCE &amp; AI</div><h3>伦敦艺术大学</h3><p>硕士 / 数据科学与人工智能</p></div></article><article class="school school-shu"><div class="school-brand"><img src="assets/education/shu-logo.png" alt="上海大学校徽"></div><div class="school-info"><div class="date">2018.09 — 2022.06</div><div class="degree">BACHELOR · FINANCE</div><h3>上海大学</h3><p>本科 / 金融学</p></div></article></div></div></section>
 
 <section class="page" data-slide="4" style="order:4">
 <div class="inner">
@@ -246,7 +241,7 @@
 <div class="inner">
 <header class="head">
 <p class="index">02 / PROJECTS</p><h2 class="title">项目经历</h2></header>
-<div class="project-flow"><article class="morning-feature"><div class="morning-cover" aria-label="两排随机早餐滚动展示"><div class="morning-belt"></div><div class="morning-belt"></div></div><img class="morning-seam-icon" src="../assets/app/logo.png" alt="速起 App 图标"><div class="morning-copy"><h3>速起<span>Morning60s</span></h3><p data-edit-key="projects:morning-intro-v2">一个帮你在60秒内起床的app！（不是闹钟）</p><a class="morning-link" href="../Morning60s-Web-Showcase/index.html">查看完整项目 →</a></div></article><article class="fan-next"><img class="fan-cover" src="assets/fan-card-kitchen.jpg" alt="FAN 餐厅厨房现场，厨师正在制作料理"><div><h3 data-edit-key="projects:fan-name-v4">FAN restaurant 库存管理系统</h3></div><p data-edit-key="projects:fan-intro-v2">从5分钟的手动库存记录➡️1秒钟的ai自动识别</p><a class="fan-link" href="fan-restaurant.html">查看完整项目 →</a></article></div></div></section>
+<div class="project-flow"><article class="morning-feature"><div class="morning-cover" aria-label="两排随机早餐滚动展示"><div class="morning-belt"></div><div class="morning-belt"></div></div><img class="morning-seam-icon" src="../assets/app/logo.png" alt="速起 App 图标"><div class="morning-copy"><h3>速起<span>Morning60s</span></h3><p data-edit-key="projects:morning-intro-v2">一个帮你在60秒内起床的app（不是闹钟）</p><a class="morning-link" href="../Morning60s-Web-Showcase/index.html">查看完整项目 →</a></div></article><article class="fan-next"><img class="fan-cover" src="assets/fan-card-kitchen.jpg" alt="FAN 餐厅厨房现场，厨师正在制作料理"><div><h3 data-edit-key="projects:fan-name-v4">FAN restaurant 库存管理系统</h3></div><p data-edit-key="projects:fan-intro-v2">从5分钟的手动库存记录➡️1秒钟的ai自动识别</p><a class="fan-link" href="fan-restaurant.html">查看完整项目 →</a></article></div></div></section>
 
 <section class="page" data-slide="5" style="order:5">
 <div class="inner">
@@ -262,7 +257,7 @@
 <p class="index">03 / COMPETITIONS</p><h2 class="title">比赛经历</h2></header>
 <div class="competition glass"><div class="competition-grid"><article class="competition-card"><img src="../assets/hackathon/xmas/09f0e61b6e9fb8b2393efb6edee16e83.jpg" alt="VibeHacks 圣诞播客黑客松"><div class="competition-copy"><div class="competition-badges"><span>一等奖 · ¥10,000</span><span>24 小时编程</span></div><h3>VibeHacks 圣诞播客黑客松</h3><p>以主播为入口聚合跨节目串台内容，用两个可交互 MVP 验证播客发现的新路径。</p><a href="../hackathon/podcast.html">查看完整项目 →</a></div></article><article class="competition-card"><img src="../assets/hackathon/cci/sheep.png" alt="UAL 黑客松 Sheep Translator"><div class="competition-copy"><div class="competition-badges"><span>一等奖</span><span>6 小时开发</span></div><h3>UAL 黑客松 · Sheep Translator</h3><p>在限时协作中完成 AI 交互产品，并进行现场演示。</p><a href="../sheep-translator-website-package/showcase.html">查看比赛项目 →</a></div></article></div></div></div></section>
 
-</div></main><div class="save-status" aria-live="polite">文字可直接编辑 · 已保存</div><div class="count"><span>01</span> / 06</div>
+</div></main><div class="count"><span>01</span> / 06</div>
 <script>
 const track=document.querySelector('.track'),tabs=[...document.querySelectorAll('.tab')],pages=[...document.querySelectorAll('.page')].sort((a,b)=>+a.dataset.slide-+b.dataset.slide),prev=document.querySelector('.prev'),next=document.querySelector('.next'),count=document.querySelector('.count span'),coverVideo=document.querySelector('.cover-video video');let current=0;
 const slideHashes=['about','education','projects','competition','work','life'];
@@ -276,49 +271,7 @@ function syncCoverVideo(){
 function go(i){current=Math.max(0,Math.min(pages.length-1,i));pages.forEach((page,n)=>page.classList.toggle('active',n===current));tabs.forEach(t=>t.classList.toggle('active',+t.dataset.page===current));pages[current].scrollTop=0;count.textContent=String(current+1).padStart(2,'0');prev.disabled=current===0;next.disabled=current===pages.length-1;history.replaceState(null,'',`#${slideHashes[current]}`);syncCoverVideo()}
 tabs.forEach(t=>t.onclick=()=>go(+t.dataset.page));prev.onclick=()=>go(current-1);next.onclick=()=>go(current+1);document.onkeydown=e=>{if(e.key==='ArrowLeft')go(current-1);if(e.key==='ArrowRight')go(current+1)};
 document.querySelectorAll('.life-card').forEach(card=>{card.classList.add('flipped');card.onclick=()=>card.classList.toggle('flipped')});
-// 用户文字优先：只保存文字内容，不覆盖布局、图片和交互。
-const LEGACY_COPY_KEY=`xiaoheshaomai-portfolio-v6-copy:${location.pathname}`;
-const COPY_KEY=`xiaoheshaomai-portfolio-v7-copy:${location.pathname}`;
-const LEGACY_BACKUP_KEY=`xiaoheshaomai-portfolio-v6-backup:${location.pathname}`;
-const status=document.querySelector('.save-status');let dirty=false;
-// v6 used one global running number. Adding or moving a text node shifted every
-// later number, which made saved work and education copy appear in projects.
-// Keep the old data as a recovery backup, then use stable page + field keys.
-try{
-  const legacyCopy=localStorage.getItem(LEGACY_COPY_KEY);
-  if(legacyCopy&&!localStorage.getItem(LEGACY_BACKUP_KEY))localStorage.setItem(LEGACY_BACKUP_KEY,legacyCopy);
-}catch(e){}
-const editableGroups=[
-  ['brand','.brand span'],['cover-kicker','.cover-kicker'],['cover-name','.cover h1'],
-  ['cover-role','.role'],['cover-desc','.cover-desc'],['cover-tag','.tags span'],
-  ['section-index','.index'],['section-title','.title'],['school-date','.school .date'],
-  ['school-degree','.school .degree'],['school-name','.school h3'],['school-copy','.school p'],
-  ['work-date','.work-date'],['work-kicker','.work-copy small'],['work-company','.work-copy h3'],
-  ['work-role','.work-copy strong'],['work-copy','.work-copy p'],['work-client','.work-meta span'],
-  ['morning-kicker','.morning-copy small'],['morning-name','.morning-copy h3'],
-  ['morning-copy','.morning-copy>p'],['morning-label','.morning-fact span'],
-  ['morning-fact','.morning-fact strong'],['fan-kicker','.fan-next small'],
-  ['fan-name','.fan-next h3'],['fan-copy','.fan-next p'],['drawn-kicker','.drawn small'],
-  ['skill-title','#skillTitle'],['skill-copy','#skillText'],['skill-core','#skillCore'],
-  ['contact-title','.contact h2'],['contact-copy','.contact>p:not(.index)'],['contact-action','.actions a']
-];
-const editables=[];
-editableGroups.forEach(([field,selector])=>{
-  const elements=[...document.querySelectorAll(selector)];
-  elements.forEach(el=>{
-    if(editables.includes(el))return;
-    const slide=el.closest('.page')?.dataset.slide??'global';
-    const peers=elements.filter(peer=>(peer.closest('.page')?.dataset.slide??'global')===slide);
-    el.dataset.editKey=el.dataset.editKey||`slide-${slide}:${field}:${peers.indexOf(el)}`;
-    el.contentEditable='true';el.spellcheck=false;el.classList.add('editable-text');editables.push(el);
-  });
-});
-function loadCopy(){try{const saved=JSON.parse(localStorage.getItem(COPY_KEY)||'{}');editables.forEach(el=>{if(Object.hasOwn(saved,el.dataset.editKey))el.innerHTML=saved[el.dataset.editKey]})}catch(e){status.textContent='本地文字读取失败'}}
-function saveCopy(){if(!dirty)return;try{const saved={};editables.forEach(el=>saved[el.dataset.editKey]=el.innerHTML);localStorage.setItem(COPY_KEY,JSON.stringify(saved));dirty=false;status.textContent=`已保存 · ${new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'})}`}catch(e){status.textContent='保存失败，请先复制文字备份'}}
-document.addEventListener('input',e=>{if(e.target.closest('.editable-text')){dirty=true;status.textContent='待保存…'}});
-document.addEventListener('focusout',e=>{if(e.target.closest('.editable-text'))saveCopy()});
-setInterval(saveCopy,10000);window.addEventListener('pagehide',saveCopy);window.addEventListener('beforeunload',saveCopy);document.addEventListener('visibilitychange',()=>{if(document.hidden)saveCopy();else syncCoverVideo()});
-loadCopy();
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)syncCoverVideo()});
 document.querySelector('[data-page="2"]').textContent='项目经历';document.querySelector('[data-page="3"]').textContent='比赛经历';document.querySelector('[data-page="4"]').textContent='工作经历';document.querySelector('[data-page="5"]').textContent='我是活人！';
 go(Math.max(0,slideHashes.indexOf(location.hash.slice(1))));
 </script>
