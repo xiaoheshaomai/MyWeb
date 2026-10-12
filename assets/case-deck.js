@@ -1,5 +1,8 @@
 (() => {
  const fan = location.pathname.includes('fan-restaurant');
+ // The podcast case study is intentionally a normal vertical story page.
+ // Keep the deck treatment only for the FAN project.
+ if (!fan) return;
  const root = document.createElement('main');
  root.className = 'case-deck';
  const slides = [];
