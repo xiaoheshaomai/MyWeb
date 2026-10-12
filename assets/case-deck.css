@@ -1,0 +1,77 @@
+html:has(.case-mode),body.case-mode{height:100%;overflow:hidden}
+.case-deck{position:fixed;inset:0;background:#f5f1e8}
+.case-slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:55px 76px;visibility:hidden;opacity:0;transform:translateX(45px);transition:opacity .3s,transform .3s}
+.case-slide.is-current{visibility:visible;opacity:1;transform:none}
+.case-inner{width:100%;max-width:1200px;transform-origin:center center;flex-shrink:0}
+.case-slide:has(.hero),.case-slide:has(.insight){background:#2138f9}
+.case-slide:has(.outro){background:#00ff2a}
+.case-mode .hero,.case-mode .section,.case-mode .insight,.case-mode .outro{padding:0;min-height:0;border:0;width:100%;margin:0}
+.case-mode .wrap{width:100%}
+.case-mode .hero h1{font-size:clamp(36px,5vw,70px);white-space:normal}
+.case-mode .hero h1 em{white-space:normal}
+.case-mode .hero .eyebrow{margin:0 0 20px}
+.case-mode .hero-copy{margin:20px 0;font-size:17px}
+.case-mode .hero-bottom{margin-top:35px}
+.case-mode .section-head{margin-bottom:28px;gap:24px}
+.case-mode .section-head h2,.case-gallery h2{font-size:clamp(28px,3vw,44px);line-height:1.2}
+.case-mode .metrics strong{font-size:48px}
+.case-fan .hero{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.case-hero-photo{width:100%;height:60vh;object-fit:cover;border-radius:22px}
+.case-fan .hero nav{padding:0 0 20px}
+.case-mode .opening-media{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;padding:0;margin:0}
+.case-mode .hero-photo{height:65vh;margin:0;border-radius:20px;overflow:hidden}
+.case-mode .hero-photo img{width:100%;height:100%;object-fit:cover}
+.case-mode .vlog-card{display:flex;flex-direction:column;padding:20px;gap:18px}
+.case-mode .vlog-card>img{width:100%;height:32vh;object-fit:contain}
+.case-mode .vlog-copy h2{font-size:28px}
+.case-mode .demo{display:grid;grid-template-columns:1fr 390px;gap:50px;align-items:center;margin:0;padding:0}
+.case-mode .demo-copy h3{font-size:36px;white-space:normal}
+.case-mode .demo-preview{transform:scale(.65);transform-origin:center center;height:550px}
+.case-mode .phone{height:844px;width:390px}
+.case-mode .demo-copy{order:0!important}
+.case-mode .quote{font-size:36px;margin:30px 0}
+.case-mode .logic{gap:24px}
+.case-mode .outro h2{font-size:48px;white-space:normal}
+.case-mode .poster-link{padding:8px}
+.case-mode .poster-link img{height:65vh;width:100%;object-fit:contain}
+.case-mode .poster-slide{padding:20px 68px}
+.case-mode .poster-slide .case-inner{max-width:none}
+.case-mode .poster-slide .section-head{display:block;margin:0 0 8px;text-align:center}
+.case-mode .poster-slide .section-head .eyebrow,.case-mode .poster-slide .caption{display:none}
+.case-mode .poster-slide .section-head h2{font-size:18px;line-height:24px}
+.case-mode .poster-slide .poster-link{padding:0;border:0;background:transparent;border-radius:0}
+.case-mode .poster-slide .poster-link img{height:calc(100svh - 86px);border-radius:0;object-fit:contain}
+.case-gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.case-gallery figure{margin:0}
+.case-gallery img{width:100%;height:53vh;object-fit:contain;background:#e9e6de;border-radius:16px}
+.case-gallery figcaption{font-size:14px;color:#666;margin-top:14px;text-align:center}
+.case-fan .solution-slide{background:#202c40;color:#fff}
+.solution-showcase{display:grid;grid-template-columns:1fr 1.25fr;gap:36px;align-items:center}
+.case-mode .solution-showcase .solution{display:block;margin:0;padding:0;background:transparent;border-radius:0}
+.solution-showcase .solution h3{font-size:clamp(26px,2.6vw,38px);margin:16px 0}
+.solution-showcase .solution p{font-size:13px;line-height:1.75;color:#c1c8d2}
+.solution-showcase .solution .eyebrow,.solution-showcase .result{color:#00ff2a}
+.solution-showcase .solution ol{font-size:13px;line-height:1.9;margin:18px 0 10px}
+.solution-showcase .case-gallery h2{font-size:22px;margin:0 0 22px;color:#fff}
+.solution-showcase .case-gallery-grid{gap:12px}
+.solution-showcase .case-gallery img{height:49vh;background:#202c40;border-radius:10px;object-fit:contain}
+.solution-showcase .case-gallery figcaption{color:#c1c8d2;font-size:12px}
+.case-fan .solution-slide.is-current~*{color:inherit}
+@media(max-width:700px){.solution-showcase{grid-template-columns:1fr;gap:20px}.solution-showcase .case-gallery img{height:30vh}.solution-showcase .solution h3{font-size:25px}}
+.case-mode .field-research-slide .section-head{margin-bottom:14px}
+.case-mode .field-research-slide>p{margin:0 0 16px;font-size:14px}
+.case-mode .field-research-slide .flow{margin-bottom:20px;gap:10px}
+.case-mode .field-research-slide .flow li{padding:12px 14px}
+.case-mode .field-research-slide .flow b{margin-bottom:8px}
+.case-mode .field-research-slide .flow strong{font-size:15px}
+.case-mode .field-research-slide .flow p{font-size:12px;margin-top:6px}
+.case-mode .field-research-slide .case-gallery img{height:26vh;min-height:130px;object-fit:cover}
+.case-mode .field-research-slide .case-gallery figcaption{font-size:11px;margin-top:8px}
+.case-controls button{position:fixed;z-index:100;top:50%;width:46px;height:46px;padding:10px;border:0;border-radius:50%;background:#00ff2a;color:#111;cursor:pointer}
+.case-controls button[hidden]{display:none}
+.case-controls svg{display:block;width:100%;height:100%}
+.case-prev{left:14px}.case-prev svg{transform:rotate(180deg)}.case-next{right:14px}
+.case-controls>span{position:fixed;z-index:100;bottom:18px;left:50%;transform:translateX(-50%);font:700 12px/1.4 Arial;color:#777}
+@media(max-width:700px){.case-slide{padding:58px 52px}.case-inner{min-width:0}.case-fan .hero,.case-mode .demo,.case-mode .opening-media{grid-template-columns:1fr;gap:20px}.case-hero-photo{height:25vh}.case-mode .hero-photo{height:28vh}.case-mode .vlog-card{display:none}.case-gallery-grid{gap:8px}.case-gallery img{height:38vh}.case-mode .section-head{grid-template-columns:1fr}.case-mode .demo-preview{height:430px;transform:scale(.5);transform-origin:top left}.case-mode .hero h1{font-size:34px}.case-controls button{width:36px;height:36px;padding:8px}.case-prev{left:6px}.case-next{right:6px}}
+@media(max-width:700px){.case-mode .vlog-card{display:flex;flex-direction:row}.case-mode .vlog-card>img{width:35%;height:120px}.case-mode .vlog-copy h2{font-size:20px}.case-mode .vlog-copy p{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.case-slide{transition:none}}

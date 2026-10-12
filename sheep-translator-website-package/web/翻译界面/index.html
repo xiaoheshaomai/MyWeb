@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Goat Translator</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="translator" aria-live="polite">
+      <a class="home-link" href="../index.html#home" aria-label="Back home">←</a>
+
+      <section class="screen start-screen is-active" data-screen="start">
+        <h1>GOAT TRANSLATOR</h1>
+
+        <img class="sheep sheep-side" src="../assets/sheep1.png" alt="">
+
+        <button class="start-button" type="button">START TO BAA~</button>
+        <p class="listen-status" aria-live="polite"></p>
+      </section>
+
+      <section class="screen result-screen" data-screen="result">
+        <img class="sheep sheep-front" src="../assets/sheep2.png" alt="">
+
+        <div class="speech-bubble" aria-label="Translation result">
+          <p class="result-text"></p>
+          <p class="result-class"></p>
+        </div>
+
+        <button class="pretty-result-button" type="button">SHOW</button>
+        <p class="pretty-result-word" aria-live="polite" aria-hidden="true">pretty</p>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands@0.4.0/dist/speech-commands.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

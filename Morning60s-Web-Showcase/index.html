@@ -1,0 +1,1398 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="速起 Morning60s——用早餐奖励代替起床焦虑。">
+  <title>速起 Morning60s｜项目展示</title>
+  <style>
+    :root {
+      --paper: #f2efe6;
+      --paper-deep: #e8e3d6;
+      --ink: #0a0a09;
+      --muted: #75736d;
+      --line: rgba(10, 10, 9, .16);
+      --red: #ff2d24;
+      --yellow: #ffdf31;
+      --white: #fffefa;
+      --max: 1440px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    html, body { height: 100%; overflow: hidden; }
+    body {
+      display: flex;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+    }
+    body::-webkit-scrollbar { display: none; }
+    body > section,
+    body > header,
+    body > footer {
+      flex: 0 0 100vw;
+      width: 100vw;
+      height: 100svh;
+      min-height: 100svh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      overscroll-behavior-y: contain;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .page-no {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      color: #77756f;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+    .page-no::after {
+      content: "";
+      width: 54px;
+      height: 1px;
+      background: currentColor;
+      opacity: .5;
+    }
+
+    .nav {
+      position: fixed;
+      z-index: 20;
+      top: 18px;
+      left: 50%;
+      width: min(calc(100% - 32px), 720px);
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px 12px 20px;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 999px;
+      background: rgba(242,239,230,.78);
+      box-shadow: 0 12px 35px rgba(53,47,37,.08);
+      backdrop-filter: blur(18px);
+    }
+    .nav strong { font-size: 15px; letter-spacing: .03em; }
+    .nav-links { display: flex; gap: 5px; }
+    .nav-links a {
+      padding: 8px 13px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 13px;
+      transition: .2s ease;
+    }
+    .nav-links a:hover { color: var(--ink); background: var(--white); }
+
+    .opening-room {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      grid-template-columns: .95fr 1.15fr;
+      align-items: center;
+      gap: 24px;
+      min-height: min(900px, 100svh);
+      padding: 120px max(5vw, 24px) 64px;
+      overflow: hidden;
+      background: var(--paper);
+    }
+    .opening-room::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 70% 0 0;
+      border-top: 1px solid #c9c1b0;
+      background: linear-gradient(#e3ddcf, #ebe5d9);
+      box-shadow: inset 0 12px 32px -28px #81745b;
+    }
+    .opening-room-copy { align-self: center; padding-bottom: 80px; }
+    .opening-question-label {
+      display: block; margin-bottom: 28px;
+      color: #8b7961; font-size: 16px; font-weight: 700; letter-spacing: .18em;
+    }
+    .opening-room h1 {
+      margin: 0; font-size: clamp(30px, 3.4vw, 62px);
+      line-height: 1.5; letter-spacing: -.045em; font-weight: 800;
+    }
+    .opening-room-art {
+      width: 100%; height: auto; align-self: center;
+      filter: drop-shadow(0 20px 16px rgba(86, 70, 41, .12));
+    }
+    @media (max-width: 800px) {
+      .opening-room { grid-template-columns: 1fr; gap: 20px; padding: 110px 24px 40px; min-height: 100svh; }
+      .opening-room-copy { padding: 0; }
+      .opening-room h1 { font-size: clamp(27px, 5.4vw, 42px); }
+      .opening-question-label { margin-bottom: 18px; }
+      .opening-room-art { width: min(100%, 560px); justify-self: center; }
+      .opening-room::before { top: 78%; }
+    }
+    .hero {
+      min-height: 100svh;
+      padding: 46px clamp(24px, 5vw, 78px) 54px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-heading h1 {
+      margin: 8px 0 0;
+      font-size: clamp(48px, 7.2vw, 116px);
+      line-height: .95;
+      letter-spacing: -.075em;
+    }
+    .hero-grid {
+      width: min(100%, var(--max));
+      margin: auto;
+      display: grid;
+      grid-template-columns: minmax(300px, .85fr) minmax(430px, 1.25fr);
+      gap: clamp(50px, 8vw, 130px);
+      align-items: center;
+    }
+    .icon-stage {
+      position: relative;
+      width: min(100%, 570px);
+      aspect-ratio: 1;
+      padding: 7%;
+      border-radius: 25%;
+      background: rgba(255,255,255,.62);
+      box-shadow: 0 30px 70px rgba(54,48,37,.14);
+    }
+    .icon-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20%;
+    }
+    .hero-copy { padding-top: 16px; }
+    .eyebrow {
+      color: #8a8883;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    .brand {
+      margin: 28px 0 2px;
+      font-size: clamp(72px, 9vw, 154px);
+      line-height: .88;
+      letter-spacing: -.09em;
+    }
+    .brand-en {
+      margin: 8px 0 0;
+      font-size: clamp(24px, 2.3vw, 40px);
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+    .hero-desc {
+      max-width: 720px;
+      margin: clamp(38px, 6vw, 78px) 0 0;
+      color: #62605c;
+      font-size: clamp(18px, 1.55vw, 26px);
+      line-height: 1.85;
+    }
+    .hero-lead {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--red);
+      font-size: clamp(26px, 2.4vw, 40px);
+      font-weight: 850;
+      line-height: 1.3;
+    }
+    .hero-meta {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .tag {
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #67645f;
+      font-size: 13px;
+    }
+
+    .statement {
+      padding: clamp(100px, 14vw, 220px) 24px;
+      text-align: center;
+    }
+    .statement p {
+      width: min(1040px, 92%);
+      margin: 36px auto 0;
+      font-size: clamp(36px, 5.5vw, 84px);
+      font-weight: 800;
+      line-height: 1.22;
+      letter-spacing: -.06em;
+    }
+    .statement em { color: var(--red); font-style: normal; }
+    .breakfast-invitation { padding: 80px 24px; overflow: hidden; }
+    .breakfast-orbit { position: relative; max-width: 1320px; margin: 0 auto; padding: 90px 160px; }
+    .breakfast-orbit p { position: relative; z-index: 1; width: 100%; margin: 0; font-size: clamp(27px, 3.3vw, 49px); line-height: 1.6; letter-spacing: -.035em; }
+    .scattered-food { position: absolute; width: clamp(100px, 12vw, 160px); height: auto; pointer-events: none; }
+    .food-position-0 { left: 0; top: 5%; transform: rotate(-17deg); }
+    .food-position-1 { right: 0; top: 0; transform: rotate(14deg); }
+    .food-position-2 { left: 3%; bottom: 0; transform: rotate(12deg); }
+    .food-position-3 { right: 2%; bottom: 0; transform: rotate(-13deg); }
+    .breakfast-invitation .breakfast-lucky { max-width: 760px; margin: 24px auto 0; }
+    @media(max-width:720px) {
+      .breakfast-invitation { padding: 60px 20px; }
+      .breakfast-orbit { padding: 105px 0 115px; }
+      .breakfast-orbit p { font-size: clamp(22px, 4.8vw, 32px); }
+      .scattered-food { width: 100px; }
+      .food-position-0, .food-position-1 { top: 0; }
+    }
+
+    .story {
+      padding: clamp(90px, 12vw, 180px) clamp(22px, 5vw, 76px);
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+      background: #e7e2d6;
+    }
+    .story-head {
+      width: min(100%, var(--max));
+      margin: 0 auto 70px;
+      display: grid;
+      grid-template-columns: 1fr minmax(280px, 470px);
+      gap: 50px;
+      align-items: end;
+    }
+    .story-head h2 {
+      margin: 18px 0 0;
+      font-size: clamp(52px, 7.5vw, 118px);
+      line-height: .92;
+      letter-spacing: -.075em;
+    }
+    .story-head p {
+      margin: 0;
+      color: #66635e;
+      font-size: clamp(17px, 1.45vw, 22px);
+      line-height: 1.8;
+    }
+    .story-track {
+      position: relative;
+      width: min(100%, var(--max));
+      margin: 0 auto;
+    }
+    .story-step {
+      display: none;
+      position: relative;
+      min-width: 0;
+      animation: story-in .45s ease both;
+    }
+    .story-step.active { display: block; }
+    @keyframes story-in {
+      from { opacity: 0; transform: translateX(24px); }
+      to { opacity: 1; transform: none; }
+    }
+    .story-time {
+      margin-bottom: 16px;
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .14em;
+    }
+    .story-card {
+      min-height: 860px;
+      padding: 30px 30px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid rgba(10,10,9,.13);
+      border-radius: 36px;
+      background: rgba(255,254,250,.64);
+      cursor: pointer;
+      box-shadow: 0 24px 70px rgba(54,48,37,.08);
+    }
+    .story-card img,
+    .lock-scene {
+      width: min(100%, 360px);
+      height: 700px;
+      object-fit: contain;
+      object-position: top;
+      border-radius: 22px;
+      background: #d8d5cd;
+      box-shadow: 0 22px 55px rgba(41,36,29,.16);
+    }
+    .story-copy {
+      width: min(100%, 760px);
+      padding: 22px 10px 0;
+      text-align: center;
+    }
+    .story-count {
+      margin-bottom: 8px;
+      color: #8a877f;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .story-card h3 {
+      margin: 0 0 7px;
+      font-size: clamp(22px, 2.2vw, 30px);
+      line-height: 1.15;
+      letter-spacing: -.04em;
+    }
+    .story-card p {
+      max-width: 520px;
+      margin: 0 auto;
+      color: #77746e;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    .story-click-hint {
+      margin-top: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #77746e;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .story-click-hint i {
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--ink);
+      font-style: normal;
+    }
+    .lock-scene {
+      position: relative;
+      overflow: hidden;
+      padding: 45px 24px;
+      color: #fff;
+      text-align: center;
+      background:
+        radial-gradient(circle at 75% 24%, rgba(255,223,49,.9) 0 16%, transparent 17%),
+        linear-gradient(155deg, #535474 0%, #252638 52%, #101116 100%);
+    }
+    .lock-scene::after {
+      content: "情境示意";
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      color: rgba(255,255,255,.55);
+      font-size: 9px;
+      letter-spacing: .08em;
+    }
+    .lock-date { font-size: 14px; opacity: .82; }
+    .lock-time { margin-top: 2px; font-size: 58px; font-weight: 300; letter-spacing: -.05em; }
+    .lock-widget {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 75px;
+      padding: 18px 16px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid rgba(255,255,255,.27);
+      border-radius: 20px;
+      background: rgba(255,255,255,.16);
+      backdrop-filter: blur(10px);
+      text-align: left;
+    }
+    .lock-widget-icon {
+      flex: 0 0 48px;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ink);
+      background: var(--yellow);
+      font-size: 24px;
+    }
+    .lock-widget strong { display: block; font-size: 14px; }
+    .lock-widget span { display: block; margin-top: 3px; font-size: 11px; opacity: .72; }
+    .story-controls {
+      width: min(100%, var(--max));
+      margin: 28px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .story-dots { display: flex; gap: 9px; }
+    .story-dot {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(10,10,9,.2);
+      cursor: pointer;
+      transition: .2s ease;
+    }
+    .story-dot.active { width: 32px; border-radius: 999px; background: var(--red); }
+    .story-buttons { display: flex; gap: 10px; }
+    .story-button {
+      padding: 12px 18px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      color: var(--ink);
+      background: transparent;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .story-button.next { color: var(--white); background: var(--ink); }
+    .story-summary {
+      width: min(100%, var(--max));
+      margin: 52px auto 0;
+      padding: 26px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .story-summary strong { font-size: clamp(20px, 2vw, 30px); }
+    .story-summary span { color: #77746e; font-size: 14px; }
+
+    .flow {
+      padding: clamp(70px, 9vw, 140px) clamp(22px, 5vw, 76px);
+      overflow: hidden;
+      background: var(--ink);
+      color: var(--white);
+    }
+    .section-head {
+      width: min(100%, var(--max));
+      margin: 0 auto 74px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .section-head h2 {
+      max-width: 900px;
+      margin: 12px 0 0;
+      font-size: clamp(46px, 6.5vw, 102px);
+      line-height: .98;
+      letter-spacing: -.065em;
+    }
+    .section-head p {
+      max-width: 370px;
+      margin: 0;
+      color: #a9a69e;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .flow .page-no { color: #a9a69e; }
+
+    .phones {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(10px, 2vw, 30px);
+      align-items: center;
+    }
+    .phone {
+      position: relative;
+      overflow: hidden;
+      border: 7px solid #191918;
+      border-radius: clamp(24px, 3vw, 46px);
+      background: #111;
+      box-shadow: 0 30px 70px rgba(0,0,0,.45);
+    }
+    .phone:nth-child(2), .phone:nth-child(4) { transform: translateY(46px); }
+    .phone img { width: 100%; }
+    .phone-label {
+      margin-top: 70px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+      color: #a9a69e;
+      font-size: 13px;
+      letter-spacing: .12em;
+    }
+
+    .feature {
+      min-height: 100svh;
+      padding: clamp(80px, 10vw, 150px) clamp(24px, 6vw, 94px);
+      display: grid;
+      grid-template-columns: minmax(300px, .9fr) minmax(370px, 1.1fr);
+      gap: clamp(50px, 10vw, 160px);
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+    .feature.reverse .feature-visual { order: 2; }
+    .feature-copy { max-width: 610px; }
+    .feature-index {
+      color: var(--red);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .2em;
+    }
+    .feature h2 {
+      margin: 22px 0 30px;
+      font-size: clamp(52px, 6.5vw, 104px);
+      line-height: .98;
+      letter-spacing: -.07em;
+    }
+    .feature p {
+      color: #66635e;
+      font-size: clamp(17px, 1.4vw, 22px);
+      line-height: 1.85;
+    }
+    .feature-note {
+      margin-top: 45px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      color: #8b8881;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .feature-visual {
+      position: relative;
+      min-height: 680px;
+      display: grid;
+      place-items: center;
+    }
+    .feature-visual::before {
+      content: "";
+      position: absolute;
+      width: min(90%, 650px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--yellow);
+    }
+    .feature.photo .feature-visual::before { background: #dedbd2; }
+    .feature.calendar .feature-visual::before { border-radius: 10%; background: var(--red); }
+    .shot {
+      position: relative;
+      z-index: 1;
+      width: min(360px, 70%);
+      overflow: hidden;
+      border: 8px solid var(--ink);
+      border-radius: 48px;
+      background: #fff;
+      box-shadow: 0 30px 70px rgba(32,27,20,.25);
+      transform: rotate(-3deg);
+    }
+    .reverse .shot { transform: rotate(3deg); }
+
+    .worlds {
+      padding: clamp(95px, 12vw, 180px) clamp(22px, 5vw, 76px);
+      background: #dfdcd4;
+    }
+    .worlds .section-head { color: var(--ink); }
+    .worlds .section-head p { color: #6f6c67; }
+    .world-grid {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(18px, 3vw, 44px);
+    }
+    .world-card {
+      position: relative;
+      min-height: 680px;
+      padding: 40px;
+      overflow: hidden;
+      border-radius: 36px;
+      background: var(--paper);
+    }
+    .world-card.night { background: #202022; color: var(--white); }
+    .world-card h3 { margin: 0; font-size: clamp(35px, 4vw, 62px); letter-spacing: -.05em; }
+    .world-card p { margin: 8px 0 0; color: #7c7973; }
+    .world-card.night p { color: #9d9ba2; }
+    .world-card img {
+      position: absolute;
+      width: min(310px, 62%);
+      left: 50%;
+      bottom: -120px;
+      transform: translateX(-50%);
+      border: 7px solid var(--ink);
+      border-radius: 42px;
+      box-shadow: 0 30px 70px rgba(0,0,0,.22);
+    }
+
+    .gallery {
+      padding: clamp(100px, 13vw, 190px) 0;
+      overflow: hidden;
+    }
+    .gallery-title { padding: 0 clamp(24px, 5vw, 76px); }
+    .gallery-title h2 {
+      margin: 20px 0 70px;
+      font-size: clamp(50px, 8vw, 126px);
+      line-height: .9;
+      letter-spacing: -.075em;
+    }
+    .gallery-strip {
+      display: flex;
+      width: max-content;
+      gap: 22px;
+      padding: 0 5vw;
+    }
+    .gallery-strip img {
+      width: clamp(210px, 21vw, 340px);
+      border: 6px solid var(--ink);
+      border-radius: 38px;
+      box-shadow: 0 24px 45px rgba(47,42,34,.14);
+    }
+
+    footer {
+      min-height: 74svh;
+      padding: clamp(24px, 4vw, 64px);
+      display: grid;
+      grid-template-rows: 1fr auto 1fr;
+      place-items: center;
+      text-align: center;
+      color: var(--white);
+      background: var(--red);
+    }
+    footer > .reveal { grid-row: 2; width: 100%; }
+    footer .eyebrow { display: block; font-size: clamp(12px, 1vw, 16px); letter-spacing: .28em; }
+    footer h2 {
+      margin: 28px 0 0;
+      font-size: clamp(64px, 10vw, 160px);
+      line-height: 1.12;
+      letter-spacing: -.045em;
+    }
+    footer p { max-width: 34em; margin: 32px auto 0; font-size: clamp(16px, 1.45vw, 22px); line-height: 1.8; text-wrap: balance; }
+    .footer-bottom {
+      grid-row: 3;
+      align-self: end;
+      width: min(100%, var(--max));
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      color: rgba(255,255,255,.72);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      .nav-links a:nth-child(2), .nav-links a:nth-child(3) { display: none; }
+      .hero { padding-top: 94px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 46px; padding-top: 70px; }
+      .icon-stage { width: min(76vw, 450px); margin: auto; }
+      .hero-copy { text-align: center; }
+      .hero-desc { margin-left: auto; margin-right: auto; }
+      .hero-meta { justify-content: center; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 25px; }
+      .story-head { grid-template-columns: 1fr; }
+      .story-card { min-height: 820px; }
+      .story-card img, .lock-scene { height: 660px; }
+      .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 620px; }
+      .phone:nth-child(2), .phone:nth-child(4) { transform: translateY(24px); }
+      .phone-label { display: none; }
+      .feature, .feature.reverse { grid-template-columns: 1fr; min-height: auto; }
+      .feature.reverse .feature-visual { order: initial; }
+      .feature-copy { margin: auto; text-align: center; }
+      .feature-visual { min-height: 620px; }
+      .world-grid { grid-template-columns: 1fr; max-width: 620px; }
+    }
+
+    @media (max-width: 560px) {
+      .page-no { font-size: 11px; }
+      .hero-heading h1 { font-size: 48px; }
+      .hero-grid { padding-top: 45px; }
+      .hero-desc { font-size: 17px; }
+      .story-head { margin-bottom: 42px; }
+      .story-card { min-height: 0; padding: 14px 12px 18px; border-radius: 24px; }
+      .story-card img, .lock-scene { width: min(100%, 310px); height: 590px; object-position: top; border-radius: 16px; }
+      .story-copy { padding: 18px 8px 0; }
+      .story-count { margin-bottom: 7px; }
+      .story-card h3 { margin-bottom: 6px; }
+      .story-click-hint { margin-top: 12px; }
+      .story-controls { align-items: flex-end; }
+      .story-button { padding: 10px 13px; }
+      .story-summary { display: block; }
+      .story-summary span { display: block; margin-top: 10px; }
+      .flow { padding-left: 14px; padding-right: 14px; }
+      .phones { gap: 8px; }
+      .phone { border-width: 4px; border-radius: 24px; }
+      .feature { padding-left: 22px; padding-right: 22px; }
+      .feature-visual { min-height: 500px; }
+      .shot { width: 72%; border-width: 5px; border-radius: 32px; }
+      .world-card { min-height: 560px; padding: 28px; }
+      .world-card img { bottom: -60px; }
+      .footer-bottom { display: block; line-height: 2; }
+    }
+
+    /* One reading column on the left; the active phone on the right. */
+    #story {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
+      grid-template-rows: auto auto auto auto;
+      column-gap: clamp(48px, 8vw, 130px);
+      row-gap: 28px;
+      padding: 90px max(32px, calc((100vw - 1120px) / 2));
+      align-items: start;
+    }
+    #story .story-head { grid-column: 1; grid-row: 1; display: block; width: 100%; margin: 32px 0 0; }
+    #story .story-head h2 { font-size: clamp(44px, 4.8vw, 68px); line-height: 1.1; letter-spacing: -.045em; }
+    #story .story-head p { margin-top: 24px; max-width: 450px; font-size: 16px; line-height: 1.85; }
+    #story .story-track, #story .story-step.active, #story .story-card { display: contents; }
+    #story .story-step:not(.active) { display: none; }
+    #story .story-time { display: none; }
+    #story .story-card > img, #story .lock-scene {
+      grid-column: 2; grid-row: 1 / 4; justify-self: center; align-self: center;
+      width: min(100%, 320px); height: 622px; border-radius: 24px;
+      object-fit: contain; cursor: pointer;
+    }
+    #story .story-card:focus-visible > img, #story .story-card:focus-visible .lock-scene { outline: 3px solid var(--red); outline-offset: 6px; }
+    #story .story-copy { grid-column: 1; grid-row: 2; width: 100%; padding: 12px 0 0; text-align: left; align-self: end; }
+    #story .story-count { color: var(--red); margin-bottom: 14px; }
+    #story .story-card h3 { margin-bottom: 12px; font-size: 30px; line-height: 1.25; }
+    #story .story-card p { margin: 0; max-width: 440px; font-size: 15px; line-height: 1.8; }
+    #story .story-click-hint { display: none; }
+    #story .story-controls { grid-column: 1; grid-row: 3; margin: 0; width: 100%; flex-wrap: wrap; justify-content: flex-start; gap: 24px; padding-bottom: 24px; }
+    #story .story-summary { grid-column: 1 / -1; grid-row: 4; width: 100%; margin-top: 28px; }
+    @media (max-width: 720px) {
+      #story { grid-template-columns: 1fr; padding: 64px 24px; row-gap: 24px; }
+      #story .story-head { margin: 0; }
+      #story .story-head h2 { font-size: 46px; }
+      #story .story-copy { grid-row: 2; }
+      #story .story-card > img, #story .lock-scene { grid-column: 1; grid-row: 3; width: min(100%, 300px); height: 583px; }
+      #story .story-controls { grid-row: 4; justify-content: space-between; padding-bottom: 0; }
+      #story .story-summary { grid-row: 5; }
+    }
+    /* Each slide owns its headline, explanation and phone. */
+    #story{display:block;overflow:hidden}
+    #story .story-track{display:block;width:100%;overflow:hidden}
+    #story .story-step.active{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,1fr);grid-template-rows:auto 1fr;column-gap:clamp(40px,7vw,100px);min-height:622px;animation:morning-slide .4s ease both}
+    #story .story-head{grid-column:1;grid-row:1;margin:28px 0 0}
+    #story .story-copy{grid-column:1;grid-row:2;align-self:center;padding:28px 0}
+    #story .story-card>img,#story .lock-scene{grid-column:2;grid-row:1/3}
+    #story .story-controls{display:flex;margin:28px 0 0;padding:0}
+    #story .story-summary{margin-top:40px}
+    @keyframes morning-slide{from{opacity:0;transform:translateX(var(--slide-from,60px))}to{opacity:1;transform:translateX(0)}}
+    @media(max-width:720px){#story .story-step.active{grid-template-columns:1fr;grid-template-rows:auto auto auto;min-height:0}#story .story-head{margin:0}#story .story-copy{grid-row:2}#story .story-card>img,#story .lock-scene{grid-column:1;grid-row:3}#story .story-controls{justify-content:space-between}}
+    #story{position:relative}
+    #story .story-step.active{grid-template-rows:1fr}
+    #story .story-head{grid-row:1;align-self:center;justify-self:center;margin:0;text-align:center}
+    #story .story-head h2{margin:0;line-height:1.18}
+    #story .story-head .page-no,#story .story-head p,#story .story-copy,#story .story-summary{display:none}
+    #story .story-card>img,#story .lock-scene{grid-row:1}
+    #story .story-controls{position:absolute;inset:0;width:100%;height:100%;margin:0;pointer-events:none;opacity:1;transform:none}
+    #story .story-buttons{display:contents}
+    #story .story-button{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;padding:0;border:1px solid #1112;border-radius:50%;background:#f9f7f1;color:#111;font-size:25px;pointer-events:auto;display:grid;place-items:center}
+    #story .story-button.prev{left:16px}#story .story-button.next{right:16px}
+    #story .story-button:disabled{pointer-events:none}
+    #story .story-dots{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);pointer-events:auto}
+    @media(max-width:720px){#story{padding:56px 54px 76px}#story .story-step.active{grid-template-rows:auto auto;gap:30px}#story .story-head{grid-row:1}#story .story-head h2{font-size:38px}#story .story-card>img,#story .lock-scene{grid-row:2;height:auto;aspect-ratio:320/622}#story .story-button{width:36px;height:36px}#story .story-button.prev{left:8px}#story .story-button.next{right:8px}}
+    #story .lock-scene{padding:0;background:radial-gradient(circle at 77% 29%,#f4d58b 0 15%,#f4d58b00 15.5%),radial-gradient(ellipse at 12% 100%,#c9d0bc 0 31%,transparent 31.5%),radial-gradient(ellipse at 100% 94%,#dbc9ab 0 38%,transparent 38.5%),linear-gradient(165deg,#f8f5ed 0%,#eee5d4 58%,#e6d9be 100%);cursor:default}
+    #story .lock-scene .lock-date{display:block;position:absolute;top:7%;left:0;width:100%;color:#655e51}
+    #story .lock-time{position:absolute;top:11%;left:10%;width:80%;height:12%;margin:0;display:grid;place-items:center;background:none;color:#49473e;font-size:64px;font-weight:300;line-height:1;letter-spacing:-.06em}
+    #story .lock-widget{position:absolute;top:27%;left:50%;right:auto;bottom:auto;transform:translateX(-50%);width:58px;height:58px;padding:7px 0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:1px solid #ffffffb3;border-radius:50%;background:#ffffff8f;color:#655139;cursor:pointer;text-align:center;box-shadow:0 3px 14px #79644712}
+    #story .lock-widget-icon{width:27px;height:27px;flex:0 0 27px;display:block;background:none;color:inherit;line-height:1}
+    #story .lock-widget-icon svg{display:block;width:100%;height:100%}
+    #story .lock-widget span{font-size:11px;font-weight:700;margin:0;opacity:1;line-height:12px}
+    .lock-tap-hand{position:absolute;top:calc(27% + 32px);left:calc(50% + 15px);width:34px;height:40px;pointer-events:none;filter:drop-shadow(0 3px 4px #0007);transform-origin:20% 15%;animation:lock-tap 1.6s ease-in-out infinite}
+    .lock-tap-hand svg{display:block;width:100%;height:100%}
+    @keyframes lock-tap{0%,100%{transform:scale(1)}45%,60%{transform:scale(.88)}}
+    @media(prefers-reduced-motion:reduce){.lock-tap-hand{animation:none}}
+    #story .lock-widget:focus-visible{outline:3px solid white;outline-offset:5px}
+    #story .lock-scene::after{content:'通知内容为情境示意';font-size:8px;bottom:5px;color:#655e51}
+    .lock-notifications{position:absolute;left:10px;right:10px;bottom:70px;display:flex;flex-direction:column;gap:7px;text-align:left;pointer-events:none}
+    .lock-notification{display:flex;gap:9px;align-items:center;padding:12px 10px;background:rgba(255,245,251,.86);border:1px solid #ffffff70;border-radius:16px;backdrop-filter:blur(16px);color:#29232a;box-shadow:0 5px 18px #482a4220}
+    #story .lock-notification img{width:30px;height:30px;min-width:30px;border-radius:8px;object-fit:cover}
+    .lock-notification strong{display:block;font-size:11px;margin-bottom:4px}.lock-notification span{display:block;font-size:10px;line-height:1.4}.lock-notification time{margin-left:auto;align-self:flex-start;font-size:8px;color:#8a7783;white-space:nowrap}
+    .story-step.active .lock-notification{animation:notification-in .65s both;animation-delay:1s}.story-step.active .lock-notification:nth-child(2){animation-delay:1.9s}.story-step.active .lock-notification:nth-child(3){animation-delay:2.8s}
+    @keyframes notification-in{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:translateY(0)}}
+    #story .story-step:first-child .story-head p{display:none}
+    .lock-entry-bubble{position:absolute;z-index:2;top:calc(27% + 52px);left:9px;width:calc(50% - 5px);transform:translateY(-50%);padding:11px 10px;border:1px solid #ffffffc9;border-radius:13px;background:rgba(255,253,248,.9);box-shadow:0 7px 20px #65513916;backdrop-filter:blur(10px);color:#655139;font-size:11px;line-height:1.65;text-align:center;pointer-events:none}
+    .lock-entry-bubble::after{content:'';position:absolute;right:-5px;top:50%;width:8px;height:8px;transform:translateY(-50%) rotate(45deg);background:#fffdf8;border-top:1px solid #ffffffc9;border-right:1px solid #ffffffc9}
+    @media(prefers-reduced-motion:reduce){.story-step.active .lock-notification{animation:none}}
+    #story .core-flow-label{display:flex;align-items:center;gap:14px;margin-bottom:32px;color:var(--ink);font-size:clamp(20px,2vw,30px);font-weight:750;line-height:1.4;letter-spacing:0;text-wrap:balance}
+    #story .core-flow-label::before{content:"";flex:0 0 6px;width:6px;height:1.2em;border-radius:3px;background:var(--yellow)}
+    #story .core-flow-label::after{display:none}
+    .breakfast-parade{padding:28px 0 56px;background:#eee9df;overflow:hidden}
+    .breakfast-parade-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:0 auto 24px;width:min(1120px,calc(100% - 48px))}
+    .breakfast-parade-head .page-no{margin:0;font-size:11px}
+    .breakfast-pause{padding:8px 14px;border:1px solid #aaa6;border-radius:999px;background:transparent;color:#555;cursor:pointer;font:inherit;font-size:12px}
+    .breakfast-lane{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+    .breakfast-belt{display:flex;width:max-content;animation:breakfast-scroll 220s linear infinite}
+    .breakfast-set{display:flex;flex-shrink:0;gap:22px;padding:8px 22px 8px 0;align-items:center}
+    .breakfast-set img{width:144px;height:144px;object-fit:contain;flex:none}
+    .reverse-lane .breakfast-belt{animation-direction:reverse}
+    .breakfast-parade:hover .breakfast-belt,.breakfast-parade.is-paused .breakfast-belt{animation-play-state:paused}
+    @keyframes breakfast-scroll{to{transform:translateX(-50%)}}
+    @media(max-width:720px){.breakfast-set img{width:104px;height:104px}.breakfast-set{gap:14px;padding-right:14px}}
+    @media(prefers-reduced-motion:reduce){.breakfast-belt{animation:none}.breakfast-lane{overflow-x:auto}.breakfast-set[aria-hidden]{display:none}}
+    .breakfast-lucky{display:grid;grid-template-columns:1fr 300px;gap:44px;align-items:center;margin-top:48px;padding:36px;border-radius:24px;background:#eee7d8;text-align:left}
+    .lucky-label{font-size:12px;letter-spacing:.1em;color:#8b7158}.lucky-copy h3{margin:16px 0;font-size:clamp(26px,3vw,38px);line-height:1.25}
+    .statement .lucky-copy p{font-size:16px;line-height:1.8;letter-spacing:0;font-weight:400;color:#756e62;margin:0;max-width:440px}
+    .lucky-copy a{display:inline-block;margin-top:24px;font-size:14px;font-weight:700;color:var(--red)}
+    .lucky-interaction{text-align:center}.lucky-box{width:100%;min-height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;border:1px solid #ead9b4;border-radius:22px;background:#fff9e9;cursor:pointer;color:#302b24;box-shadow:0 12px 28px #64513210}
+    .lucky-gift[hidden]{display:none}.lucky-gift{display:flex;align-items:center;justify-content:center;width:110px;height:120px;border-radius:16px;background:#ffdf55;color:#111;font-size:56px;line-height:1;font-weight:800;transform:rotate(-5deg);box-shadow:7px 9px 0 var(--red);animation:lucky-float 2.2s ease-in-out infinite}
+    .lucky-action{margin-top:18px;font-size:14px;font-weight:700}.lucky-result{width:170px;height:170px;object-fit:contain}.lucky-result[hidden]{display:none}
+    .lucky-status{display:block;margin-top:14px;font-size:12px;color:#7b7164}.lucky-box:focus-visible{outline:3px solid var(--red);outline-offset:5px}
+    .lucky-box.is-opening .lucky-gift{animation:lucky-shake .15s linear infinite alternate}
+    @keyframes lucky-shake{from{transform:rotate(-9deg) scale(.96)}to{transform:rotate(9deg) scale(1.04)}}
+    @keyframes lucky-float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-8px) rotate(-3deg)}}
+    @media(max-width:720px){.breakfast-lucky{grid-template-columns:1fr;gap:28px;padding:24px}.lucky-interaction{width:min(100%,300px);justify-self:center}}
+    @media(prefers-reduced-motion:reduce){.lucky-gift,.lucky-box.is-opening .lucky-gift{animation:none}}
+    .breakfast-invitation .breakfast-lucky { display: block; width: min(100%, 300px); padding: 0; background: transparent; border-radius: 0; margin: 12px auto 0; }
+    .breakfast-invitation .lucky-box { border: 0; background: transparent; box-shadow: none; }
+    .breakfast-invitation .lucky-interaction { position: relative; transform: translate(-40px, -50px); }
+    .breakfast-invitation .lucky-result { transform: scale(1.5); }
+    .breakfast-invitation .lucky-action { transform: translateX(15px); }
+    .lucky-confetti { position: absolute; left: 50%; top: 95px; width: 9px; height: 13px; pointer-events: none; z-index: 3; border-radius: 2px; }
+    .breakfast-invitation .lucky-gift { position: relative; left: -4px; }
+    .breakfast-invitation .lucky-status { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    .breakfast-orbit { padding-top: 120px; padding-bottom: 120px; }
+    .scattered-food { width: clamp(100px, 12vw, 160px); animation: breakfast-float 4.8s ease-in-out infinite alternate; }
+    .food-position-0 { top: 0; }
+    .food-position-1 { top: 0; animation-delay: -2s; }
+    .food-position-2 { bottom: 0; animation-delay: -1s; }
+    .food-position-3 { bottom: 0; animation-delay: -3s; }
+    @keyframes breakfast-float { from { translate: 0 0; rotate: -3deg; } to { translate: 0 -14px; rotate: 3deg; } }
+    @media(max-width:720px) {
+      .scattered-food { width: 100px; }
+      .breakfast-orbit { padding-top: 100px; padding-bottom: 100px; }
+    }
+    @media(prefers-reduced-motion:reduce) { .scattered-food { animation: none; } }
+    /* A shared phone silhouette across all six steps. */
+    #story .story-card > img,#story .lock-scene{width:min(100%,288px);height:auto;max-height:none;aspect-ratio:1284/2778;padding:0;border:0;object-fit:fill;border-radius:26px;overflow:hidden;box-shadow:0 22px 55px rgba(41,36,29,.16)}
+    @media(max-width:720px){#story .story-card > img,#story .lock-scene{width:min(100%,288px);height:auto;aspect-ratio:1284/2778;border-radius:24px}}
+    @media (prefers-reduced-motion: reduce) {
+      #story .story-step.active{animation:none}
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+<script src="../assets/portfolio-home.js" defer></script></head>
+<body>
+  <section class="opening-room" aria-labelledby="opening-question">
+    <div class="opening-room-copy">
+      <h1 id="opening-question">你每天醒来之后<br>多久才能离开床？🤔</h1>
+    </div>
+    <img class="opening-room-art" src="opening-bedroom.png" alt="小和躺在床上看手机，身后挂着一幅太阳画" fetchpriority="high" width="1408" height="1120">
+  </section>
+
+  <section class="statement breakfast-invitation" id="idea">
+    <span class="page-no">The idea</span>
+    <div class="breakfast-orbit">
+      <p>如果你也和我一样，<br>每天醒来都要赖床玩手机，<br>那就让可爱的早餐激励你<em>速起</em>吧！</p>
+      <img class="scattered-food food-position-0" src="breakfast-icons/food-0.png" alt="" aria-hidden="true" width="160" height="160">
+      <img class="scattered-food food-position-1" src="breakfast-icons/food-12.png" alt="" aria-hidden="true" width="160" height="160">
+      <img class="scattered-food food-position-2" src="breakfast-icons/food-24.png" alt="" aria-hidden="true" width="160" height="160">
+      <img class="scattered-food food-position-3" src="breakfast-icons/food-104.png" alt="" aria-hidden="true" width="160" height="160">
+    </div>
+    <div class="breakfast-lucky">
+      <div class="lucky-interaction"><button class="lucky-box" type="button" aria-label="抽一个早餐盲盒吧！"><span class="lucky-gift" aria-hidden="true">?</span><img class="lucky-result" alt="" hidden><span class="lucky-action">抽一个早餐盲盒吧！</span></button><span class="lucky-status" role="status" aria-live="polite">一份随机早餐，等你打开。</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <div class="hero-grid">
+      <div class="icon-stage reveal">
+        <img src="Morning60s/Assets.xcassets/AppIcon.appiconset/AppIcon.png" alt="速起 App 图标">
+      </div>
+      <div class="hero-copy reveal">
+        <div class="eyebrow">Independent iOS App · 2026</div>
+        <h2 class="brand">速起</h2>
+        <div class="brand-en">Morning60s</div>
+        <p class="hero-desc"><span class="hero-lead">一个帮你在 60 秒内起床的 App</span>把每天最难的第一分钟，变成一场看得见、收得到的小游戏。</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="breakfast-parade" aria-label="早餐收藏滚动展示">
+    <div class="breakfast-parade-head"><span class="page-no">BREAKFAST COLLECTION</span><button class="breakfast-pause" type="button" aria-pressed="false">暂停滚动</button></div>
+    <div class="breakfast-lane"><div class="breakfast-belt"><div class="breakfast-set"><img src="breakfast-icons/food-0.png" alt="早餐收藏 1" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-2.png" alt="早餐收藏 3" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-4.png" alt="早餐收藏 5" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-6.png" alt="早餐收藏 7" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-8.png" alt="早餐收藏 9" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-10.png" alt="早餐收藏 11" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-12.png" alt="早餐收藏 13" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-14.png" alt="早餐收藏 15" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-16.png" alt="早餐收藏 17" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-18.png" alt="早餐收藏 19" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-20.png" alt="早餐收藏 21" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-22.png" alt="早餐收藏 23" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-24.png" alt="早餐收藏 25" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-26.png" alt="早餐收藏 27" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-28.png" alt="早餐收藏 29" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-30.png" alt="早餐收藏 31" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-32.png" alt="早餐收藏 33" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-34.png" alt="早餐收藏 35" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-36.png" alt="早餐收藏 37" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-38.png" alt="早餐收藏 39" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-40.png" alt="早餐收藏 41" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-42.png" alt="早餐收藏 43" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-44.png" alt="早餐收藏 45" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-46.png" alt="早餐收藏 47" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-48.png" alt="早餐收藏 49" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-50.png" alt="早餐收藏 51" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-52.png" alt="早餐收藏 53" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-54.png" alt="早餐收藏 55" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-56.png" alt="早餐收藏 57" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-58.png" alt="早餐收藏 59" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-60.png" alt="早餐收藏 61" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-62.png" alt="早餐收藏 63" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-64.png" alt="早餐收藏 65" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-66.png" alt="早餐收藏 67" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-68.png" alt="早餐收藏 69" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-70.png" alt="早餐收藏 71" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-72.png" alt="早餐收藏 73" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-74.png" alt="早餐收藏 75" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-76.png" alt="早餐收藏 77" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-78.png" alt="早餐收藏 79" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-80.png" alt="早餐收藏 81" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-82.png" alt="早餐收藏 83" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-84.png" alt="早餐收藏 85" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-86.png" alt="早餐收藏 87" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-88.png" alt="早餐收藏 89" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-90.png" alt="早餐收藏 91" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-92.png" alt="早餐收藏 93" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-94.png" alt="早餐收藏 95" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-96.png" alt="早餐收藏 97" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-98.png" alt="早餐收藏 99" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-100.png" alt="早餐收藏 101" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-102.png" alt="早餐收藏 103" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-104.png" alt="早餐收藏 105" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-106.png" alt="早餐收藏 107" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-110.png" alt="早餐收藏 111" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-112.png" alt="早餐收藏 113" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-114.png" alt="早餐收藏 115" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-116.png" alt="早餐收藏 117" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-118.png" alt="早餐收藏 119" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-120.png" alt="早餐收藏 121" width="144" height="144" loading="lazy" decoding="async"></div><div class="breakfast-set" aria-hidden="true"><img src="breakfast-icons/food-0.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-2.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-4.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-6.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-8.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-10.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-12.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-14.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-16.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-18.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-20.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-22.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-24.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-26.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-28.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-30.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-32.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-34.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-36.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-38.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-40.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-42.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-44.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-46.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-48.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-50.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-52.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-54.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-56.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-58.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-60.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-62.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-64.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-66.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-68.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-70.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-72.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-74.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-76.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-78.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-80.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-82.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-84.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-86.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-88.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-90.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-92.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-94.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-96.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-98.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-100.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-102.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-104.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-106.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-110.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-112.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-114.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-116.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-118.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-120.png" alt="" width="144" height="144" loading="lazy" decoding="async"></div></div></div>
+    <div class="breakfast-lane reverse-lane"><div class="breakfast-belt"><div class="breakfast-set"><img src="breakfast-icons/food-1.png" alt="早餐收藏 2" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-3.png" alt="早餐收藏 4" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-5.png" alt="早餐收藏 6" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-7.png" alt="早餐收藏 8" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-9.png" alt="早餐收藏 10" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-11.png" alt="早餐收藏 12" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-13.png" alt="早餐收藏 14" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-15.png" alt="早餐收藏 16" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-17.png" alt="早餐收藏 18" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-19.png" alt="早餐收藏 20" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-21.png" alt="早餐收藏 22" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-23.png" alt="早餐收藏 24" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-25.png" alt="早餐收藏 26" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-27.png" alt="早餐收藏 28" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-29.png" alt="早餐收藏 30" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-31.png" alt="早餐收藏 32" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-33.png" alt="早餐收藏 34" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-35.png" alt="早餐收藏 36" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-37.png" alt="早餐收藏 38" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-39.png" alt="早餐收藏 40" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-41.png" alt="早餐收藏 42" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-43.png" alt="早餐收藏 44" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-45.png" alt="早餐收藏 46" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-47.png" alt="早餐收藏 48" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-49.png" alt="早餐收藏 50" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-51.png" alt="早餐收藏 52" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-53.png" alt="早餐收藏 54" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-55.png" alt="早餐收藏 56" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-57.png" alt="早餐收藏 58" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-59.png" alt="早餐收藏 60" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-61.png" alt="早餐收藏 62" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-63.png" alt="早餐收藏 64" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-65.png" alt="早餐收藏 66" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-67.png" alt="早餐收藏 68" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-69.png" alt="早餐收藏 70" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-71.png" alt="早餐收藏 72" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-73.png" alt="早餐收藏 74" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-75.png" alt="早餐收藏 76" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-77.png" alt="早餐收藏 78" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-79.png" alt="早餐收藏 80" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-81.png" alt="早餐收藏 82" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-83.png" alt="早餐收藏 84" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-85.png" alt="早餐收藏 86" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-89.png" alt="早餐收藏 90" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-91.png" alt="早餐收藏 92" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-93.png" alt="早餐收藏 94" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-95.png" alt="早餐收藏 96" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-97.png" alt="早餐收藏 98" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-99.png" alt="早餐收藏 100" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-101.png" alt="早餐收藏 102" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-103.png" alt="早餐收藏 104" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-105.png" alt="早餐收藏 106" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-107.png" alt="早餐收藏 108" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-109.png" alt="早餐收藏 110" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-111.png" alt="早餐收藏 112" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-113.png" alt="早餐收藏 114" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-115.png" alt="早餐收藏 116" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-117.png" alt="早餐收藏 118" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-119.png" alt="早餐收藏 120" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-121.png" alt="早餐收藏 122" width="144" height="144" loading="lazy" decoding="async"></div><div class="breakfast-set" aria-hidden="true"><img src="breakfast-icons/food-1.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-3.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-5.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-7.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-9.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-11.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-13.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-15.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-17.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-19.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-21.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-23.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-25.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-27.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-29.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-31.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-33.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-35.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-37.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-39.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-41.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-43.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-45.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-47.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-49.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-51.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-53.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-55.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-57.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-59.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-61.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-63.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-65.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-67.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-69.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-71.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-73.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-75.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-77.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-79.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-81.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-83.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-85.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-89.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-91.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-93.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-95.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-97.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-99.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-101.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-103.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-105.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-107.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-109.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-111.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-113.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-115.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-117.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-119.png" alt="" width="144" height="144" loading="lazy" decoding="async"><img src="breakfast-icons/food-121.png" alt="" width="144" height="144" loading="lazy" decoding="async"></div></div></div>
+  </section>
+
+
+  <section class="story" id="story">
+    <div class="core-flow-label page-no">模拟一次真实的起床场景</div>
+    <div class="story-head reveal">
+      <div>
+        <span class="page-no">模拟一次真实的起床场景</span>
+        <h2>07:20，<br>小和醒了。</h2>
+      </div>
+      <p>她不用先解锁手机、寻找 App。锁屏上的速起小组件就是今天的入口。接下来的一分钟，每一步都很明确。</p>
+    </div>
+
+    <div class="story-track" aria-live="polite">
+      <article class="story-step active">
+        <div class="story-time">07:20</div>
+        <div class="story-card" tabindex="0" role="button" aria-label="进入下一步：60秒内赶紧起床">
+          <div class="lock-scene" aria-label="07:20，点击圆形60秒小组件进入速起">
+            <div class="lock-date">10月8日 星期四</div>
+            <div class="lock-time">07:20</div>
+            <button class="lock-widget" type="button" aria-label="从锁屏直接进入速起，开始60秒起床挑战">
+              <div class="lock-widget-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6" fill="currentColor"/><path d="M16 2v3M16 27v3M2 16h3M27 16h3M6 6l2 2M24 24l2 2M6 26l2-2M24 8l2-2" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+              <span>60s</span>
+            </button>
+            <span class="lock-tap-hand" aria-hidden="true"><svg viewBox="0 0 36 44"><path d="M12 24V6c0-5 7-5 7 0v12c2-3 6-2 6 1 3-2 6 0 6 3 3-1 5 1 4 5l-2 10c-1 4-4 6-8 6h-4c-4 0-6-2-8-5L4 26c-3-4 1-8 4-5l4 3Z" fill="white" stroke="#202126" stroke-width="2" stroke-linejoin="round"/></svg></span>
+            <div class="lock-entry-bubble">直接从锁屏进入速起 App，绕过所有信息流的干扰。</div>
+            <div class="lock-notifications">
+              <div class="lock-notification"><img src="xiaoyuzhou-icon.jpg" alt="小宇宙"><div><strong>小宇宙</strong><span>你订阅的播客更新了，来听新一期吧</span></div><time>现在</time></div>
+              <div class="lock-notification"><img src="wechat-icon.jpg" alt="微信"><div><strong>微信</strong><span>你收到了 8 条新消息</span></div><time>现在</time></div>
+              <div class="lock-notification"><img src="rednote-icon.jpg" alt="小红书"><div><strong>小红书</strong><span>你关注的博主发布了新笔记</span></div><time>现在</time></div>
+            </div>
+          </div>
+          <div class="story-copy">
+            <div class="story-count">01 / 06 · Wake up</div>
+            <h3>锁屏直接开始</h3>
+            <p>小和刚醒来，点一下锁屏小组件，直接进入今天的挑战。</p>
+            <div class="story-click-hint"><i>→</i> 点一下，继续小和的早晨</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story-step">
+        <div class="story-time">07:20</div>
+        <div class="story-card" tabindex="0" role="button" aria-label="进入下一步：站起来拍照">
+          <img src="AppStoreScreenshots/final/01-challenge.png" alt="小和开始 60 秒起床挑战">
+          <div class="story-copy">
+            <div class="story-count">02 / 06 · Challenge</div>
+            <h3>倒计时开始，赶紧起床！</h3>
+            <p>醒目的倒计时和大按钮带来紧迫感：只有 60 秒，现在就掀开被子、下床站起来。</p>
+            <div class="story-click-hint"><i>→</i> 点一下，查看下一步</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story-step">
+        <div class="story-time">07:21</div>
+        <div class="story-card" tabindex="0" role="button" aria-label="进入下一步：获得早餐">
+          <img src="AppStoreScreenshots/final/05-photo-verify.png" alt="小和站起来拍照验证">
+          <div class="story-copy">
+            <div class="story-count">03 / 06 · Verify</div>
+            <h3>站起来拍一张</h3>
+            <p>小和站到地面上，用照片完成起床验证。</p>
+            <div class="story-click-hint"><i>→</i> 点一下，查看奖励</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story-step">
+        <div class="story-time">07:22</div>
+        <div class="story-card" tabindex="0" role="button" aria-label="进入下一步：日历打卡">
+          <img src="AppStoreScreenshots/final/02-reward.png" alt="小和获得草莓奶油蛋糕奖励">
+          <div class="story-copy">
+            <div class="story-count">04 / 06 · Reward</div>
+            <h3>早餐掉落</h3>
+            <p>今天抽到草莓奶油蛋糕。起床这件事，立刻得到一个惊喜。</p>
+            <div class="story-click-hint"><i>→</i> 点一下，留下记录</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story-step">
+        <div class="story-time">07:22</div>
+        <div class="story-card" tabindex="0" role="button" aria-label="进入下一步：早餐回到房间">
+          <img src="AppStoreScreenshots/final/03-calendar.png" alt="日历记录小和连续起床三天">
+          <div class="story-copy">
+            <div class="story-count">05 / 06 · Streak</div>
+            <h3>留下印章</h3>
+            <p>日历自动记录这次完成：小和已经连续起床 3 天。</p>
+            <div class="story-click-hint"><i>→</i> 点一下，回到房间</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story-step">
+        <div class="story-time">07:23</div>
+        <div class="story-card" tabindex="0" role="button" aria-label="回到故事第一步">
+          <img src="AppStoreScreenshots/final/04-day-recap.png" alt="小和获得的早餐摆在房间桌面上">
+          <div class="story-copy">
+            <div class="story-count">06 / 06 · Today</div>
+            <h3>早起的奖励伴随一天</h3>
+            <p>刚刚获得的草莓奶油蛋糕出现在房间桌面上，成为小和今天真正起床的纪念。</p>
+            <div class="story-click-hint"><i>↻</i> 点一下，重新播放</div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="story-controls reveal" aria-label="案例流程控制">
+      <div class="story-dots" aria-label="选择步骤">
+        <button class="story-dot active" type="button" aria-label="第 1 步"></button>
+        <button class="story-dot" type="button" aria-label="第 2 步"></button>
+        <button class="story-dot" type="button" aria-label="第 3 步"></button>
+        <button class="story-dot" type="button" aria-label="第 4 步"></button>
+        <button class="story-dot" type="button" aria-label="第 5 步"></button>
+        <button class="story-dot" type="button" aria-label="第 6 步"></button>
+      </div>
+      <div class="story-buttons">
+        <button class="story-button prev" type="button">← 上一步</button>
+        <button class="story-button next" type="button">下一步 →</button>
+      </div>
+    </div>
+
+    <div class="story-summary reveal">
+      <strong>从醒来到真正起床，只需要一条连续路径。</strong>
+      <span>锁屏入口 → 60 秒 → 拍照 → 奖励 → 打卡 → 早餐上桌</span>
+    </div>
+  </section>
+
+
+  <section class="feature photo" id="verify">
+    <div class="feature-visual reveal">
+      <div class="shot"><img src="AppStoreScreenshots/final/05-photo-verify.png" alt="站立拍照验证"></div>
+    </div>
+    <div class="feature-copy reveal">
+      <h2>防作弊机制</h2>
+      <p>用户需要拍一张“自己站在地上”的照片，由 Qwen 视觉模型验证。通过了，才算真的起床。</p>
+      <p>我们也试过运动监测，但躺在床上摇摇手机就能作弊！人在不想起床的时候，真的会想尽办法继续躺着，所以防作弊很重要。换成拍照验证，想蒙混过关就难多了！</p>
+      <div class="feature-note"><span>Camera Check</span><span>Action First</span></div>
+    </div>
+  </section>
+
+  <section class="feature reverse" id="reward">
+    <div class="feature-visual reveal">
+      <div class="shot"><img src="AppStoreScreenshots/final/02-reward.png" alt="草莓奶油蛋糕早餐奖励"></div>
+    </div>
+    <div class="feature-copy reveal">
+      <h2>每天一份，<br>早餐惊喜。</h2>
+      <p class="reward-count">超过100种早餐随机出现！</p>
+      <p>完成挑战后，随机获得一份早餐。披萨、贝果、蛋糕、拉面……每一次掉落都能进入收藏，让第二天的起床多一点期待。</p>
+      <div class="feature-note"><span>Random Drop</span><span>Breakfast Collection</span></div>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="feature reverse" id="decorate">
+    <div class="feature-visual reveal">
+      <div class="shot"><img src="AppStoreScreenshots/final/furniture-shop.png" alt="速起家具商店，用金币购买家具装饰房间"></div>
+    </div>
+    <div class="feature-copy reveal">
+      <h2>购买家具<br>装饰你的家</h2>
+      <p>连续速起可以获得金币，用来购买喜欢的家具、装饰自己的小家。为了下一件想要的家具，明天也要坚持快速起床！</p>
+      <div class="feature-note"><span>家具收藏</span><span>房间装饰</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="reveal">
+      <span class="eyebrow" style="color:rgba(255,255,255,.72)">Morning60s</span>
+      <h2>明早见。</h2>
+      <p>把起床变成一天里第一个值得期待的瞬间。</p>
+    </div>
+    <div class="footer-bottom">
+      <span>Independent iOS App</span>
+      <span>Product · Design · Development</span>
+      <span>2026</span>
+    </div>
+  </footer>
+
+  <style>
+    #story .story-head .story-button.next {
+      position: static;
+      transform: translateX(-20px);
+      width: auto;
+      height: auto;
+      display: inline-flex;
+      margin: 32px auto 0;
+      padding: 14px 26px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    #story .story-head { display: flex; flex-direction: column; align-items: center; }
+    #story .story-button.prev { display: none; }
+    #story .story-step.active { animation: none; }
+    .page-navigation { position: fixed; z-index: 30; top: 50%; left: 0; right: 0; transform: translateY(-50%); display: flex; justify-content: space-between; padding: 0 16px; pointer-events: none; }
+    .page-navigation button { display: grid; place-items: center; width: 48px; height: 48px; border: 0; border-radius: 50%; padding: 0; background: var(--yellow); color: #111; cursor: pointer; pointer-events: auto; }
+    .page-navigation button svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .page-navigation button:disabled { visibility: hidden; pointer-events: none; }
+    .page-navigation span { display: none; }
+    .page-navigation button.is-replay { width: 48px; padding: 0; border-radius: 50%; }
+    #reward { position: relative; padding-top: 140px; padding-bottom: 140px; }
+    #reward > .breakfast-lane { position: absolute; left: 0; right: 0; top: 12px; pointer-events: none; }
+    #reward > .reverse-lane { top: auto; bottom: 12px; }
+    #reward .breakfast-set img { width: clamp(64px, 10vh, 110px); height: clamp(64px, 10vh, 110px); }
+    #reward .breakfast-set { gap: 38px; padding-right: 38px; }
+    #reward .reward-count { color: var(--red); font-size: clamp(22px, 2vw, 30px); font-weight: 800; }
+    body > .hero {
+      display: grid;
+      grid-template-rows: auto minmax(min-content, 1fr) auto;
+      padding: 12px 0;
+      gap: clamp(16px, 3vh, 32px);
+    }
+    .hero .hero-grid {
+      grid-row: 2;
+      width: min(1120px, calc(100% - 96px));
+      grid-template-columns: minmax(220px, .85fr) minmax(0, 1.25fr);
+      gap: clamp(40px, 6vw, 96px);
+      padding: 0;
+      margin: auto;
+    }
+    .hero .icon-stage { width: min(100%, 390px, 48vh); justify-self: center; }
+    .hero .hero-copy { padding: 0; }
+    .hero .brand { margin: 22px 0 0; font-size: clamp(64px, 7vw, 112px); line-height: 1.12; letter-spacing: -.035em; }
+    .hero .brand-en { margin: 10px 0 0; font-size: clamp(24px, 2.5vw, 38px); line-height: 1.2; letter-spacing: -.025em; }
+    .hero .hero-desc { margin-top: 28px; font-size: clamp(16px, 1.3vw, 20px); }
+    .hero .hero-lead { font-size: clamp(24px, 2.1vw, 32px); }
+    .hero .breakfast-parade { display: contents; }
+    .hero .breakfast-parade-head { display: none; }
+    .hero .breakfast-lane { grid-row: 1; min-width: 0; width: 100%; }
+    .hero .reverse-lane { grid-row: 3; }
+    .hero .breakfast-set img { width: clamp(64px, 11vh, 116px); height: clamp(64px, 11vh, 116px); }
+    .hero .breakfast-set { gap: clamp(24px, 4vw, 64px); padding-right: clamp(24px, 4vw, 64px); }
+    .hero:hover .breakfast-belt { animation-play-state: paused; }
+    @media(max-width:720px) {
+      .hero .hero-grid { width: calc(100% - 40px); grid-template-columns: 1fr; gap: 22px; padding: 16px 0; }
+      .hero .icon-stage { width: min(180px, 25vh); }
+      .hero .eyebrow { font-size: 10px; letter-spacing: .16em; }
+      .hero .brand { font-size: 60px; margin-top: 14px; }
+      .hero .brand-en { font-size: 24px; margin-top: 4px; }
+      .hero .hero-desc { margin-top: 20px; }
+      .hero .hero-lead { font-size: 23px; }
+    }
+  </style>
+  <script>
+    const openingRoom = document.querySelector('.opening-room');
+    const openingMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    const openingObserver = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting || openingMotion.matches) continue;
+        const copy = openingRoom.querySelector('.opening-room-copy');
+        const art = openingRoom.querySelector('.opening-room-art');
+        [copy, art].forEach(element => element.getAnimations().forEach(animation => animation.cancel()));
+        copy.animate([
+          { opacity: 0, transform: 'translateY(24px)' },
+          { opacity: 1, transform: 'translateY(0)' }
+        ], { duration: 650, easing: 'cubic-bezier(.22,1,.36,1)' });
+        art.animate([
+          { opacity: 0, transform: 'translateY(36px) scale(.94)' },
+          { opacity: 1, transform: 'translateY(-5px) scale(1.01)', offset: .75 },
+          { opacity: 1, transform: 'translateY(0) scale(1)' }
+        ], { duration: 850, delay: 160, fill: 'backwards', easing: 'ease-out' });
+      }
+    }, { threshold: .6 });
+    openingObserver.observe(openingRoom);
+    // Frame the introduction with the two existing breakfast ribbons.
+    document.querySelector('.hero').append(document.querySelector('.breakfast-parade'));
+    const horizontalPages = Array.from(document.querySelectorAll('body > section, body > header, body > footer'));
+    const currentHorizontalPage = () => Math.max(0, Math.min(horizontalPages.length - 1, Math.round(document.body.scrollLeft / innerWidth)));
+    const goToHorizontalPage = index => horizontalPages[Math.max(0, Math.min(horizontalPages.length - 1, index))].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+    const pageNavigation = document.createElement('nav');
+    pageNavigation.className = 'page-navigation';
+    pageNavigation.setAttribute('aria-label', '页面翻页');
+    pageNavigation.innerHTML = '<button type="button" aria-label="上一页"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M23 14H5m9-9-9 9 9 9"/></svg></button><span></span><button type="button" aria-label="下一页"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M5 14h18m-9-9 9 9-9 9"/></svg></button>';
+    document.body.append(pageNavigation);
+    const pageButtons = pageNavigation.querySelectorAll('button');
+    pageButtons[0].onclick = () => goToHorizontalPage(currentHorizontalPage() - 1);
+    const nextPageArrow = pageButtons[1].innerHTML;
+    pageButtons[1].onclick = () => goToHorizontalPage(currentHorizontalPage() === horizontalPages.length - 1 ? 0 : currentHorizontalPage() + 1);
+    function updatePageNavigation() {
+      const index = currentHorizontalPage();
+      pageNavigation.querySelector('span').textContent = `${index + 1} / ${horizontalPages.length}`;
+      pageButtons[0].disabled = index === 0;
+      const isLastPage = index === horizontalPages.length - 1;
+      pageButtons[1].classList.toggle('is-replay', isLastPage);
+      pageButtons[1].innerHTML = isLastPage ? '<svg viewBox="0 0 28 28" aria-hidden="true"><path d="M23 12a9 9 0 1 0-1 8M23 5v7h-7"/></svg>' : nextPageArrow;
+      pageButtons[1].setAttribute('aria-label', isLastPage ? '重新播放，回到第一页' : '下一页');
+    }
+    document.body.addEventListener('scroll', updatePageNavigation, { passive: true });
+    updatePageNavigation();
+
+    document.body.addEventListener('wheel', event => {
+      if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+      const page = event.target.closest('body > section, body > header, body > footer');
+      const canScrollDown = page && page.scrollTop + page.clientHeight < page.scrollHeight - 2;
+      const canScrollUp = page && page.scrollTop > 2;
+      if ((event.deltaY > 0 && canScrollDown) || (event.deltaY < 0 && canScrollUp)) return;
+      event.preventDefault();
+      document.body.scrollLeft += event.deltaY;
+    }, { passive: false });
+
+    addEventListener('keydown', event => {
+      if (event.key === 'ArrowRight' || event.key === 'PageDown') goToHorizontalPage(currentHorizontalPage() + 1);
+      if (event.key === 'ArrowLeft' || event.key === 'PageUp') goToHorizontalPage(currentHorizontalPage() - 1);
+    });
+
+    // Shuffle once per visit, then mirror each row for a seamless loop.
+    const breakfastBelts = [...document.querySelectorAll('.breakfast-belt')];
+    const breakfastItems = breakfastBelts.flatMap(belt => [...belt.firstElementChild.children]);
+    for (let i = breakfastItems.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [breakfastItems[i], breakfastItems[j]] = [breakfastItems[j], breakfastItems[i]];
+    }
+    breakfastBelts.forEach((belt, row) => {
+      const set = belt.firstElementChild;
+      set.replaceChildren(...breakfastItems.filter((_, index) => index % breakfastBelts.length === row));
+      const duplicate = set.cloneNode(true);
+      duplicate.setAttribute('aria-hidden', 'true');
+      duplicate.querySelectorAll('img').forEach(image => image.alt = '');
+      belt.replaceChildren(set, duplicate);
+    });
+    document.querySelectorAll('.hero .breakfast-lane').forEach(lane => {
+      const ribbon = lane.cloneNode(true);
+      ribbon.setAttribute('aria-hidden', 'true');
+      ribbon.querySelectorAll('img').forEach(image => image.alt = '');
+      document.querySelector('#reward').append(ribbon);
+    });
+    document.querySelector('.breakfast-pause').addEventListener('click', (event) => {
+      const paused = document.querySelector('.breakfast-parade').classList.toggle('is-paused');
+      event.currentTarget.setAttribute('aria-pressed', String(paused));
+      event.currentTarget.textContent = paused ? '继续滚动' : '暂停滚动';
+    });
+    const luckyBox = document.querySelector('.lucky-box');
+    const luckyImages = [...new Set(Array.from(document.querySelectorAll('.breakfast-set img'), image => image.getAttribute('src')))];
+    let lastBreakfast = -1;
+    luckyBox.addEventListener('click', () => {
+      if (luckyBox.disabled || !luckyImages.length) return;
+      luckyBox.disabled = true;
+      luckyBox.classList.add('is-opening');
+      luckyBox.querySelector('.lucky-result').hidden = true;
+      luckyBox.querySelector('.lucky-gift').hidden = false;
+      luckyBox.querySelector('.lucky-action').textContent = '正在打开…';
+      let index = Math.floor(Math.random() * luckyImages.length);
+      if (index === lastBreakfast) index = (index + 1) % luckyImages.length;
+      const preload = new Image();
+      const reveal = () => {
+        const result = luckyBox.querySelector('.lucky-result');
+        result.src = luckyImages[index];
+        result.alt = '你抽到的早餐奖励';
+        result.hidden = false;
+        luckyBox.querySelector('.lucky-gift').hidden = true;
+        luckyBox.classList.remove('is-opening');
+        luckyBox.querySelector('.lucky-action').textContent = '再抽一份 →';
+        luckyBox.setAttribute('aria-label', '再抽一份早餐');
+        document.querySelector('.lucky-status').textContent = '早餐掉落！收下这份早起的小期待。';
+        luckyBox.disabled = false;
+        lastBreakfast = index;
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          const container = luckyBox.closest('.lucky-interaction');
+          for (let i = 0; i < 26; i++) {
+            const piece = document.createElement('i');
+            piece.className = 'lucky-confetti';
+            piece.setAttribute('aria-hidden', 'true');
+            piece.style.background = ['#ff2d24', '#ffdf31', '#50b990', '#ff8fbe'][i % 4];
+            container.append(piece);
+            const x = (Math.random() - .5) * 320;
+            const y = -70 - Math.random() * 100;
+            const rotation = (Math.random() - .5) * 720;
+            const animation = piece.animate([
+              { transform: 'translate(0, 0) rotate(0deg)', opacity: 1 },
+              { transform: `translate(${x * .7}px, ${y}px) rotate(${rotation * .5}deg)`, opacity: 1, offset: .45 },
+              { transform: `translate(${x}px, 130px) rotate(${rotation}deg)`, opacity: 0 }
+            ], { duration: 1000 + Math.random() * 350, easing: 'ease-out' });
+            animation.onfinish = () => piece.remove();
+          }
+        }
+      };
+      preload.onload = () => setTimeout(reveal, matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 500);
+      preload.onerror = () => { luckyBox.disabled = false; luckyBox.classList.remove('is-opening'); luckyBox.querySelector('.lucky-action').textContent = '重试打开'; };
+      preload.src = luckyImages[index];
+    });
+    const storySteps = Array.from(document.querySelectorAll('.story-step'));
+    const storyDots = Array.from(document.querySelectorAll('.story-dot'));
+    const storyPrev = document.querySelector('.story-button.prev');
+    const storyNext = document.querySelector('.story-button.next');
+    let storyIndex = 0;
+    const storyHead = document.querySelector('#story > .story-head');
+    const storyTitles = [
+      ['07:20，<br>小和醒了。', '直接从锁屏进入速起 App，绕过所有信息流的干扰。'],
+      ['60 秒，<br>赶紧起床！', '倒计时已经开始。大按钮和醒目的时间，催她立刻行动。'],
+      ['站起来，<br>拍照验证。', '离开被窝，站到地面上。拍一张照片，验证自己已经起床。'],
+      ['今天的早餐，<br>掉落了。', '完成验证后，迎接今天的早餐奖励。'],
+      ['起床成功，<br>留下印章。', '把今天的行动记进日历，留下连续起床的记录。'],
+      ['早起的奖励<br>伴随一天。', '回到房间，看看今天收集到的早餐。']
+    ];
+    storySteps.forEach((step, index) => {
+      const heading = storyHead.cloneNode(true);
+      heading.classList.remove('reveal');
+      heading.querySelector('h2').innerHTML = storyTitles[index][0];
+      heading.querySelector('p').textContent = storyTitles[index][1];
+      step.prepend(heading);
+    });
+    storyHead.remove();
+
+    let storyTransitioning = false;
+    async function showStoryStep(index) {
+      if (storyTransitioning) return;
+      if (index === storyIndex || matchMedia('(prefers-reduced-motion: reduce)').matches) { renderStoryStep(index); return; }
+      storyTransitioning = true;
+      try {
+        await storySteps[storyIndex].animate([{ opacity: 1 }, { opacity: 0 }], { duration: 180, easing: 'ease-in', fill: 'forwards' }).finished;
+        storySteps[storyIndex].getAnimations().forEach(animation => animation.cancel());
+        renderStoryStep(index);
+        await storySteps[storyIndex].animate([{ opacity: 0 }, { opacity: 1 }], { duration: 260, easing: 'ease-out' }).finished;
+      } finally { storyTransitioning = false; }
+    }
+    function renderStoryStep(index) {
+      document.querySelector('.story-track').style.setProperty('--slide-from', index < storyIndex ? '-60px' : '60px');
+      storyIndex = (index + storySteps.length) % storySteps.length;
+      storySteps.forEach((step, i) => step.classList.toggle('active', i === storyIndex));
+      storyDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === storyIndex);
+        dot.setAttribute('aria-current', i === storyIndex ? 'step' : 'false');
+      });
+      storyPrev.disabled = storyIndex === 0;
+      storyPrev.style.opacity = storyIndex === 0 ? '.35' : '1';
+      storyPrev.textContent = '←';
+      storyPrev.setAttribute('aria-label', '上一步');
+      storySteps[storyIndex].querySelector('.story-head').append(storyNext);
+      storyNext.textContent = storyIndex === storySteps.length - 1 ? '重新播放 ↻' : '下一步 →';
+      storyNext.setAttribute('aria-label', storyIndex === storySteps.length - 1 ? '重新播放' : '下一步');
+    }
+
+    storySteps.forEach((step, index) => {
+      const card = step.querySelector('.story-card');
+      if (index === 0) {
+        card.removeAttribute('role');
+        card.removeAttribute('tabindex');
+        card.removeAttribute('aria-label');
+      }
+      card.addEventListener('click', (event) => {
+        if (index !== 0 || event.target.closest('.lock-widget')) showStoryStep(index + 1);
+      });
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          showStoryStep(index + 1);
+        }
+      });
+    });
+    storyDots.forEach((dot, index) => dot.addEventListener('click', () => showStoryStep(index)));
+    storyPrev.addEventListener('click', () => showStoryStep(storyIndex - 1));
+    storyNext.addEventListener('click', () => showStoryStep(storyIndex + 1));
+    showStoryStep(0);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

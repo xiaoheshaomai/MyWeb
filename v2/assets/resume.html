@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>张宜砚 - 简历</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --paper: #ffffff;
+      --panel: #f3f3f3;
+      --ink: #111111;
+      --text: #242424;
+      --muted: #646464;
+      --hairline: #cfcfcf;
+      --accent: #ff2442;
+      --cyan: #59c8d4;
+      --gradient-start: #29b8d8;
+      --gradient-mid: #6fd1dc;
+      --gradient-end: #d9f3ed;
+      --xiaoyuzhou-gradient: linear-gradient(
+        135deg,
+        var(--gradient-start) 0%,
+        var(--gradient-mid) 48%,
+        var(--gradient-end) 100%
+      );
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      background: #ececec;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .sheet {
+      width: 210mm;
+      min-height: 297mm;
+      height: auto;
+      margin: 18px auto;
+      padding: 10.5mm 10.5mm 9.5mm;
+      overflow: visible;
+      background: var(--xiaoyuzhou-gradient);
+      border: 0;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .masthead {
+      position: relative;
+      display: grid;
+      grid-template-columns: 48mm 67mm 58mm;
+      gap: 3mm;
+      align-items: center;
+      margin: 0 0 5mm;
+      padding: 5mm 2mm;
+      border: 0;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    .masthead::before {
+      content: none;
+    }
+
+    .name {
+      display: block;
+      width: 45mm;
+      height: 17mm;
+      margin: 0;
+      color: var(--ink);
+      overflow: hidden;
+      background-image: url("assets/zhang-yiyan-wordmark.png");
+      background-position: center;
+      background-size: 115% auto;
+      background-repeat: no-repeat;
+      font-size: 0;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: 0;
+      -webkit-text-stroke: 0;
+      mix-blend-mode: multiply;
+      transform: scaleX(0.82);
+      transform-origin: left center;
+    }
+
+    .identity {
+      margin: 0.8mm 0 0;
+      color: var(--accent);
+      font-size: 9pt;
+      font-weight: 760;
+      line-height: 1.2;
+    }
+
+    .availability {
+      margin: 1.2mm 0 0;
+      color: var(--ink);
+      font-size: 7.5pt;
+      font-weight: 650;
+      line-height: 1.3;
+      white-space: nowrap;
+      text-shadow: none;
+    }
+
+    .contact {
+      display: grid;
+      width: 100%;
+      min-width: 0;
+      gap: 1.5mm;
+      justify-items: start;
+      font-style: normal;
+      color: var(--ink);
+      font-size: 8pt;
+      font-weight: 650;
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+
+    .contact span {
+      padding: 0;
+      border: 0;
+      text-shadow: none;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1mm;
+      margin: 0;
+    }
+
+    .metric {
+      display: flex;
+      width: 27mm;
+      height: 27mm;
+      padding: 2mm;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      justify-self: center;
+      border: 1px solid rgba(255, 255, 255, 0.84);
+      border-radius: 50%;
+      background: linear-gradient(
+        145deg,
+        rgba(77, 196, 218, 0.3) 0%,
+        rgba(221, 246, 248, 0.88) 52%,
+        rgba(255, 255, 255, 0.98) 100%
+      );
+      box-shadow:
+        0 5px 13px rgba(34, 133, 157, 0.15),
+        inset 2px 2px 7px rgba(255, 255, 255, 0.88),
+        inset -3px -3px 9px rgba(58, 174, 195, 0.1);
+      text-align: center;
+    }
+
+    .metric-label {
+      display: block;
+      margin-bottom: 0.7mm;
+      color: var(--muted);
+      font-size: 6.8pt;
+      font-weight: 650;
+    }
+
+    .metric-value {
+      color: var(--ink);
+      font-size: 12.5pt;
+      font-weight: 820;
+      line-height: 1;
+    }
+
+    .metric-value small {
+      margin-left: 1mm;
+      color: var(--muted);
+      font-size: 7pt;
+      font-weight: 650;
+    }
+
+    .content {
+      padding-top: 0;
+    }
+
+    section {
+      position: relative;
+      margin: 0 0 4.5mm;
+      padding: 4.5mm 5mm 4.2mm;
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 2mm;
+      box-shadow:
+        0 7px 22px rgba(24, 105, 126, 0.13),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px) saturate(118%);
+      -webkit-backdrop-filter: blur(12px) saturate(118%);
+    }
+
+    h2 {
+      position: static;
+      display: flex;
+      align-items: center;
+      gap: 2.5mm;
+      width: 100%;
+      min-width: 0;
+      height: auto;
+      margin: 0 0 3mm;
+      padding: 0 0 2mm;
+      color: var(--ink);
+      border: 0;
+      border-bottom: 1.2px solid var(--cyan);
+      background: transparent;
+      clip-path: none;
+      font-size: 10.2pt;
+      font-weight: 800;
+    }
+
+    h2::before {
+      content: none;
+    }
+
+    .item {
+      position: relative;
+      margin-bottom: 3.3mm;
+      padding-left: 0;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item::before {
+      content: none;
+    }
+
+    .item-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 5mm;
+      align-items: baseline;
+      min-height: 7mm;
+      margin-bottom: 1.2mm;
+      padding: 1.5mm 2.2mm;
+      background: #dff5fb;
+    }
+
+    .title {
+      color: var(--ink);
+      font-size: 9.7pt;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .date {
+      color: var(--muted);
+      font-size: 8pt;
+      white-space: nowrap;
+    }
+
+    .role {
+      margin: 0 0 1.2mm;
+      color: var(--accent);
+      font-size: 8.2pt;
+      font-weight: 730;
+    }
+
+    .coursework {
+      margin: 0 0 1.4mm;
+      color: var(--text);
+      font-size: 7.75pt;
+      line-height: 1.42;
+    }
+
+    .coursework strong {
+      color: var(--ink);
+      font-weight: 760;
+    }
+
+    .education-detail {
+      margin-top: 1.8mm;
+    }
+
+    .subsection-title {
+      margin: 1.5mm 0 0.8mm;
+      color: var(--ink);
+      font-size: 8.5pt;
+      font-weight: 800;
+    }
+
+    .project-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 4mm;
+      align-items: baseline;
+      margin-bottom: 0.7mm;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .project-date {
+      color: var(--muted);
+      font-size: 7.4pt;
+      white-space: nowrap;
+    }
+
+    .project-summary {
+      margin: 0;
+    }
+
+    .project-points {
+      margin-top: 1mm;
+      padding-left: 0;
+    }
+
+    .project-points li {
+      position: relative;
+      margin: 0.65mm 0;
+      padding: 0.35mm 0;
+      list-style: none;
+      border: 0;
+      background: transparent;
+      font-size: 7.75pt;
+      line-height: 1.34;
+    }
+
+    .project-points li::before {
+      content: none;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 4.4mm;
+    }
+
+    li {
+      margin: 0.45mm 0;
+      color: var(--text);
+      font-size: 8.25pt;
+      line-height: 1.4;
+    }
+
+    li::marker {
+      color: var(--accent);
+      font-size: 0.8em;
+    }
+
+    li strong {
+      color: var(--ink);
+      font-weight: 740;
+    }
+
+    .impact {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3mm;
+      padding-left: 0;
+    }
+
+    .skill-group {
+      position: relative;
+      min-height: 19mm;
+      padding: 2.3mm 2.5mm;
+      border: 0;
+      background: var(--paper);
+    }
+
+    .skill-group::before {
+      content: none;
+    }
+
+    .skill-group strong {
+      display: block;
+      color: var(--ink);
+      font-size: 8.8pt;
+      font-weight: 760;
+    }
+
+    .skill-group p {
+      margin: 0.8mm 0 0;
+      color: var(--text);
+      font-size: 7.8pt;
+      line-height: 1.4;
+    }
+
+    .sheet[contenteditable="true"] {
+      caret-color: var(--accent);
+    }
+
+    .sheet[contenteditable="true"]:focus {
+      outline: 1.2px solid var(--cyan);
+      outline-offset: 4px;
+    }
+
+    .save-status {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 10;
+      min-width: 62px;
+      padding: 7px 10px;
+      border: 1px solid var(--cyan);
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1;
+      text-align: center;
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+      pointer-events: none;
+    }
+
+    .save-status[data-state="dirty"] {
+      color: var(--accent);
+    }
+
+    .save-status[data-state="error"] {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .theme-controls {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 10px;
+      border: 1px solid rgba(89, 200, 212, 0.38);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .theme-controls > span {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .color-control {
+      display: grid;
+      gap: 2px;
+      justify-items: center;
+      color: var(--muted);
+      font-size: 9px;
+      line-height: 1;
+    }
+
+    .color-control input {
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid rgba(17, 17, 17, 0.14);
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .color-control input::-webkit-color-swatch-wrapper {
+      padding: 0;
+    }
+
+    .color-control input::-webkit-color-swatch {
+      border: 0;
+      border-radius: 50%;
+    }
+
+    .gradient-reset {
+      width: 26px;
+      height: 26px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    @media print {
+      html,
+      body {
+        width: 210mm;
+        height: 297mm;
+        background: #fff;
+      }
+
+      .sheet {
+        margin: 0;
+        box-shadow: none;
+        outline: none;
+      }
+
+      .save-status {
+        display: none;
+      }
+
+      .theme-controls {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet" aria-label="张宜砚简历" contenteditable="true" spellcheck="false">
+    <header class="masthead">
+      <div>
+        <h1 class="name">张宜砚</h1>
+        <p class="identity">产品经理 / AI 产品 / 创意技术</p>
+      </div>
+      <address class="contact">
+        <span>18800311327</span>
+        <span>xiaoheshaomai@gmail.com</span>
+        <p class="availability">入职时间：可立刻到岗　｜　学位证：11 月领</p>
+      </address>
+      <div class="metrics" aria-label="个人数据亮点">
+        <div class="metric">
+          <span class="metric-label">播客收听</span>
+          <div class="metric-value">2277<small>小时</small></div>
+        </div>
+        <div class="metric">
+          <span class="metric-label">播客黑客松</span>
+          <div class="metric-value">一等奖</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <section>
+        <h2>教育经历</h2>
+        <div class="item">
+          <div class="item-head">
+            <div class="title">伦敦艺术大学｜人工智能 硕士</div>
+            <div class="date">2025.09 - 2026.09</div>
+          </div>
+          <p class="role">当前平均成绩 A-（13/15）</p>
+          <p class="coursework"><strong>主修课程：</strong>高级算法与复杂度、数据科学与 AI 高级数学与统计、人工智能与机器学习、计算创业与伦理、批判性数据分析与呈现、以人为本的数据科学</p>
+          <h3 class="subsection-title">在校项目</h3>
+          <ul class="education-detail">
+            <li>
+              <div class="project-head">
+                <strong>FAN Restaurant 智能库存管理系统｜优秀毕业项目</strong>
+                <span class="project-date">2026.06 - 2026.09</span>
+              </div>
+              <ul class="project-points">
+                <li><strong>痛点：</strong>餐厅年营收超过 100 万英镑，但库存管理仍完全依靠员工手动录入；由于操作繁琐、耗时，员工最终放弃使用。</li>
+                <li><strong>挑战：</strong>仓库 SKU 超过 500 个，现有 CCTV 数量有限，且未配套完善的智能硬件。</li>
+                <li><strong>解决方案：</strong>接入 Qwen 视觉模型，识别商品并自动生成入库记录；同时通过 RTSP 接入现有摄像头，检测人员进出及其是否携带物品，并将摄像头事件与入库记录自动匹配。</li>
+                <li><strong>结果：</strong>将单次手动入库时间从约 5 分钟缩短至约 1 秒；每次货物进出均产生商品识别记录和人员携物记录，两份记录可自动核对。</li>
+              </ul>
+            </li>
+            <li>
+              <div class="project-head">
+                <strong>速起｜iOS App</strong>
+                <span class="project-date">2026.04 - 2026.09</span>
+              </div>
+              <ul class="project-points">
+                <li><strong>痛点：</strong>现代人醒来后习惯先刷手机，一刷往往就是 1 小时；传统闹钟只能提醒用户醒来，却很难帮助用户真正完成“离开床”的动作。</li>
+                <li><strong>产品入口：</strong>用户醒来后可通过 Widget 直接进入 App，绕过信息流干扰。</li>
+                <li><strong>起床机制：</strong>进入 App 后自动开启 1 分钟起床倒计时，通过紧迫感推动用户立即离床；用户需拍摄一张自己的站立照片，并通过 Qwen 视觉模型验证，防止作弊，确认用户真正起床。</li>
+                <li><strong>激励机制：</strong>设计 100+ 款早餐贴纸，并结合日历盖章打卡、连续早起赚取金币和兑换家具的系统，鼓励用户持续早起。</li>
+                <li><strong>项目进度：</strong>已进入 App Store 审核阶段，即将上线。</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-head">
+            <div class="title">上海大学｜金融 本科</div>
+            <div class="date">2018.09 - 2022.06</div>
+          </div>
+          <p class="role">GPA 3.2/4.0</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>比赛经历</h2>
+        <div class="item">
+          <div class="item-head">
+            <div class="title">Vibe Friends 播客黑客松｜一等奖</div>
+          </div>
+          <ul class="project-points">
+            <li><strong>比赛介绍：</strong>100 位参赛选手在 24 小时内，围绕“小宇宙、播客”主题开发 Demo 并上台路演，由观众评审与专业评审共同投票。</li>
+            <li><strong>我的洞察：</strong>解决小宇宙 App 的内容发现问题——如何让听众发现更多自己喜欢的播客。</li>
+            <li><strong>我的解决方案：</strong>提出“关注主播，发现更多好播客”的产品逻辑，负责 Demo 制作与路演。</li>
+            <li><strong>结果：</strong>获得“真的会用”奖及 1 万元奖金。</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-head">
+            <div class="title">伦艺计算机学院黑客松｜一等奖</div>
+          </div>
+          <ul>
+            <li>制作声音交互原型“羊叫模拟器”，使用机器学习声音识别技术，并通过小品式演示强化产品记忆点。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>工作经历</h2>
+        <div class="item">
+          <div class="item-head">
+            <div class="title">小红书博主｜内容创作者</div>
+            <div class="date">2024.03 - 2025.08</div>
+          </div>
+          <p class="role">内容策划 / 动画制作 / 商业合作</p>
+          <ul>
+            <li>独立运营账号至 <span class="impact">5 万粉丝、72 万点赞</span>，形成选题、脚本、制作、发布与复盘的完整内容流程。</li>
+            <li>动画 MV 作品获得歌手黄宣认证；合作品牌包括谷雨、亚朵、阿里巴巴、雅诗兰黛、宝洁等。</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-head">
+            <div class="title">麦肯光明｜广告创意</div>
+            <div class="date">2022.12 - 2023.12</div>
+          </div>
+          <p class="role">服务客户：IKEA、AMEX 美国运通</p>
+          <ul>
+            <li>参与品牌创意与传播内容产出，在商业目标、品牌调性和创意表达之间形成可执行方案。</li>
+            <li>项目执行期间多次获得客户正向反馈，具备面向客户沟通、提案与快速迭代能力。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>核心能力</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <strong>产品</strong>
+            <p>用户访谈、场景观察、需求拆解、产品流程、路演表达</p>
+          </div>
+          <div class="skill-group">
+            <strong>技术</strong>
+            <p>全栈 Demo、AI 辅助开发、机器学习应用、声音识别、原型验证</p>
+          </div>
+          <div class="skill-group">
+            <strong>内容</strong>
+            <p>创意策划、品牌传播、社媒增长、动画 MV、商业合作</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <div class="save-status" id="saveStatus" data-state="saved" aria-live="polite">已保存</div>
+  <div class="theme-controls" contenteditable="false" aria-label="背景渐变颜色">
+    <span>背景</span>
+    <label class="color-control">
+      <input id="gradientStart" type="color" value="#29b8d8" aria-label="左上颜色">
+      <span>左上</span>
+    </label>
+    <label class="color-control">
+      <input id="gradientMid" type="color" value="#6fd1dc" aria-label="中间颜色">
+      <span>中间</span>
+    </label>
+    <label class="color-control">
+      <input id="gradientEnd" type="color" value="#d9f3ed" aria-label="右下颜色">
+      <span>右下</span>
+    </label>
+    <button class="gradient-reset" id="gradientReset" type="button" aria-label="恢复默认背景" title="恢复默认背景">↺</button>
+  </div>
+
+  <script>
+    (() => {
+      const AUTOSAVE_INTERVAL = 10000;
+      const MAX_HISTORY = 20;
+      const sheet = document.querySelector(".sheet");
+      const status = document.getElementById("saveStatus");
+      const root = document.documentElement;
+      const gradientStart = document.getElementById("gradientStart");
+      const gradientMid = document.getElementById("gradientMid");
+      const gradientEnd = document.getElementById("gradientEnd");
+      const gradientReset = document.getElementById("gradientReset");
+      const storageScope = window.location.pathname || "resume";
+      const DRAFT_KEY = `zhang-yiyan-resume-draft-v1:${storageScope}`;
+      const HISTORY_KEY = `zhang-yiyan-resume-history-v1:${storageScope}`;
+      const GRADIENT_KEY = `zhang-yiyan-resume-gradient-v1:${storageScope}`;
+      const AVAILABILITY_MIGRATION_KEY = `zhang-yiyan-resume-availability-nov-v1:${storageScope}`;
+      const AVAILABILITY_POSITION_KEY = `zhang-yiyan-resume-availability-middle-v1:${storageScope}`;
+      const MORNING_APP_MIGRATION_KEY = `zhang-yiyan-resume-morning-app-copy-v3:${storageScope}`;
+      const DEFAULT_GRADIENT = {
+        start: "#29b8d8",
+        mid: "#6fd1dc",
+        end: "#d9f3ed"
+      };
+      const sourceHtml = sheet.innerHTML;
+      const sourceVersion = hashString(sourceHtml);
+      let dirty = false;
+      let lastSavedHtml = sourceHtml;
+
+      function hashString(value) {
+        let hash = 2166136261;
+        for (let index = 0; index < value.length; index += 1) {
+          hash ^= value.charCodeAt(index);
+          hash = Math.imul(hash, 16777619);
+        }
+        return (hash >>> 0).toString(36);
+      }
+
+      function readJson(key, fallback) {
+        try {
+          const value = window.localStorage.getItem(key);
+          return value ? JSON.parse(value) : fallback;
+        } catch (error) {
+          return fallback;
+        }
+      }
+
+      function applyGradient(colors) {
+        root.style.setProperty("--gradient-start", colors.start);
+        root.style.setProperty("--gradient-mid", colors.mid);
+        root.style.setProperty("--gradient-end", colors.end);
+        gradientStart.value = colors.start;
+        gradientMid.value = colors.mid;
+        gradientEnd.value = colors.end;
+      }
+
+      function setupGradientControls() {
+        applyGradient(readJson(GRADIENT_KEY, DEFAULT_GRADIENT));
+
+        [gradientStart, gradientMid, gradientEnd].forEach((input) => {
+          input.addEventListener("input", () => {
+            const colors = {
+              start: gradientStart.value,
+              mid: gradientMid.value,
+              end: gradientEnd.value
+            };
+            applyGradient(colors);
+            window.localStorage.setItem(GRADIENT_KEY, JSON.stringify(colors));
+          });
+        });
+
+        gradientReset.addEventListener("click", () => {
+          applyGradient(DEFAULT_GRADIENT);
+          window.localStorage.removeItem(GRADIENT_KEY);
+        });
+      }
+
+      function addToHistory(snapshot) {
+        if (!snapshot || !snapshot.html) return;
+        const history = readJson(HISTORY_KEY, []);
+        if (history[0] && history[0].html === snapshot.html) return;
+        history.unshift(snapshot);
+        window.localStorage.setItem(HISTORY_KEY, JSON.stringify(history.slice(0, MAX_HISTORY)));
+      }
+
+      function setStatus(text, state) {
+        status.textContent = text;
+        status.dataset.state = state;
+      }
+
+      function saveDraft() {
+        if (!dirty) return;
+        const html = sheet.innerHTML;
+        if (html === lastSavedHtml) {
+          dirty = false;
+          setStatus("已保存", "saved");
+          return;
+        }
+
+        try {
+          const previous = readJson(DRAFT_KEY, null);
+          if (previous && previous.html !== html) addToHistory(previous);
+          const snapshot = {
+            html,
+            savedAt: new Date().toISOString(),
+            sourceVersion
+          };
+          window.localStorage.setItem(DRAFT_KEY, JSON.stringify(snapshot));
+          lastSavedHtml = html;
+          dirty = false;
+          setStatus("已保存", "saved");
+        } catch (error) {
+          setStatus("保存失败", "error");
+        }
+      }
+
+      function restoreDraft() {
+        const draft = readJson(DRAFT_KEY, null);
+        if (!draft || !draft.html) return;
+
+        sheet.innerHTML = draft.html;
+        lastSavedHtml = draft.html;
+        if (draft.sourceVersion !== sourceVersion) {
+          try {
+            window.localStorage.setItem(DRAFT_KEY, JSON.stringify({
+              ...draft,
+              sourceVersion
+            }));
+          } catch (error) {
+            setStatus("保存失败", "error");
+            return;
+          }
+        }
+        setStatus("已恢复", "saved");
+        window.setTimeout(() => setStatus("已保存", "saved"), 1600);
+      }
+
+      function applyContentMigrations() {
+        try {
+          const availability = sheet.querySelector(".availability");
+          if (availability && !window.localStorage.getItem(AVAILABILITY_MIGRATION_KEY)) {
+            availability.textContent = "入职时间：可立刻到岗　｜　学位证：11 月领";
+            dirty = true;
+            window.localStorage.setItem(AVAILABILITY_MIGRATION_KEY, "1");
+          }
+
+          const contact = sheet.querySelector(".contact");
+          if (
+            availability &&
+            contact &&
+            availability.parentElement !== contact &&
+            !window.localStorage.getItem(AVAILABILITY_POSITION_KEY)
+          ) {
+            contact.appendChild(availability);
+            dirty = true;
+            window.localStorage.setItem(AVAILABILITY_POSITION_KEY, "1");
+          }
+
+          if (!window.localStorage.getItem(MORNING_APP_MIGRATION_KEY)) {
+            const projectHeads = [...sheet.querySelectorAll(".project-head")];
+            const morningHead = projectHeads.find((head) =>
+              head.querySelector("strong")?.textContent.includes("速起")
+            );
+            const morningItem = morningHead?.closest("li");
+
+            if (morningItem) {
+              morningItem.innerHTML = `
+                <div class="project-head">
+                  <strong>速起｜iOS App</strong>
+                  <span class="project-date">2026.04 - 2026.09</span>
+                </div>
+                <ul class="project-points">
+                  <li><strong>痛点：</strong>现代人醒来后习惯先刷手机，一刷往往就是 1 小时；传统闹钟只能提醒用户醒来，却很难帮助用户真正完成“离开床”的动作。</li>
+                  <li><strong>产品入口：</strong>用户醒来后可通过 Widget 直接进入 App，绕过信息流干扰。</li>
+                  <li><strong>起床机制：</strong>进入 App 后自动开启 1 分钟起床倒计时，通过紧迫感推动用户立即离床；用户需拍摄一张自己的站立照片，并通过 Qwen 视觉模型验证，防止作弊，确认用户真正起床。</li>
+                  <li><strong>激励机制：</strong>设计 100+ 款早餐贴纸，并结合日历盖章打卡、连续早起赚取金币和兑换家具的系统，鼓励用户持续早起。</li>
+                  <li><strong>项目进度：</strong>已进入 App Store 审核阶段，即将上线。</li>
+                </ul>`;
+              dirty = true;
+            }
+            window.localStorage.setItem(MORNING_APP_MIGRATION_KEY, "1");
+          }
+
+          saveDraft();
+        } catch (error) {
+          setStatus("保存失败", "error");
+        }
+      }
+
+      restoreDraft();
+      applyContentMigrations();
+      setupGradientControls();
+
+      sheet.addEventListener("input", () => {
+        dirty = true;
+        setStatus("待保存", "dirty");
+      });
+
+      sheet.addEventListener("blur", saveDraft);
+      window.addEventListener("pagehide", saveDraft);
+      window.addEventListener("beforeunload", saveDraft);
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "hidden") saveDraft();
+      });
+      window.setInterval(saveDraft, AUTOSAVE_INTERVAL);
+    })();
+  </script>
+</body>
+</html>

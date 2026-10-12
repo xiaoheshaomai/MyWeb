@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sheep Translator Hackathon project showcase">
+    <title>Sheep Translator — Hackathon Project</title><link rel="stylesheet" href="showcase.css?v=20261009-19">
+  <script src="../assets/portfolio-home.js" defer></script></head>
+  <body>
+    <main>
+      <section class="part concept" id="p1">
+        <div class="wrap concept-heading">
+          <p class="part-label">P1 / THE IDEA</p>
+          <h1>把不敢说的话，<br>藏进一声<span>“咩”</span>。</h1>
+          <p class="lede">Sheep Translator 是一个声音暗号实验：先输入一句话，再录下自己的羊叫。另一端听见同样的声音序列，就能把它翻译回来。</p>
+        </div>
+        <div class="wrap hero-scene" aria-label="Sheep Translator 主视觉">
+          <div class="sun-ring" aria-hidden="true"></div>
+          <img class="hero-sheep" src="web/assets/sheep1.png" alt="Sheep Translator 羊角色">
+        </div>
+      </section>
+
+      <section class="part demo" id="p2">
+        <div class="wrap section-title">
+          <p class="part-label">P2 / DEMO</p><h2>Demo 演示：<br>先录入，再翻译。</h2>
+          <p>两个前后相连的真实交互：第一步建立“声音 → 文字”的对应关系，第二步再次识别声音并找回文字。</p>
+        </div>
+        <div class="wrap demo-grid">
+          <figure class="soundbox-demo">
+            <img src="web/assets/goat-soundbox-transparent-cropped.png" alt="Goat Soundbox 羊叫盒子">
+          </figure>
+          <article class="demo-panel demo-create">
+            <div class="demo-copy">
+              <p class="demo-label">DEMO 01 · CREATE A SECRET</p><h3>录入羊语</h3>
+              <ol><li><b>01</b><span>输入一句想传达的话</span></li><li><b>02</b><span>点击麦克风，录下羊叫标签序列</span></li><li><b>03</b><span>停止录音，保存这组对应关系</span></li></ol>
+              <a href="web/secret.html">打开录入 Demo ↗</a>
+            </div>
+            <div class="browser-mock"><div class="browser-bar"><i></i><i></i><i></i><span>sheep / create</span></div><div class="mock-screen compose-screen"><p>I WANT TO TELL YOU<br>...</p><img src="web/assets/sheep1.png" alt=""><span>Hi… what’s your name?</span></div></div>
+          </article>
+          <article class="demo-panel demo-translate">
+            <div class="demo-copy">
+              <p class="demo-label">DEMO 02 · TRANSLATE A BAA</p><h3>翻译羊语</h3>
+              <ol><li><b>01</b><span>点击 START，允许麦克风监听</span></li><li><b>02</b><span>按原顺序发出刚才的羊叫</span></li><li><b>03</b><span>匹配成功后，显示对应文字</span></li></ol>
+              <a href="web/翻译界面/index.html">打开翻译 Demo ↗</a>
+            </div>
+            <div class="browser-mock"><div class="browser-bar"><i></i><i></i><i></i><span>sheep / translate</span></div><div class="mock-screen result-screen"><img src="web/assets/sheep2.png" alt=""><span>Hi… what’s<br>your name?</span></div></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="part hackathon" id="p3">
+        <div class="wrap hackathon-grid">
+          <div class="hackathon-copy">
+            <p class="part-label">P3 / HACKATHON SHOWCASE</p>
+            <h2>我们演了一个<br>关于“开口”的小品。</h2>
+            <p>为了让大家快速理解 Sheep Translator，我们没有先讲技术，而是把 Demo 写进一段现场小品：一个不敢开口的人，先把想说的话藏进羊叫，再让另一端把它翻译回来。</p>
+          </div>
+          <div class="script-pages" aria-label="完整 Hackathon 小品脚本">
+            <article class="script-paper is-active" data-script-page="0" aria-hidden="false">
+              <div class="paper-holes" aria-hidden="true"></div>
+              <div class="script-meta"><span>SHEEP TRANSLATOR</span><span>HACKATHON SCRIPT · 01</span></div>
+              <h3>SHEEP TRANSLATOR<br>— HACKATHON SCRIPT</h3>
+              <p><b>CHARACTERS</b>Narrator (Jasper)<br>Rico<br>Leda</p>
+              <p><b>[SCENE 1]</b><i>(Projector shows slides1）</i><br><strong>Narrator:</strong> Rico is a very shy girl.<br>Every day, she sees Leda in the library…<br>And every day, she wants to talk to her.<br>But she never has the courage.</p>
+              <p><b>[SCENE 2]</b><strong>Narrator:</strong> One day, an idea came to her mind.<br><strong>Rico:</strong> I can use the sheep sounds to say hi!<br><i>(Projector changes to Sheep Translator interface)</i><br><strong>Narrator:</strong> So Rico opened Sheep Translator.<br>She typed: “Hi… what’s your name?”<br>Then she recorded her own sheep sound.</p>
+              <p><b>[SCENE 3]</b><strong>Narrator:</strong> The next day, Rico finally stopped being shy.<br>She walked up to Leda…</p>
+            </article>
+            <article class="script-paper script-paper-two" data-script-page="1" aria-hidden="true">
+              <div class="paper-holes" aria-hidden="true"></div>
+              <div class="script-meta"><span>SHEEP TRANSLATOR</span><span>HACKATHON SCRIPT · 02</span></div>
+              <h3>SHEEP TRANSLATOR<br>— HACKATHON SCRIPT</h3>
+              <p>and played the sheep sound.</p>
+              <p><b>SPEAKER / SOUND</b>“Baaaaaaaaaaaa~”</p>
+              <p><i>(Pause)</i></p>
+              <p><b>LEDA</b><i>(suddenly realizes)</i><br>Wait…<br>I can use Sheep Translator!</p>
+              <p><b>[SCENE 4]</b><strong>Narrator:</strong> Leda opened Sheep Translator.<br><i>(Projector changes to translation result)</i><br><strong>Projector Text:</strong> “Hi… what’s your name?”<br><strong>Leda:</strong> Oh!<br>Hi, I’m Leda.<br>Do you want to go to a farm together<br>and listen to sheep sounds?</p>
+              <p class="script-ending"><b>[ENDING]</b><strong>Narrator:</strong> And that…<br>was the beginning of their story.</p>
+              <p><b>OPTIONAL FINAL LINE</b><strong>Narrator:</strong> Sometimes people are not afraid of talking.<br>They are just afraid of making the first sound.</p>
+            </article>
+            <button class="script-next" type="button" aria-label="切换脚本下一页">下一页&nbsp; 1 / 2&nbsp; →</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="part tech" id="p4">
+        <div class="wrap section-title tech-title">
+          <p class="part-label">P4 / TECHNOLOGY</p><h2>技术展示：<br>浏览器如何听懂一串羊叫。</h2>
+          <p>系统识别的不是一整段“语言”，而是多个声音标签。它把连续标签组成序列，再用这个序列查询本地保存的文字。</p>
+        </div>
+        <div class="wrap tech-flow" aria-label="羊叫识别技术流程">
+          <article><span class="tech-no">01</span><p class="tech-en">AUDIO INPUT</p><h3>麦克风采样</h3><p>浏览器通过 Speech Commands 接收实时音频，并持续生成短时间窗口的声音特征。</p><div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+          <span class="flow-arrow">→</span>
+          <article><span class="tech-no">02</span><p class="tech-en">CLASSIFICATION</p><h3>Teachable Machine</h3><p>模型为每个羊叫类别输出置信度。系统排除 Background Noise，并只接受高于 <b>0.74</b> 的最佳结果。</p><div class="score"><span>baa_02</span><b>0.89</b><i></i></div></article>
+          <span class="flow-arrow">→</span>
+          <article><span class="tech-no">03</span><p class="tech-en">SEQUENCE</p><h3>连续标签成句</h3><p>通过 <b>850ms</b> 接收冷却避免重复采样，再按时间顺序组合标签，例如：</p><div class="tokens"><span>baa_02</span><span>baa_01</span><span>baa_03</span></div></article>
+          <span class="flow-arrow">→</span>
+          <article><span class="tech-no">04</span><p class="tech-en">LOOKUP</p><h3>本地字典匹配</h3><p>序列作为 key 写入 localStorage。翻译端按前缀持续匹配，命中完整 key 后返回保存的文字。</p><div class="code-line"><span>"baa_02 baa_01 baa_03"</span><b>→</b><span>"Hi…"</span></div></article>
+        </div>
+        <div class="wrap tech-detail">
+          <div><p class="detail-label">MODEL</p><b>Teachable Machine Audio Model</b><span>浏览器端加载 model.json 与 metadata.json</span></div>
+          <div><p class="detail-label">MATCH RULE</p><b>Threshold + Cooldown + Prefix</b><span>降低背景噪音、重复识别与无效序列的干扰</span></div>
+          <div><p class="detail-label">STORAGE</p><b>localStorage Dictionary</b><span>无需后端；数据保留在当前浏览器内</span></div>
+        </div>
+      </section>
+    </main>
+    <footer><div class="wrap"><b>SHEEP TRANSLATOR</b><span>HACKATHON PROJECT</span><a href="#p1">BACK TO TOP ↑</a></div></footer>
+    <style>
+      html,body{height:100%;overflow:hidden}
+      main{display:flex;width:100%;height:100svh;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none}
+      main::-webkit-scrollbar{display:none}
+      main>.part{flex:0 0 100%;width:100%;height:100svh;min-width:0;overflow-y:auto;overflow-x:hidden;scroll-snap-align:start;scroll-snap-stop:always;overscroll-behavior-y:contain;padding-top:64px;padding-bottom:64px}
+      body>footer{display:none}
+      .slide-arrows{position:fixed;z-index:100;inset:50% 12px auto;display:flex;justify-content:space-between;transform:translateY(-50%);pointer-events:none}
+      .slide-arrows button{width:44px;height:44px;border:0;border-radius:50%;background:var(--green);color:var(--blue);font-size:28px;font-weight:900;cursor:pointer;pointer-events:auto}
+      .slide-arrows button:disabled{visibility:hidden;pointer-events:none}
+      .slide-arrows button svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+      @media(min-width:921px){
+        main>.tech{padding:32px 0;display:flex;flex-direction:column;justify-content:center;gap:20px}
+        .tech .wrap{width:min(1180px,calc(100% - 128px))}
+        .tech .tech-title{display:grid;grid-template-columns:1.5fr 1fr;gap:12px 36px;align-items:center}
+        .tech-title .part-label{grid-column:1/-1;margin:0}
+        .tech .tech-title h2{font-size:clamp(30px,3.2vw,48px);line-height:1.15;letter-spacing:-.035em;max-width:none}
+        .tech .tech-title>p:last-child{grid-column:2;margin:0;font-size:14px;line-height:1.7;max-width:none}
+        .tech .tech-flow{margin-top:0;grid-template-columns:1fr 24px 1fr 24px 1fr 24px 1fr}
+        .tech .tech-flow article{min-height:0;padding:18px 16px}
+        .tech .tech-en{margin:16px 0 8px}
+        .tech .tech-flow h3{font-size:20px;margin-bottom:12px}
+        .tech .tech-flow article>p:not(.tech-en){min-height:78px;font-size:12px;line-height:1.6}
+        .tech .wave,.tech .score,.tech .tokens,.tech .code-line{margin-top:14px}
+        .tech .tech-detail{margin-top:0}
+        .tech .tech-detail>div{min-height:0;padding:14px 18px}
+        .tech .detail-label{margin-bottom:12px}
+        .tech .tech-detail b{font-size:13px}
+      }
+    </style>
+    <style>
+      main>#p1{position:relative;display:grid;grid-template-columns:1fr 1.15fr;align-items:center;gap:3vw;padding:80px 7vw 90px;overflow:hidden;background:linear-gradient(to bottom,#60c4e7 0 69%,#20e637 69% 100%)}
+      main{background:linear-gradient(to bottom,#60c4e7 0 69%,#20e637 69% 100%)}
+      main>#p1,main>#p2,main>#p3{background:transparent}
+      main>#p1{min-height:0}
+      #p1 .concept-heading{position:relative;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:24px;width:100%;margin:0;padding:0}
+      #p1 .part-label{margin:0;font-size:11px;letter-spacing:.18em}
+      #p1 h1{margin:0;width:100%;max-width:none;font-size:clamp(36px,4.7vw,76px);line-height:1.14;letter-spacing:-.045em}
+      #p1 .lede{margin:0;max-width:440px;font-size:clamp(14px,1.25vw,19px);line-height:1.85;color:var(--blue)}
+      #p1 .hero-scene{position:relative;inset:auto;display:flex;align-items:center;justify-content:center;width:100%;height:65vh;min-height:0;margin:0;pointer-events:none}
+      #p1 .hero-sheep{position:relative;inset:auto;width:100%;height:100%;max-width:none;object-fit:contain;transform:none;filter:drop-shadow(0 24px 20px #0002)}
+      #p1 .sun-ring{display:none}
+      #p1.is-entered .part-label{animation:sheep-copy-in .55s both}
+      #p1.is-entered h1{animation:sheep-copy-in .7s .12s both}
+      #p1.is-entered .lede{animation:sheep-copy-in .7s .25s both}
+      #p1.is-entered .hero-sheep{animation:sheep-arrive 1s .15s both}
+      @keyframes sheep-copy-in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+      @keyframes sheep-arrive{0%{opacity:0;transform:translate(90px,35px) rotate(6deg) scale(.88)}70%{opacity:1;transform:translate(-8px,-8px) rotate(-2deg) scale(1.02)}100%{opacity:1;transform:none}}
+      @media(max-width:700px){main>#p1{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);gap:12px;padding:76px 48px 40px}#p1 .concept-heading{gap:14px}#p1 h1{font-size:clamp(30px,7vw,48px)}#p1 .lede{font-size:13px;line-height:1.6}#p1 .hero-scene{height:100%;min-height:0}#p1 .hero-sheep{max-height:40vh}}
+      @media(prefers-reduced-motion:reduce){#p1.is-entered .part-label,#p1.is-entered h1,#p1.is-entered .lede,#p1.is-entered .hero-sheep{animation:none}}
+    </style>
+    <script src="showcase.js?v=20261009-19"></script>
+    <script>
+      const slider=document.querySelector('main');
+      const slides=[...slider.children];
+      const entranceObserver=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>entry.target.classList.toggle('is-entered',entry.isIntersecting));
+      },{root:slider,threshold:.65});
+      entranceObserver.observe(document.getElementById('p1'));
+      const arrows=document.createElement('nav');
+      arrows.className='slide-arrows';
+      arrows.setAttribute('aria-label','页面翻页');
+      const arrowIcon=path=>`<svg viewBox="0 0 28 28" aria-hidden="true"><path d="${path}"/></svg>`;
+      arrows.innerHTML=`<button aria-label="上一页">${arrowIcon('M23 14H5m9-9-9 9 9 9')}</button><button aria-label="下一页">${arrowIcon('M5 14h18m-9-9 9 9-9 9')}</button>`;
+      document.body.append(arrows);
+      const buttons=arrows.querySelectorAll('button');
+      const current=()=>Math.round(slider.scrollLeft/slider.clientWidth);
+      const go=index=>slider.scrollTo({left:Math.max(0,Math.min(slides.length-1,index))*slider.clientWidth,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+      const update=()=>{const last=current()===slides.length-1;buttons[0].disabled=current()===0;buttons[1].innerHTML=arrowIcon(last?'M23 12a9 9 0 1 0-1 8M23 5v7h-7':'M5 14h18m-9-9 9 9-9 9');buttons[1].setAttribute('aria-label',last?'重新播放，回到第一页':'下一页');};
+      buttons[0].onclick=()=>go(current()-1);buttons[1].onclick=()=>go(current()===slides.length-1?0:current()+1);
+      slider.addEventListener('scroll',update,{passive:true});update();
+      slider.addEventListener('wheel',event=>{
+        if(event.ctrlKey||Math.abs(event.deltaX)>=Math.abs(event.deltaY))return;
+        let node=event.target;
+        while(node&&node!==slider){
+          if(node.scrollHeight>node.clientHeight+2&&((event.deltaY>0&&node.scrollTop+node.clientHeight<node.scrollHeight-2)||(event.deltaY<0&&node.scrollTop>2)))return;
+          node=node.parentElement;
+        }
+        event.preventDefault();slider.scrollLeft+=event.deltaY;
+      },{passive:false});
+      addEventListener('keydown',event=>{
+        if(event.target.closest('input,textarea,select,button,[contenteditable="true"]'))return;
+        if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();go(current()+(event.key==='ArrowRight'?1:-1));}
+      });
+    </script>
+  </body>
+</html>

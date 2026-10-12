@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sheep Translator Home</title>
+    <link rel="stylesheet" href="home.css">
+  </head>
+  <body>
+    <section class="intro-screen" aria-label="Intro video">
+      <video class="intro-video" src="assets/shy.mov" autoplay loop muted playsinline></video>
+      <button class="next-button" type="button">NEXT</button>
+    </section>
+
+    <main class="home is-hidden">
+      <h1>Sheep Translator</h1>
+
+      <nav class="entry-grid" aria-label="Choose an experience">
+        <a class="entry entry-secret" href="secret.html">
+          <span class="entry-title">I WANT TO TELL YOU</span>
+          <img src="assets/sheep1.png" alt="">
+        </a>
+
+        <a class="entry entry-translate" href="翻译界面/index.html">
+          <span class="entry-title">GOAT TRANSLATOR</span>
+          <img src="assets/sheep1.png" alt="">
+        </a>
+      </nav>
+    </main>
+
+    <script>
+      const introScreen = document.querySelector('.intro-screen');
+      const homeScreen = document.querySelector('.home');
+      const introVideo = document.querySelector('.intro-video');
+      const nextButton = document.querySelector('.next-button');
+
+      function showHome() {
+        introScreen.classList.add('is-hidden');
+        homeScreen.classList.remove('is-hidden');
+        introVideo.pause();
+      }
+
+      if (window.location.hash === '#home') {
+        showHome();
+      }
+
+      nextButton.addEventListener('click', () => {
+        showHome();
+      });
+    </script>
+  </body>
+</html>
