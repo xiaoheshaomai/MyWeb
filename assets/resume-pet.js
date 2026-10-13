@@ -4,8 +4,8 @@
   const pet = document.createElement('div');
   pet.className = 'resume-pet';
   const link = document.createElement('a');
-  link.href = new URL('../v2/assets/resume.html', source).href;
-  link.download = '张宜砚_简历.html';
+  link.href = new URL('../v2/assets/张宜砚_简历.pdf', source).href;
+  link.download = '张宜砚_简历.pdf';
   link.textContent = '下载简历';
   const handle = document.createElement('button');
   handle.type = 'button';
